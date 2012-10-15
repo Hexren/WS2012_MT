@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.4"
+    ComputedModelVersion    "1.10"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "hexren"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Oct 15 10:02:42 2012"
+  LastModifiedDate	  "Mon Oct 15 11:09:11 2012"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:4>"
+  ModelVersionFormat	  "1.%<AutoIncrement:10>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -131,7 +131,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.11.0"
 	  StartTime		  "0.0"
-	  StopTime		  "0.2"
+	  StopTime		  "10.0"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -606,7 +606,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 54, 70, 934, 700 ] 
+      ConfigPrmDlgPosition     [ 329, 49, 1209, 679 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -660,19 +660,15 @@ Model {
       PreserveConstantTs      off
     }
     Block {
-      BlockType		      Gain
-      Gain		      "1"
-      Multiplication	      "Element-wise(K.*u)"
-      ParamMin		      "[]"
-      ParamMax		      "[]"
-      ParamDataTypeStr	      "Inherit: Same as input"
+      BlockType		      DotProduct
+      SampleTime	      "-1"
+      InputSameDT	      on
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Same as input"
+      OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	on
-      SampleTime	      "-1"
+      SaturateOnIntegerOverflow	off
     }
     Block {
       BlockType		      Integrator
@@ -688,23 +684,6 @@ Model {
       IgnoreLimit	      off
       ZeroCross		      on
       ContinuousStateAttributes	"''"
-    }
-    Block {
-      BlockType		      Scope
-      ModelBased	      off
-      TickLabels	      "OneTimeTick"
-      ZoomMode		      "on"
-      Grid		      "on"
-      TimeRange		      "auto"
-      YMin		      "-5"
-      YMax		      "5"
-      SaveToWorkspace	      off
-      SaveName		      "ScopeData"
-      LimitDataPoints	      on
-      MaxDataPoints	      "5000"
-      Decimation	      "1"
-      SampleInput	      off
-      SampleTime	      "-1"
     }
     Block {
       BlockType		      Sum
@@ -725,7 +704,7 @@ Model {
   }
   System {
     Name		    "Prak1Aufg1Simulink"
-    Location		    [617, 215, 1197, 623]
+    Location		    [335, 77, 1260, 509]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -739,50 +718,50 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "11"
-    Block {
-      BlockType		      Sum
-      Name		      "Add"
-      SID		      "8"
-      Ports		      [2, 1]
-      Position		      [140, 102, 170, 133]
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
+    SIDHighWatermark	    "21"
     Block {
       BlockType		      Constant
       Name		      "Constant"
-      SID		      "2"
-      Position		      [225, 170, 255, 200]
+      SID		      "13"
+      Position		      [20, 50, 50, 80]
+      NamePlacement	      "alternate"
       Value		      "10"
     }
     Block {
-      BlockType		      Gain
-      Name		      "Gain"
-      SID		      "3"
-      Position		      [350, 115, 380, 145]
-      Gain		      "500"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
+      BlockType		      Constant
+      Name		      "Constant1"
+      SID		      "14"
+      Position		      [20, 125, 50, 155]
+      Value		      "500"
     }
     Block {
-      BlockType		      Gain
-      Name		      "Gain1"
-      SID		      "5"
-      Position		      [75, 160, 105, 190]
-      Gain		      "5000"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      BlockType		      Constant
+      Name		      "Constant2"
+      SID		      "18"
+      Position		      [175, 250, 205, 280]
+      NamePlacement	      "alternate"
+      Value		      "5000"
+    }
+    Block {
+      BlockType		      DotProduct
+      Name		      "Dot Product"
+      SID		      "16"
+      Position		      [115, 132, 145, 163]
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      DotProduct
+      Name		      "Dot Product1"
+      SID		      "20"
+      Position		      [280, 222, 310, 253]
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
     }
     Block {
       BlockType		      Integrator
       Name		      "Integrator"
       SID		      "1"
       Ports		      [1, 1]
-      Position		      [225, 50, 255, 80]
+      Position		      [525, 75, 555, 105]
       InitialCondition	      "1"
     }
     Block {
@@ -803,95 +782,136 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      slope		      "0.001"
+      slope		      "1"
       start		      "0"
       X0		      "0"
       VectorParams1D	      on
     }
     Block {
-      BlockType		      Scope
-      Name		      "Scope"
-      SID		      "11"
-      Ports		      [1]
-      Position		      [460, 69, 490, 101]
-      Floating		      off
-      Location		      [1, 78, 1281, 747]
-      Open		      on
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      DataFormat	      "StructureWithTime"
-      SampleTime	      "0"
-    }
-    Block {
       BlockType		      Sum
       Name		      "Subtract"
-      SID		      "4"
+      SID		      "15"
       Ports		      [2, 1]
-      Position		      [295, 192, 325, 223]
+      Position		      [215, 87, 245, 118]
       Inputs		      "+-"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
     }
-    Line {
-      SrcBlock		      "Constant"
-      SrcPort		      1
-      Points		      [5, 0; 0, 15]
-      DstBlock		      "Subtract"
-      DstPort		      1
+    Block {
+      BlockType		      Sum
+      Name		      "Sum"
+      SID		      "21"
+      Ports		      [2, 1]
+      Position		      [370, 40, 390, 60]
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "|++"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
     }
-    Line {
-      SrcBlock		      "Gain"
-      SrcPort		      1
-      Points		      [0, 165; -105, 0]
-      DstBlock		      "Subtract"
-      DstPort		      2
+    Block {
+      BlockType		      Reference
+      Name		      "XY Graph"
+      SID		      "12"
+      Ports		      [2]
+      Position		      [855, 175, 885, 210]
+      LibraryVersion	      "1.236"
+      SourceBlock	      "simulink/Sinks/XY Graph"
+      SourceType	      "XY scope."
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      GeneratePreprocessorConditionals off
+      xmin		      "0"
+      xmax		      "0.3"
+      ymin		      "0"
+      ymax		      "2.5"
+      st		      "-1"
     }
     Line {
       SrcBlock		      "Ramp"
       SrcPort		      1
-      Points		      [0, -5; 20, 0; 0, -90; -50, 0]
-      DstBlock		      "Gain1"
+      Points		      [0, -5; 20, 0; 0, 20; 150, 0]
+      Branch {
+	Points			[0, -75]
+	DstBlock		"Dot Product1"
+	DstPort			2
+      }
+      Branch {
+	Points			[540, 0; 0, -135]
+	DstBlock		"XY Graph"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Integrator"
+      SrcPort		      1
+      Points		      [55, 0; 0, 105]
+      Branch {
+	Points			[0, 10; -535, 0; 0, -50]
+	DstBlock		"Dot Product"
+	DstPort			2
+      }
+      Branch {
+	Points			[225, 0]
+	DstBlock		"XY Graph"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      Points		      [70, 0; 0, 30]
+      DstBlock		      "Subtract"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Gain1"
+      SrcBlock		      "Constant1"
       SrcPort		      1
-      Points		      [0, -65]
-      DstBlock		      "Add"
+      DstBlock		      "Dot Product"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Dot Product"
+      SrcPort		      1
+      Points		      [25, 0; 0, -40]
+      DstBlock		      "Subtract"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Constant2"
+      SrcPort		      1
+      Points		      [25, 0; 0, -35]
+      DstBlock		      "Dot Product1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Subtract"
       SrcPort		      1
-      Points		      [0, -55; -205, 0]
-      DstBlock		      "Add"
-      DstPort		      2
+      Points		      [40, 0; 0, -25; 65, 0]
+      DstBlock		      "Sum"
+      DstPort		      1
     }
     Line {
-      SrcBlock		      "Add"
+      SrcBlock		      "Sum"
       SrcPort		      1
-      Points		      [15, 0; 0, -55]
+      Points		      [55, 0; 0, 40]
       DstBlock		      "Integrator"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Integrator"
+      SrcBlock		      "Dot Product1"
       SrcPort		      1
-      Points		      [35, 0; 0, 25]
-      Branch {
-	Points			[0, 40]
-	DstBlock		"Gain"
-	DstPort			1
-      }
-      Branch {
-	Points			[150, 0]
-	DstBlock		"Scope"
-	DstPort			1
-      }
+      Points		      [65, 0]
+      DstBlock		      "Sum"
+      DstPort		      2
     }
   }
 }
