@@ -1,4 +1,4 @@
-function [x, y] = euler_expl(begin, h, xend, func)
+function [x, y] = rungeKutta(begin, h, xend, func)
     yn=begin;
     xn=0;
     
@@ -6,7 +6,7 @@ function [x, y] = euler_expl(begin, h, xend, func)
     vec_y_tmp=[yn];
 
     for xn1 = xn:h:xend
-        yn1 = yn + h * func(xn,yn);
+        yn1 = yn + h/2 * (func(xn,yn) + f(xn1, yn + h * func(xn,yn)) );
         
         vec_y_tmp=[vec_y_tmp,yn1];
         vec_x_tmp=[vec_x_tmp,xn1];
