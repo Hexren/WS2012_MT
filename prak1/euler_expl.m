@@ -1,4 +1,4 @@
-function [x, y] = euler_expl(begin, h, xend)
+function [x, y] = euler_expl(begin, h, xend, f)
 %euler expl
 
     yn=begin;
@@ -8,7 +8,7 @@ function [x, y] = euler_expl(begin, h, xend)
     vec_y_tmp=[yn];
 
     for xn1 = xn:h:xend
-        yn1 = yn + h *(10-500*yn+5000*xn)
+        yn1 = yn + h * f(xn,xn);
         
         vec_y_tmp=[vec_y_tmp,yn1];
         vec_x_tmp=[vec_x_tmp,xn1];
