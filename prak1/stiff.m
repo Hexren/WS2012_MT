@@ -14,5 +14,17 @@ plot(vec_eulerimpl_x, vec_eulerimpl_y, 'g');
 plot(vec_runge_x, vec_runge_y, 'b');
 grid on;
 title('Approximation');
-legend('analytische Loesung', 'Vorwaerts Euler', 'Runge-Kutta');
+legend('analytische Loesung', 'Vorwaerts Euler', 'Rueckwaerts Euler', 'Runge-Kutta');
 axis([0, 0.05, 0, 0.2]);
+
+subplot(1,2,2)
+
+hold on;
+plot(vec_ana_x, vec_ana_y - vec_ana_y, 'r');
+plot(vec_eulerexpl_x, vec_ana_y - vec_eulerexpl_y, 'k');
+plot(vec_eulerimpl_x, vec_ana_y - vec_eulerimpl_y, 'g');
+plot(vec_runge_x, vec_ana_y - vec_runge_y, 'b');
+grid on;
+title('Error');
+legend('analytische Loesung', 'Vorwaerts Euler','Rueckwaerts Euler', 'Runge-Kutta');
+axis([0,0.05, -0.15, 0.15]);

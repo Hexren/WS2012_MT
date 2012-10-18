@@ -4,6 +4,7 @@ function [x, y] = euler_expl(begin, h, xend, func)
     
     vec_x_tmp=[xn];
     vec_y_tmp=[yn];
+    xn = xn + h;    
 
     for xn1 = xn:h:xend
         yn1 = yn + h * func(xn,yn);

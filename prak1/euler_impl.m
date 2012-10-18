@@ -4,7 +4,8 @@ function [x, y] = euler_impl(begin, h, xend, func)
     
     vec_x_tmp=[xn];
     vec_y_tmp=[yn];
-
+    xn = xn + h;
+    
     for xn1 = xn:h:xend
         options = optimset('Display', 'off');
         yn1Approx = fsolve(@(n)n-yn-h*func(xn1,n), xn1, options);
