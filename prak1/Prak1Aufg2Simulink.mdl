@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.5"
+    ComputedModelVersion    "1.12"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "hexren"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Oct 21 01:28:22 2012"
+  LastModifiedDate	  "Sun Oct 21 04:51:44 2012"
   RTWModifiedTimeStamp	  272683238
-  ModelVersionFormat	  "1.%<AutoIncrement:5>"
+  ModelVersionFormat	  "1.%<AutoIncrement:12>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -131,9 +131,9 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.11.0"
 	  StartTime		  "0.0"
-	  StopTime		  "100.0"
+	  StopTime		  "31.0"
 	  AbsTol		  "auto"
-	  FixedStep		  "auto"
+	  FixedStep		  "0.00000001"
 	  InitialStep		  "auto"
 	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
@@ -606,7 +606,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 2009, 400, 2897, 1058 ] 
+      ConfigPrmDlgPosition     [ 2071, 197, 3048, 1094 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -722,10 +722,19 @@ Model {
       SaturateOnIntegerOverflow	on
       SampleTime	      "-1"
     }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      FixptAsFi		      off
+      NumInputs		      "1"
+    }
   }
   System {
     Name		    "Prak1Aufg2Simulink"
-    Location		    [1638, 145, 2695, 810]
+    Location		    [4, 233, 1061, 898]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -739,7 +748,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "12"
+    SIDHighWatermark	    "15"
     Block {
       BlockType		      Constant
       Name		      "Constant"
@@ -805,13 +814,36 @@ Model {
       Ports		      [1]
       Position		      [955, 219, 985, 251]
       Floating		      off
-      Location		      [188, 390, 1093, 921]
+      Location		      [597, 394, 1502, 925]
       Open		      off
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
       }
+      YMin		      "1.3035"
+      YMax		      "1.3135"
+      DataFormat	      "StructureWithTime"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope1"
+      SID		      "13"
+      Ports		      [1]
+      Position		      [950, 139, 980, 171]
+      Floating		      off
+      Location		      [597, 557, 1502, 1088]
+      Open		      off
+      NumInputPorts	      "1"
+      ZoomMode		      "xonly"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      YMin		      "3.95"
+      YMax		      "3.9875"
+      SaveName		      "ScopeData1"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
     }
@@ -837,6 +869,28 @@ Model {
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
     }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace"
+      SID		      "14"
+      Ports		      [1]
+      Position		      [940, 275, 1000, 305]
+      VariableName	      "y2Sim"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Structure With Time"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace1"
+      SID		      "15"
+      Ports		      [1]
+      Position		      [935, 45, 995, 75]
+      VariableName	      "y1Sim"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Structure With Time"
+    }
     Line {
       SrcBlock		      "Integrator"
       SrcPort		      1
@@ -846,9 +900,24 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[0, -100; 510, 0]
-	DstBlock		"Product2"
-	DstPort			1
+	Points			[0, -100; 510, 0; 0, 20]
+	Branch {
+	  DstBlock		  "Product2"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [145, 0]
+	  Branch {
+	    Points		    [50, 0]
+	    DstBlock		    "Scope1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -50]
+	    DstBlock		    "To Workspace1"
+	    DstPort		    1
+	  }
+	}
       }
     }
     Line {
@@ -878,9 +947,17 @@ Model {
 	    DstPort		    2
 	  }
 	  Branch {
-	    Points		    [95, 0]
-	    DstBlock		    "Scope"
-	    DstPort		    1
+	    Points		    [60, 0]
+	    Branch {
+	      Points		      [35, 0]
+	      DstBlock		      "Scope"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 60]
+	      DstBlock		      "To Workspace"
+	      DstPort		      1
+	    }
 	  }
 	}
       }
