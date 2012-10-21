@@ -1,7 +1,7 @@
 function [ x, y1n, y2n ] = vanDerPolEuler(h, xend )
 
     y1n=1;
-    y2n=2;
+    y2n=0;
     xn=0;
     
     vec_x_tmp=[xn];
