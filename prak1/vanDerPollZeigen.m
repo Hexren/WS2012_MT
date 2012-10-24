@@ -1,6 +1,6 @@
 function [  ] = vanDerPollZeigen( y1Sim, y2Sim, h )
     sum(Prak1Aufg2Simulink)
-    [x, y1, y2] = vanDerPolEuler(h, 31);
+    [x, y1, y2] = vanDerPolRK2(h, 2);
     
    hold on;
     subplot(121);

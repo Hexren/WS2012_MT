@@ -28,8 +28,8 @@ function [] = stiff(h)
     plot(vec_runge_x, vec_runge_y, 'b','lineWidth',lw);
     grid off;
     title('Approximation');
-    legend('analytische Loesung', 'Vorwaerts Euler', 'Rueckwaerts Euler', 'Runge-Kutta');
-    axis([0, 0.02, 0, 0.4]);
+    legend('analytische Loesung', 'Expl Euler', 'Impl Euler', 'Runge-Kutta');
+    axis([0, 0.12, 0, 5]);
 
     %xkcdify(a)
 
@@ -43,7 +43,7 @@ function [] = stiff(h)
     plot(vec_runge_x, vec_runge_y - vec_ana_y, 'b');
     grid on;
     title('Error');
-    legend( 'Vorwaerts Euler','Rueckwaerts Euler', 'Runge-Kutta');
+    legend( 'Expl Euler','Impl Euler', 'Runge-Kutta');
     axis([0,0.2, -1.5, 1.5]);
 
 end
