@@ -1,5 +1,5 @@
-function [ X, Y ] = rk2( func, t, h, init )
-%Generisches erstes Runge-Kutta-Verfahren 2. Ordnung
+function [ X, Y ] = eulerE( func, t, h, init )
+%Generisches explizites Euler verfhren
 %   Parameter:
 %       func: Zeiger auf die DGL
 %       t: Endzeitpunkt der Simulation
@@ -16,8 +16,7 @@ X(index) = 0;
 Y(index,:) = y;
 
 for k=0:h:t
-    f = y + h * func(k, y);
-    y = y + (h/2) * (func(k, y) + func(k+h, f));
+    y = y + h * func(k, y);
     
     X(index) = k;
     Y(index,:) = y;

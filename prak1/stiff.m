@@ -2,7 +2,7 @@ function [] = stiff(h)
 
     vec_ana_x = 0:h:0.2;
     vec_ana_y = mtp0101_ana(vec_ana_x);
-    [vec_eulerexpl_x, vec_eulerexpl_y] = euler_expl(1, h, 0.2, @f);
+    [vec_eulerexpl_x, vec_eulerexpl_y] = eulerE(@f, 0.2, h, [1]);
     [vec_eulerimpl_x, vec_eulerimpl_y] = euler_impl(1, h, 0.2, @f);
     [vec_runge_x, vec_runge_y] = rungeKutta(1, h, 0.2, @f);
 
@@ -29,7 +29,7 @@ function [] = stiff(h)
     grid off;
     title('Approximation');
     legend('analytische Loesung', 'Expl Euler', 'Impl Euler', 'Runge-Kutta');
-    axis([0, 0.12, 0, 5]);
+    axis([0, 0.04, 0, 0.5]);
 
     %xkcdify(a)
 
@@ -38,12 +38,12 @@ function [] = stiff(h)
     subplot(1,2,2)
     %
     hold on;
-    plot(vec_eulerexpl_x, vec_eulerexpl_y - vec_ana_y, 'k');
+    plot(vec_eulerexpl_x, vec_eulerexpl_y.' - vec_ana_y, 'k');
     plot(vec_eulerimpl_x, vec_eulerimpl_y - vec_ana_y, 'g');
     plot(vec_runge_x, vec_runge_y - vec_ana_y, 'b');
     grid on;
     title('Error');
     legend( 'Expl Euler','Impl Euler', 'Runge-Kutta');
-    axis([0,0.2, -1.5, 1.5]);
+    axis([0,0.2, -0.5, 0.5]);
 
 end
