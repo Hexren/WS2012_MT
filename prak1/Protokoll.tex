@@ -68,6 +68,20 @@
 	\end{align}
 	
 	
+	\subsection{Runge Kutta 2. Ordnung}
+	Es gelte	
+	\begin{align}
+		g(t,y) = z \label{g}\\		
+		f(y,z) = 6 \cdot (1-y^2) \cdot z - y \label{f}
+	\end{align}
+	Dann können wir durch einsetzen von (\ref{g}) und (\ref{f}) in Runge Kutta 2. Ordnung die Iterationsgleichungen erstellen:
+	\begin{align}
+		&y_{j+1}=y_j + \frac{h}{2} \cdot [g(t_j, y_j) + g(t_{j+1}, y_i h \cdot g(t_j, y_j))]\\
+		&z_{j+1}=z_j + \frac{h}{2} \cdot [f(y_j, z_j) + f(y_{j+1}, z_j + h \cdot f(y_j, z_j))]
+	\end{align} 
+	
+	
+	
 	
 
 \end{document}
