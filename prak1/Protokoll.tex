@@ -83,6 +83,14 @@
 		&y'=10-500 \cdot y + 5000 \cdot x
 	\end{align}
 	
+	\subsection{Simulink}
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth, angle=-90]{Prak1Aufg1Simulink.png}
+            \caption{Steife Differentialgleichung Simulink}
+            \label{pic:lorenzSimulink}
+		\end{figure} 	
+	
 	\subsection{Iterationslgeichungen}	
 	
 	\subsubsection{Euler, explizit}
@@ -123,14 +131,23 @@
 			&\dot{y} = z
 		\end{align}
 		
-	\subsection{Euler Verfahren}
+		\subsection{Simulink}
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth, angle=-90]{Prak1Aufg2Simulink.png}
+            \caption{Van Der Pol Simulink}
+            \label{pic:lorenzSimulink}
+		\end{figure} 	
+		
+	\subsection{Iterationsgleichungen}	
+	\subsubsection{Euler Verfahren}
 	\begin{align}
 		&z_{1_{n+1}} = z_{1_{n}} + h \cdot (6 \cdot (1-z_{2_{n}}^2) \cdot z_{1_{n}} - z_{2_{n}})\\
 		&z_{2_{n+1}} = z_{2_n} + h * z_{1_n}
 	\end{align}
 	
 	
-	\subsection{Runge Kutta 2. Ordnung}
+	\subsubsection{Runge Kutta 2. Ordnung}
 	Es gelte	
 	\begin{align}
 		g(t,y) = z \label{g}\\		
@@ -233,6 +250,15 @@
 				&y(0)=0.01\\
 				&z(0)=0.0
 			\end{align}
+
+		\subsection{Simulink}
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth, angle=-90]{Prak1Aufg3Simulink.png}
+            \caption{Lorenz Attraktor Simulink}
+            \label{pic:lorenzSimulink}
+		\end{figure} 
+		
 		
 		\subsection{RK2}
 		Gegeben
@@ -265,7 +291,7 @@
             \label{pic:zt}
 		\end{figure} 
 		
-		Wenn der konstante Parameter der zweiten Funktion auf $40.000000001$ geändert wird ergibt sich für $x(t)$ die folgende Veränderung.  
+		Wenn der konstante Parameter der zweiten Funktion auf $40.000000001$ geändert wird ergibt sich für $x(t)$ die folgende Veränderung. Es wird eine Verschiebung der Funktion erkennbar.  
 		
 		\begin{figure}[H]
 			\centering	
@@ -281,6 +307,17 @@
             \caption{Lorenz Attraktor 3D Plot}
             \label{pic:3dplot}
 		\end{figure} 
+		
+\subsection{Matlab Programme}
+	\lstinputlisting[tabsize=2, frame=single, caption={Lorenz Attraktor}]{dgls.m}
+	\lstinputlisting[tabsize=2, frame=single, caption={Lorenz Attraktor mit verändertem Parameter}]{dglsUngenau.m}		
+	\lstinputlisting[tabsize=2, frame=single, caption={Lorenz}]{LorenzAttraktor.m}		
+		
+		
+	\section{Matlab Programme}	
+	\lstinputlisting[tabsize=2, frame=single, caption={Explizites Euler Verfahren}]{eulerE.m}
+	\lstinputlisting[tabsize=2, frame=single, caption={Implizites Euler Verfahren}]{euler_impl.m}	
+	\lstinputlisting[tabsize=2, frame=single, caption={Runge Kutta 2. Ordnung}]{rk2.m}		
 		
 \end{document}
 
