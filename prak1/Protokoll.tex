@@ -6,12 +6,38 @@
 \usepackage[automark]{scrpage2}
 \usepackage{amsmath,amssymb,amstext}
 %\usepackage{mathtools}
-\usepackage[]{color}
+
 \usepackage[]{enumerate}
 \usepackage{graphicx}
 \usepackage{lastpage}
 \usepackage[perpage,para,symbol*]{footmisc}
-\usepackage{listings} 
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=matlab,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
 \usepackage[pdfborder={0 0 0},colorlinks=false]{hyperref}
 \usepackage[numbers,square]{natbib}
 
@@ -48,6 +74,36 @@
 \listoffigures
 \lstlistoflistings
 
+
+\section{Steife Differentialgleichungen}
+\subsection{Gleichung}
+	\begin{align}
+		&y(0)=1\\
+		&y'=10-500 \cdot y + 5000 \cdot x
+	\end{align}
+	
+	\subsection{Iterationslgeichungen}	
+	
+	\subsubsection{Euler, explizit}
+	\begin{align}
+		&y(0)=1\\
+		&y_{j+1}=y_{j} + h \cdot (10-500 \cdot y_{j} + 5000 \cdot x_j)
+	\end{align}
+	
+	\subsubsection{Euler, implizit}
+	\begin{align}
+		&y(0)=1\\
+		&y_{j+1}=y_{j} + h \cdot (10-500 \cdot y_{j+1} + 5000 \cdot x_{j+1})
+	\end{align}
+	Wobei hier $y_{j+1}$ mit dem Newton Verfahren Approximiert wird.
+	
+	\subsubsection{Runge Kutta 2. Ordnung}
+	Es gelte $f(x) = 10-500 \cdot y + 5000 \cdot x$ 
+	\begin{align}
+		&y(0)=1\\
+		&y_{j+1}=y_{j} + \frac{h}{2} \cdot (f(x_{j+1}, y_{j}) + f(x_{j+1}, h \cdot f(x_j, y_j)) )
+	\end{align}
+
 \section{Van der Pol DGL}
 	\subsection{Gleichung}
 		\begin{align}
@@ -80,8 +136,48 @@
 		&z_{j+1}=z_j + \frac{h}{2} \cdot [f(y_j, z_j) + f(y_{j+1}, z_j + h \cdot f(y_j, z_j))]
 	\end{align} 
 	
+	\subsection{Ergebnisse}
 	
 	
+\subsection{Ergebnisse}
+	\subsubsection{h=0.001}
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{vanDerPolY10001.png}
+            \caption{Van Der Pol DGL Y1 h=0.001}
+            \label{pic:y2vdp0001}
+		\end{figure} 
+		
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{vanDerPolY20001.png}
+            \caption{Van Der Pol DGL Y2 h=0.001}
+            \label{pic:y2vdp0001}
+		\end{figure}		
+		
+	Bei einer Schrittweite $h$ von $0.001$ ist zu erkennen das beide Approximationsverfahren (Expliziter Euler und Runge Kutta 2. Ordnung) mit der aus Simulink extrahierten Approximation (Dormand-Prince, Variable Step Size) übereinstimmen.
+		
+	\subsubsection{h=0.02}	
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{vanDerPolY102.png}
+            \caption{Van Der Pol DGL Y1 h=0.02}
+            \label{pic:y2vdp02}
+		\end{figure} 
+		
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{vanDerPolY202.png}
+            \caption{Van Der Pol DGL Y2 h=0.02}
+            \label{pic:y2vdp02}
+		\end{figure}		
+		
+	Bei einer Schrittweite $h$ von $0.02$ ist zu erkennen das das simplere Approximationsverfahren (Expliziter Euler) deutlich von der aus Simulink extrahierten Approximation (Dormand-Prince, Variable Step Size) abweicht während das komplexere Verfahren (Runge Kutta 2. Ordnung) auch hier noch sehr dicht an Simulink liegt.
+	
+	\subsection{Matlab Programme}
+	\lstinputlisting[tabsize=2, frame=single, label=vdp, caption={VanDerPol GDL}]{vdp.m}
+	\lstinputlisting[tabsize=2, frame=single, label=vdpZeigen, caption={VanDerPol}]{vanDerPollZeigen.m}
+		
 	
 
 \end{document}

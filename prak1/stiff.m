@@ -29,7 +29,7 @@ function [] = stiff(h)
     grid off;
     title('Approximation');
     legend('analytische Loesung', 'Expl Euler', 'Impl Euler', 'Runge-Kutta');
-    axis([0, 0.04, 0, 0.5]);
+    axis([0, 0.04, -1.5, 1.5]);
 
     %xkcdify(a)
 
@@ -44,6 +44,6 @@ function [] = stiff(h)
     grid on;
     title('Error');
     legend( 'Expl Euler','Impl Euler', 'Runge-Kutta');
-    axis([0,0.2, -0.5, 0.5]);
+    axis([0,0.2, -2.5, 2.5]);
 
 end
