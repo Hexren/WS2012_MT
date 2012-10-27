@@ -223,7 +223,31 @@
 	\lstinputlisting[tabsize=2, frame=single, label=vdp, caption={VanDerPol GDL}]{vdp.m}
 	\lstinputlisting[tabsize=2, frame=single, label=vdpZeigen, caption={VanDerPol}]{vanDerPollZeigen.m}
 		
-	
+		\section{Lorenz Attraktor}
+		\subsection{Gleichung}
+			\begin{align}
+				&\dot{x}=-10 \cdot (x-y)\\
+				&\dot{y}=(40-z)\cdot x-y\\
+				&\dot{z}=x \cdot y - 2.67 \cdot z\\
+				&x(0)=0.01\\
+				&y(0)=0.01\\
+				&z(0)=0.0
+			\end{align}
+		
+		\subsection{RK2}
+		Gegeben
+			\begin{align}
+				&f(t,x)=-10 \cdot (x-y)\\
+				&g(t,y)=(40-z)\cdot x-y\\
+				&k(t,z)=x \cdot y - 2.67 \cdot z
+			\end{align}
+		So erhalten wir durch einsetzen in das Runge Kutta Verfahren 2. Ordnung folgende Iterationsgleichungen:
+		
+		\begin{align}
+				&x_{j+1}=x_{j} + \frac{h}{2} \cdot (f(t_{j+1}, x_{j}) + f(t_{j+1}, h \cdot f(t_j, x_j)) )\\
+				&y_{j+1}=y_{j} + \frac{h}{2} \cdot (g(t_{j+1}, y_{j}) + g(t_{j+1}, h \cdot g(t_j, y_j)) )\\
+				&z_{j+1}=z_{j} + \frac{h}{2} \cdot (g(t_{j+1}, z_{j}) + g(t_{j+1}, h \cdot g(t_j, z_j)) )
+		\end{align}
 
 \end{document}
 
