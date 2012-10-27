@@ -40,6 +40,7 @@
 }
 \usepackage[pdfborder={0 0 0},colorlinks=false]{hyperref}
 \usepackage[numbers,square]{natbib}
+\usepackage{float}
 
 \lstset{numbers=left, numberstyle=\tiny, numbersep=5pt, breaklines=true, showstringspaces=false} 
 
@@ -104,6 +105,11 @@
 		&y_{j+1}=y_{j} + \frac{h}{2} \cdot (f(x_{j+1}, y_{j}) + f(x_{j+1}, h \cdot f(x_j, y_j)) )
 	\end{align}
 
+\subsection{Matlab Programme}
+	\lstinputlisting[tabsize=2, frame=single, label=Stiff, caption={Stiff}]{stiff.m}
+	\lstinputlisting[tabsize=2, frame=single, label=steifeDiff, caption={Steife Differentialgleichung}]{f.m}
+
+
 \section{Van der Pol DGL}
 	\subsection{Gleichung}
 		\begin{align}
@@ -137,6 +143,45 @@
 	\end{align} 
 	
 	\subsection{Ergebnisse}
+	Im folgenden sind die Approximation durch alle 3 Verfahren mit Schrittweiten von ($0.001$ bis $0.005$) grapthisch dargestellt. Deutlich erkennbar wird hier wie die expliziten Verfahren (Expliziter Euler, Runge Kutta 2. Ordnung) gegenüber dem impliziten Euler Verfahren bei wachsender Schrittweite an Genauigkeit verlieren, wie dies auch zu erwarten war.
+
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0001.png}
+            \caption{Stiff (h=0.001)}
+            \label{pic:stuff001}
+		\end{figure} 
+	
+	
+	\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0002.png}
+            \caption{Stiff (h=0.002)}
+            \label{pic:stuff002}
+		\end{figure} 
+	
+	
+	\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0003.png}
+            \caption{Stiff (h=0.003)}
+            \label{pic:stuff003}
+		\end{figure} 
+	
+	
+	\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0004.png}
+            \caption{Stiff (h=0.004)}
+            \label{pic:stuff004}
+		\end{figure} 
+	
+	\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0005.png}
+            \caption{Stiff (h=0.005)}
+            \label{pic:stuff005}
+		\end{figure} 
 	
 	
 \subsection{Ergebnisse}
