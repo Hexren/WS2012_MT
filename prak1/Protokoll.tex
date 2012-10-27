@@ -248,6 +248,39 @@
 				&y_{j+1}=y_{j} + \frac{h}{2} \cdot (g(t_{j+1}, y_{j}) + g(t_{j+1}, h \cdot g(t_j, y_j)) )\\
 				&z_{j+1}=z_{j} + \frac{h}{2} \cdot (g(t_{j+1}, z_{j}) + g(t_{j+1}, h \cdot g(t_j, z_j)) )
 		\end{align}
-
+		
+		\subsection{Ergebnisse}		
+		Mit $h=0.002$, $t_{End} = 120$ und dem Parameter in der zweiten Gleichung auf $40$ ergeben sich folgende Funktionsplots für $x(t), z(t)$
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{lorenzxt.png}
+            \caption{Lorenz Attraktor x(t)}
+            \label{pic:xt}
+		\end{figure} 
+		
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{lorenzzt.png}
+            \caption{Lorenz Attraktor z(t)}
+            \label{pic:zt}
+		\end{figure} 
+		
+		Wenn der konstante Parameter der zweiten Funktion auf $40.000000001$ geändert wird ergibt sich für $x(t)$ die folgende Veränderung.  
+		
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{lorenzdif.png}
+            \caption{Lorenz Attraktor Diff 40, 40.000000001}
+            \label{pic:diff}
+		\end{figure} 
+		
+		Die Auswertung der durch Simulink erzeugten Daten ergibt folgendes 3D Muster:
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{lorenz3d.png}
+            \caption{Lorenz Attraktor 3D Plot}
+            \label{pic:3dplot}
+		\end{figure} 
+		
 \end{document}
 
