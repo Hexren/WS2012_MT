@@ -77,13 +77,16 @@
 
 
 \section{Steife Differentialgleichungen}
-\subsection{Gleichung}
+Gegeben ist folgende Differentialgleichung 1. Grades an der mit Matlab und Simulink drei verschiedene Approximationsverfahren (Explizites und implizites Euler Verfahren sowie das Verfahren von Runge Kutta 2. Ordnung) für steife Differentialgleichungen angewendet werden sollen.
+\subsection{Gleichung} \label{aufg1Gleich}
 	\begin{align}
 		&y(0)=1\\
 		&y'=10-500 \cdot y + 5000 \cdot x
 	\end{align}
 	
+	
 	\subsection{Simulink}
+	Die in \ref{aufg1Gleich} gezeigte Gleichung wurde zuerst in Simulink modelliert.
 		\begin{figure}[H]
 			\centering	
 			\includegraphics[width=\textwidth, angle=-90]{Prak1Aufg1Simulink.png}
@@ -92,22 +95,28 @@
 		\end{figure} 	
 	
 	\subsection{Iterationslgeichungen}	
-	
+	Untenstehend wurden die für die jeweiligen Verfahren notwendigen Iterationsgleichungen hergeleitet und die Verfahren in Matlab implementiert, siehe \ref{sec:matlab}.
 	\subsubsection{Euler, explizit}
+	Eingesetzt in das explizite Euler Verfahren ergibt sich folgende Iterationsgleichung.
 	\begin{align}
 		&y(0)=1\\
 		&y_{j+1}=y_{j} + h \cdot (10-500 \cdot y_{j} + 5000 \cdot x_j)
 	\end{align}
 	
 	\subsubsection{Euler, implizit}
+	Für das implizite Euler Verfahren ergibt sich die nachstehende Gleichung, wobei hier $y_{j+1}$ mit dem Newton oder einem anderen Verfahren zur Nullstellenberechnung approximiert werden muß.
 	\begin{align}
 		&y(0)=1\\
 		&y_{j+1}=y_{j} + h \cdot (10-500 \cdot y_{j+1} + 5000 \cdot x_{j+1})
 	\end{align}
-	Wobei hier $y_{j+1}$ mit dem Newton Verfahren Approximiert wird.
+	
 	
 	\subsubsection{Runge Kutta 2. Ordnung}
-	Es gelte $f(x) = 10-500 \cdot y + 5000 \cdot x$ 
+	Zur Vereinfachung der Iterationsgleichung im Runge Kutta 2 Verfahren gelte  (\ref{vereinfach})
+	\begin{align}	
+	 f(x) = 10-500 \cdot y + 5000 \cdot x \label{vereinfach} 
+	\end{align}
+	Dann ergibt sich durch einsetzen in die Runge Kutta Gleichung.
 	\begin{align}
 		&y(0)=1\\
 		&y_{j+1}=y_{j} + \frac{h}{2} \cdot (f(x_{j+1}, y_{j}) + f(x_{j+1}, h \cdot f(x_j, y_j)) )
@@ -117,6 +126,46 @@
 	\lstinputlisting[tabsize=2, frame=single, label=Stiff, caption={Stiff}]{stiff.m}
 	\lstinputlisting[tabsize=2, frame=single, label=steifeDiff, caption={Steife Differentialgleichung}]{f.m}
 
+\subsection{Ergebnisse}
+	Im folgenden sind die Approximationen durch alle 3 Verfahren mit Schrittweiten von ($0.001$ bis $0.005$) grapthisch dargestellt. Deutlich erkennbar wird hier wie die expliziten Verfahren (Expliziter Euler, Runge Kutta 2. Ordnung) gegenüber dem impliziten Euler Verfahren bei wachsender Schrittweite an Genauigkeit verlieren, wie dies auch zu erwarten war.
+
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0001.png}
+            \caption{Stiff (h=0.001)}
+            \label{pic:stuff001}
+		\end{figure} 
+	
+	
+	\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0002.png}
+            \caption{Stiff (h=0.002)}
+            \label{pic:stuff002}
+		\end{figure} 
+	
+	
+	\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0003.png}
+            \caption{Stiff (h=0.003)}
+            \label{pic:stuff003}
+		\end{figure} 
+	
+	
+	\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0004.png}
+            \caption{Stiff (h=0.004)}
+            \label{pic:stuff004}
+		\end{figure} 
+	
+	\begin{figure}[H]
+			\centering	
+			\includegraphics[width=\textwidth]{stiff0005.png}
+            \caption{Stiff (h=0.005)}
+            \label{pic:stuff005}
+		\end{figure} 
 
 \section{Van der Pol DGL}
 	\subsection{Gleichung}
@@ -158,47 +207,6 @@
 		&y_{j+1}=y_j + \frac{h}{2} \cdot [g(t_j, y_j) + g(t_{j+1}, y_i h \cdot g(t_j, y_j))]\\
 		&z_{j+1}=z_j + \frac{h}{2} \cdot [f(y_j, z_j) + f(y_{j+1}, z_j + h \cdot f(y_j, z_j))]
 	\end{align} 
-	
-	\subsection{Ergebnisse}
-	Im folgenden sind die Approximation durch alle 3 Verfahren mit Schrittweiten von ($0.001$ bis $0.005$) grapthisch dargestellt. Deutlich erkennbar wird hier wie die expliziten Verfahren (Expliziter Euler, Runge Kutta 2. Ordnung) gegenüber dem impliziten Euler Verfahren bei wachsender Schrittweite an Genauigkeit verlieren, wie dies auch zu erwarten war.
-
-		\begin{figure}[H]
-			\centering	
-			\includegraphics[width=\textwidth]{stiff0001.png}
-            \caption{Stiff (h=0.001)}
-            \label{pic:stuff001}
-		\end{figure} 
-	
-	
-	\begin{figure}[H]
-			\centering	
-			\includegraphics[width=\textwidth]{stiff0002.png}
-            \caption{Stiff (h=0.002)}
-            \label{pic:stuff002}
-		\end{figure} 
-	
-	
-	\begin{figure}[H]
-			\centering	
-			\includegraphics[width=\textwidth]{stiff0003.png}
-            \caption{Stiff (h=0.003)}
-            \label{pic:stuff003}
-		\end{figure} 
-	
-	
-	\begin{figure}[H]
-			\centering	
-			\includegraphics[width=\textwidth]{stiff0004.png}
-            \caption{Stiff (h=0.004)}
-            \label{pic:stuff004}
-		\end{figure} 
-	
-	\begin{figure}[H]
-			\centering	
-			\includegraphics[width=\textwidth]{stiff0005.png}
-            \caption{Stiff (h=0.005)}
-            \label{pic:stuff005}
-		\end{figure} 
 	
 	
 \subsection{Ergebnisse}
@@ -314,7 +322,7 @@
 	\lstinputlisting[tabsize=2, frame=single, caption={Lorenz}]{LorenzAttraktor.m}		
 		
 		
-	\section{Matlab Programme}	
+	\section{Matlab Programme}	 \label{sec:matlab}
 	\lstinputlisting[tabsize=2, frame=single, caption={Explizites Euler Verfahren}]{eulerE.m}
 	\lstinputlisting[tabsize=2, frame=single, caption={Implizites Euler Verfahren}]{euler_impl.m}	
 	\lstinputlisting[tabsize=2, frame=single, caption={Runge Kutta 2. Ordnung}]{rk2.m}		
