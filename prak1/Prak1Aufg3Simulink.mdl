@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.12"
+    ComputedModelVersion    "1.14"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "hexren"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Oct 27 18:24:16 2012"
-  RTWModifiedTimeStamp	  273263050
-  ModelVersionFormat	  "1.%<AutoIncrement:12>"
+  LastModifiedDate	  "Wed Oct 31 14:18:19 2012"
+  RTWModifiedTimeStamp	  273593897
+  ModelVersionFormat	  "1.%<AutoIncrement:14>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -758,7 +758,7 @@ Model {
   }
   System {
     Name		    "Prak1Aufg3Simulink"
-    Location		    [0, 77, 1280, 748]
+    Location		    [4, 77, 1284, 748]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1444,7 +1444,7 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function dy = dglY(x, y, z)\n%#codegen\n\ndy = (40 - z) * x - y;"
+      script		      "function dy = dglY(x, y, z)\n%#codegen\n\ndy = (40.0000001 - z) * x - y;"
       editorLayout	      "100 M4x1[154 148 1080 724]"
     }
   }
