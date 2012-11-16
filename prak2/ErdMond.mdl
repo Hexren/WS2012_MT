@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.23"
+    ComputedModelVersion    "1.24"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "karo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Nov 15 19:50:47 2012"
-  RTWModifiedTimeStamp	  274907920
-  ModelVersionFormat	  "1.%<AutoIncrement:23>"
+  LastModifiedDate	  "Fri Nov 16 11:23:07 2012"
+  RTWModifiedTimeStamp	  274965768
+  ModelVersionFormat	  "1.%<AutoIncrement:24>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -67,7 +67,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Erdorbits"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -1632,10 +1631,10 @@ Stateflow {
     eml {
       isEML		      1
       script		      "function v0welt = vStart(v0, thetaDegree, x0)\n%#codegen\n\n% v0 - Startgeschwindigkeit\n% thetaD"
-      "egree Winket theta in Grad\n% x0 STartposition\n\nnE = x0 / norm(x0);     % Einheitsvektor in Normalrichtung für"
-      " x0\ntE = [nE(2) ; -nE(1)];  % Einheitvektor in Tangentialrichtung für x0\n\nvt = cosd(thetaDegree) * v0;    % T"
-      "angentialkomponente für v0\nvn = sind(thetaDegree) * v0;    % Normalkomponente für v0\n\nv0welt = tE * vt + nE *"
-      " vn;     % Geschwindigkeitsvektor"
+      "egree Winket theta in Grad\n% x0 Startposition\n\nnE = x0 / norm(x0);     % Einheitsvektor in Normalrichtung fue"
+      "r x0\ntE = [nE(2) ; -nE(1)];  % Einheitvektor in Tangentialrichtung fuer x0\n\nvt = cosd(thetaDegree) * v0;    %"
+      " Tangentialkomponente fuer v0\nvn = sind(thetaDegree) * v0;    % Normalkomponente fuer v0\n\nv0welt = tE * vt + "
+      "nE * vn;     % Geschwindigkeitsvektor"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -1933,12 +1932,12 @@ Stateflow {
     eml {
       isEML		      1
       script		      "function a = Beschleunigung(xAktuell)\n%#codegen\n\nxE = xAktuell / norm(xAktuell);   % Einheiits"
-      "vektor für xAktuell\neSE = xE * (-1);        % Einheitsvektor vom Satelliten zu Erde - umgekehrte Richtung zu xE"
-      "\n\nxM = [0; -380000000];   % Mondposition\nvSM = xM - xAktuell;    % Vektor vom Satelliten zum Mond\nrSM = norm"
-      "(vSM);\neSM = vSM / norm(vSM);  % Einheitsvektor vom Sat. zu Mond\n\nr = norm(xAktuell);     % Abstand von Erdmi"
-      "tte zum Satellit\n\nmE = 5.9736 * 10^24;    % Erdmasse in [kg]\nmM = 7.3480 * 10^22;    % Mondmasse in [kg]\nG ="
-      " 66.743 * 10^-12;    % Gravitationskonstante in [m^3/kg*s^2]\n\nF_SE = G * mE / r^2 * eSE; % Kraft auf Sat. von "
-      "der Erde\nF_SM = G * mM / rSM^2 * eSM; % Kraft auf Sat. vom Mond\n\na = F_SE + F_SM;        % Beschleunigung\n"
+      "vektor fuer xAktuell\neSE = xE * (-1);        % Einheitsvektor vom Satelliten zu Erde - umgekehrte Richtung zu x"
+      "E\n\nxM = [0; -380000000];   % Mondposition\nvSM = xM - xAktuell;    % Vektor vom Satelliten zum Mond\nrSM = nor"
+      "m(vSM);\neSM = vSM / norm(vSM);  % Einheitsvektor vom Sat. zu Mond\n\nr = norm(xAktuell);     % Abstand von Erdm"
+      "itte zum Satellit\n\nmE = 5.9736 * 10^24;    % Erdmasse in [kg]\nmM = 7.3480 * 10^22;    % Mondmasse in [kg]\nG "
+      "= 66.743 * 10^-12;    % Gravitationskonstante in [m^3/kg*s^2]\n\nF_SE = G * mE / r^2 * eSE; % Kraft auf Sat. von"
+      " der Erde\nF_SM = G * mM / rSM^2 * eSM; % Kraft auf Sat. vom Mond\n\na = F_SE + F_SM;        % Beschleunigung\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
