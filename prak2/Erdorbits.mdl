@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.15"
+    ComputedModelVersion    "1.16"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "karo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Nov 04 17:04:02 2012"
-  RTWModifiedTimeStamp	  273941551
-  ModelVersionFormat	  "1.%<AutoIncrement:15>"
+  LastModifiedDate	  "Wed Nov 07 17:08:20 2012"
+  RTWModifiedTimeStamp	  274124556
+  ModelVersionFormat	  "1.%<AutoIncrement:16>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -67,8 +67,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Erdorbits"
-    signals_		    []
-    overrideMode_	    [0U]
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
@@ -133,7 +132,7 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "10.0"
+	  StopTime		  "86400"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -144,7 +143,7 @@ Model {
 	  MaxConsecutiveZCs	  "1000"
 	  ExtrapolationOrder	  4
 	  NumberNewtonIterations  1
-	  MaxStep		  "auto"
+	  MaxStep		  "100"
 	  MinStep		  "auto"
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
@@ -614,7 +613,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 243, 69, 1123, 699 ] 
+      ConfigPrmDlgPosition     [ 227, 9, 1139, 715 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -800,7 +799,7 @@ Model {
   }
   System {
     Name		    "Erdorbits"
-    Location		    [38, 82, 1305, 739]
+    Location		    [40, 82, 1307, 739]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -828,6 +827,7 @@ Model {
       SID		      "9"
       Position		      [150, 295, 180, 325]
       ZOrder		      -4
+      Value		      "3000"
     }
     Block {
       BlockType		      Constant
@@ -851,7 +851,7 @@ Model {
       SID		      "12"
       Position		      [135, 498, 195, 542]
       ZOrder		      -4
-      Value		      "400000"
+      Value		      "37000000"
     }
     Block {
       BlockType		      Demux
@@ -983,7 +983,7 @@ Model {
 	  ZOrder		  5
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[2 2]"
-	  EnableBusSupport	  off
+	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
 	    Name		    "x0"
@@ -1128,7 +1128,7 @@ Model {
 	  ZOrder		  5
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[3 2]"
-	  EnableBusSupport	  off
+	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
 	    Name		    "v0welt"
@@ -1261,7 +1261,7 @@ Model {
 	  ZOrder		  5
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
-	  EnableBusSupport	  off
+	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
 	    Name		    "a"
@@ -1382,7 +1382,7 @@ Model {
 	  ZOrder		  5
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
-	  EnableBusSupport	  off
+	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
 	    Name		    "endBedingung"
@@ -1449,7 +1449,6 @@ Model {
       VariableName	      "x_Sat"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
-      SaveFormat	      "Timeseries"
     }
     Block {
       BlockType		      ToWorkspace
@@ -1461,7 +1460,6 @@ Model {
       VariableName	      "y_Sat"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
-      SaveFormat	      "Timeseries"
     }
     Line {
       SrcBlock		      "MATLAB Function1"
@@ -1608,8 +1606,6 @@ Stateflow {
     viewObj		    2
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -1773,8 +1769,6 @@ Stateflow {
     viewObj		    11
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
-    subviewS {
-    }
     ssIdHighWaterMark	    6
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -1913,8 +1907,6 @@ Stateflow {
     viewObj		    19
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
-    subviewS {
-    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -2033,8 +2025,6 @@ Stateflow {
     viewObj		    26
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
-    subviewS {
-    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
