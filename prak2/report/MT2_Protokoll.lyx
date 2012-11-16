@@ -1,0 +1,136 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass haw_report
+\use_default_options true
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Haw-Typ-der-Arbeit
+MTP2 Praktikumsbericht
+\end_layout
+
+\begin_layout Haw-Autor
+Karolina Bernat, Olliver Steenbuck
+\end_layout
+
+\begin_layout Haw-Titel-auf-Deckblatt
+
+\end_layout
+
+\begin_layout Haw-Titelblatt-und-Zusammenfassung-erzeugen
+
+\end_layout
+
+\begin_layout Haw-Seitenzahl-Arabisch
+
+\end_layout
+
+\begin_layout Chapter*
+Weltraummissionen
+\end_layout
+
+\begin_layout Standard
+Im Folgenmden wird beschrieben, wie eine antribslose Phase eines Satelliten,
+ der mit einer Trägerrakete in eine Startposition 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ gebracht wird und dann antrieblos weiter fliegt.
+ Dabei ist der Einfluss des Satelliten auf die Erde zu vernachlässigen.
+ 
+\end_layout
+
+\begin_layout Standard
+Im Modell folgende Konstanten sind bekannt:
+\end_layout
+
+\begin_layout Standard
+Erdradius: 
+\begin_inset Formula $r_{E}=6378km$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Erdmasse: 
+\begin_inset Formula $m_{E}=5.9736\cdot10^{24}kg$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Gravitationskonstante: 
+\begin_inset Formula $G=66.743\cdot10^{-12}\frac{m^{3}}{kg\cdot s^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

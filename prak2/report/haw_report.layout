@@ -1,0 +1,627 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[scrreprt]{report (KOMA-Script) (HAW Hamburg v2)}
+# Enhanced scrreprt textclass definition file for homework, papers and theses.
+# Based on scrreprt.layout from LyX source code (by Bernd Rellermeyer 
+# <100.41728@germanynet.de>) and the thesis template available from the 
+# Department of Computer Science at the University of Applied Sciences Hamburg
+# (by Lutz Behnke - http://www.informatik.haw-hamburg.de/652.html).
+# Author : Lorenz Barnkow <Lorenz.Barnkow_AT_haw-hamburg_DOT_de>
+
+
+Format 11
+Input scrclass.inc
+Input numreport.inc
+
+
+ClassOptions
+	
+	Other	"BCOR5mm,headsepline,12pt,a4paper,liststotoc,bibtotoc,idxtotoc,pointlessnumbers"
+End
+
+
+Preamble
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - Required LaTeX-packages.
+	% TODO: remove those not really needed?
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\RequirePackage{cmbright}                                  % serifenlose Schrift als Standard
+														% + alle fuer TeX benoetigten mathematischen
+														%   Schriften einschliesslich der AMS-Symbole
+	\RequirePackage[scaled=.90]{helvet}                        % skalierte Helvetica als \sfdefault
+	\RequirePackage{courier}                                   % Courier als \ttdefault
+	\RequirePackage{times}              % Times Font
+	\RequirePackage{mathptmx}           % use Times for math mode
+	\RequirePackage{helvet}             % Helvetica as sans serif
+	%---------------------------------------------------------------------------------------------------
+	\RequirePackage{color}
+	\RequirePackage[automark]{scrpage2}                        % Anpassung der Kopf- und Fusszeilen
+	\RequirePackage{xspace}                                    % Korrekter Leerraum nach Befehlsdefinitionen
+	\RequirePackage{natbib}                                    % Neuimplementierung des \cite-Kommandos
+	\RequirePackage[absolute]{textpos}                         % placing boxes at absolute positions
+	\RequirePackage[final]{pdfpages}                           % include pages of external PDF documents
+	\RequirePackage{tabularx}                                  % Spaltenbreite bis zur Seitenbreite dehnen
+
+	\RequirePackage{graphicx}
+
+	\RequirePackage{paralist}
+	% \RequirePackage{ftcap}
+	\RequirePackage{mathpazo}%\RequirePackage[expert]{lucidabr}
+	\RequirePackage{array}
+	\RequirePackage{booktabs}
+	\RequirePackage{dcolumn}
+	\RequirePackage{units}
+	\RequirePackage{rotating}
+	\RequirePackage{colortbl}
+	\RequirePackage{listings}
+
+	\RequirePackage{ifthen}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  Required LaTeX-packages.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (public) Variables used by this Layout/Template.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\def\hawtyp#1{\def\hawtypD{#1}
+				\ifthenelse{{\equal{#1}{Diplomarbeit}}\or{\equal{#1}{Bachelorarbeit}}\or{\equal{#1}{Masterarbeit}}}
+							{\def\hawAbschlussArb{true}}
+							{}}
+	\def\hawtypD{Laborbericht} 
+	\def\hawAbschlussArb{false}
+
+	\def\hawauthor#1{\def\hawauthorD{#1}\author{#1}} \def\hawauthorD{false}
+	\def\hawstudiengang#1{\def\hawstudiengangD{#1}} \def\hawstudiengangD{false}
+	\def\hawprof#1{\def\hawprofD{#1}} \def\hawprofD{false}
+	\def\hawkoprof#1{\def\hawkoprofD{#1}} \def\hawkoprofD{false}
+	\def\hawfaculty#1{\def\hawfacultyD{#1}} \def\hawfacultyD{false}
+	\def\hawdepartment#1{\def\hawdepartmentD{#1}} \def\hawdepartmentD{false}
+	\def\hawstichworte#1{\def\hawstichworteD{#1}} \def\hawstichworteD{Stichworte fehlen}
+
+	\def\hawkeywords#1{\def\hawkeywordsD{#1}} \def\hawkeywordsD{English keywords missing}
+	\def\hawort#1{\def\hawortD{#1}} \def\hawortD{Hamburg}
+	\def\hawlogo#1{\def\hawlogoD{#1}} \def\hawlogoD{false}
+	\def\hawkooperation#1{\def\hawkooperationD{#1}} \def\hawkooperationD{false}
+	\def\hawdatum#1{\def\hawdatumD{#1}\date{#1}} \def\hawdatumD{\today}
+	\def\hawemail#1{\def\hawemailD{\texttt{<}#1\texttt{>}}} \def\hawemailD{false}
+	\def\hawEfaculty#1{\def\hawEfacultyD{#1}} \def\hawEfacultyD{false}
+	\def\hawEdepartment#1{\def\hawEdepartmentD{#1}} \def\hawEdepartmentD{false}
+
+	\def\hawtitel#1{\def\hawtitelD{#1}\title{#1}\ifthenelse{\equal{\hawzftitelSetD}{false}}{\def\hawzftitelD{#1}}{}} \def\hawtitelD{false}
+	\def\hawzftitel#1{\def\hawzftitelD{#1}\def\hawzftitelSetD{true}} \def\hawzftitelD{\hawtitelD} \def\hawzftitelSetD{false}
+	\def\hawzftitle#1{\def\hawzftitleD{#1}\def\hawzftitleSetD{true}} \def\hawzftitleD{English title missing} \def\hawzftitleSetD{false}
+
+	\def\hawzusammenfassung#1{\def\hawzusammenfassungD{#1}} \def\hawzusammenfassungD{Zusammenfassung fehlt}
+	\def\hawabstract#1{\def\hawabstractD{#1}} \def\hawabstractD{English abstract missing}
+
+	\def\hawcoverfarbe#1{\def\hawcoverfarbeD{#1}} \def\hawcoverfarbeD{hawgruen}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (public) Variables used by this Layout/Template
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (private) Variables used by this Layout/Template.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\definecolor{hawgruen}{RGB}{124,224,185}
+	\definecolor{hawviolett}{RGB}{194,176,217}
+	\definecolor{hawblau}{rgb}{0.08,0.2,0.43}
+	\definecolor{hawcyan}{rgb}{0.62,0.75,0.91}
+
+	\newlength{\hawzflength}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (private) Variables used by this Layout/Template.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (private) Initializes a textblock for a custom page.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\def\hawtextpos{%
+	\setlength{\TPHorizModule}{1mm}% set resolution to 1mm
+	\setlength{\TPVertModule}{\TPHorizModule}%
+	\textblockorigin{0mm}{0mm}% start at the top-left corner
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (private) Initializes a textblock for a custom page.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (private) Prints the cover/title page.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newcommand{\hawdeckblatt}{%
+	\thispagestyle{empty}
+	\hawtextpos
+	
+	\begin{textblock}{100}[0,0](30,267)
+		\begin{flushleft}
+		\noindent\textit{Fakult\"at \hawfacultyD\\ Department \hawdepartmentD}
+		\end{flushleft}
+	\end{textblock}
+
+	\begin{textblock}{100}[1,0](190,267)
+%		\ifthenelse{\equal{\hawAbschlussArb}{true}}
+%				{\begin{flushright}\noindent\textit{Faculty of \hawEfacultyD\\ Department of \hawEdepartmentD}\end{flushright}}
+%				{}
+		{\begin{flushright}\noindent\textit{Faculty of \hawEfacultyD\\ Department of \hawEdepartmentD}\end{flushright}}
+	\end{textblock}
+	
+	\ifthenelse{\equal{\hawlogoD}{false}}{}{%
+		\begin{textblock}{20}(91,7)
+		\includegraphics{HAWLogo.pdf}
+		\end{textblock}
+	
+		% HAW Logo
+		% \begin{textblock}{20}(150,8)
+		% \setlength{\unitlength}{1mm}
+		% \begin{picture}(15,14)
+		% 	\multiput(0,2)(0,4){4}{\color{hawcyan}\rule{11mm}{1mm}}
+		% 	\multiput(4,0)(0,4){4}{\color{hawblau}\rule{11mm}{1mm}}
+		% \end{picture}
+		% \end{textblock}
+		% HAW Name
+		% \begin{textblock}{110}(90,30)
+		% \fontseries{b}
+		% \fontsize{10.5}{14}
+		% \selectfont
+		% \noindent{\color{hawblau}{Hochschule f\"ur Angewandte Wissenschaften Hamburg}}
+		% \end{textblock}
+		% \begin{textblock}{110}(128,36)
+		% \fontseries{b}
+		% \fontshape{it}
+		% \fontsize{10.5}{14}
+		% \selectfont
+		% \noindent{\color{hawblau}{Hamburg University of Applied Sciences}}
+		% \end{textblock}
+		% violett block (covers the middle third of the page)
+		\begin{textblock}{210}(0,99)
+		\textblockcolor{\hawcoverfarbeD}
+		\vspace*{99mm}\hspace{1cm}
+		\end{textblock}
+	}
+
+	\begin{textblock}{130}(70,100)
+		\begin{minipage}[b][98mm][c]{12cm}
+		\begin{center}
+			\textbf{\Large\hawtypD}\vspace{3ex}
+			
+			\large \hawauthorD
+			\ifthenelse{\equal{\hawemailD}{false}}{}{\hspace{0.75em}\hawemailD}
+			\vspace{3ex}
+			
+			\hawtitelD
+			
+		\end{center}
+		\end{minipage}
+	\end{textblock}
+
+	\hspace{1cm}\newpage
+	} % End: \newcommand{\hawdeckblatt}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (private) Prints the cover/title page.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (private) Prints an additional custom page (following the cover/
+	%                   title page) that states the purpose of this paper (e.g.
+	%                   bachelor thesis) and its supervisors.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newcommand{\hawpruefblatt}{%
+	\thispagestyle{empty}
+	\hawtextpos
+	\vspace*{\fill}
+	\begin{center}
+	{\LARGE\hawauthorD}\par\vspace{2ex}
+	\ifthenelse{\equal{\hawemailD}{false}}{}{\hawemailD\par\vspace{2ex}}
+	{\Large\hawtitelD}
+	\end{center}
+	\vfill
+	\vfill
+	\noindent
+	\ifthenelse{\equal{\hawtypD}{Diplomarbeit}}
+	{Diplomarbeit eingereicht im Rahmen der Diplompr\"ufung\\}
+	{\ifthenelse{\equal{\hawtypD}{Bachelorarbeit}}
+		{Bachelorarbeit eingereicht im Rahmen der Bachelorpr\"ufung\\}
+		{\ifthenelse{\equal{\hawtypD}{Masterarbeit}}
+		{Masterarbeit eingereicht im Rahmen der Masterpr\"ufung\\}}}\\
+	im Studiengang \hawstudiengangD\\
+	am Department \hawdepartmentD\\
+	der Fakult\"at \hawfacultyD\\
+	der Hochschule f\"ur Angewandte Wissenschaften Hamburg\vspace{1.5ex}
+	\par\noindent
+	Betreuender Pr\"ufer: \hawprofD
+	\ifthenelse{\equal{\hawkoprofD}{false}}{}{\newline Zweitgutachter: \hawkoprofD}
+	\vspace{1.5ex}
+	\par\noindent
+	Abgegeben am \hawdatumD
+	\newpage
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (private) Prints an additional custom page (following the cover/
+	%                   title page) that states the purpose of this paper (e.g.
+	%                   bachelor thesis) and its supervisors.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (private) Prints the german title, keywords and abstract.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newcommand{\hawzfdeutsch}{%
+	\noindent\textbf{\hawauthorD}\newline
+	\textbf{\\Thema der \hawtypD}\vspace{\hawzflength}\newline
+	\hawzftitelD\vspace{\hawzflength}\vspace{\hawzflength}\newline
+	\noindent\textbf{Stichworte}\vspace{\hawzflength}\newline
+	\hawstichworteD\vspace{\hawzflength}\vspace{\hawzflength}\newline
+	\noindent\textbf{Kurzzusammenfassung}\vspace{\hawzflength}\newline
+	\hawzusammenfassungD
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (private) Prints the german title, keywords and abstract.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (private) Prints the english title, keywords and abstract.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newcommand{\hawzfenglish}{%
+		\newline
+		\noindent\textbf{\\\hawauthorD}\newline
+		\textbf{\\Title of the paper}\vspace{\hawzflength}\newline
+		\hawzftitleD\vspace{\hawzflength}\vspace{\hawzflength}\newline
+		\noindent\textbf{Keywords}\vspace{\hawzflength}\newline
+		\hawkeywordsD\vspace{\hawzflength}\vspace{\hawzflength}\newline
+		\noindent\textbf{Abstract}\vspace{\hawzflength}\newline
+		\hawabstractD
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (private) Prints the english title, keywords and abstract.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (private) Prints both the german and english titles, keywords and
+	%					abstracts.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newcommand{\hawcoverzfblatt}{%
+	\def\hawcoverzfblattdeu{false} \def\hawcoverzfblatteng{false}
+	\ifthenelse{\equal{\hawAbschlussArb}{true}}
+		{\def\hawcoverzfblattdeu{true} \def\hawcoverzfblatteng{true}}
+		{
+			\ifthenelse{\equal{\hawzftitelSetD}{true}}
+				{\def\hawcoverzfblattdeu{true}}
+				{}
+			\ifthenelse{\equal{\hawzftitleSetD}{true}}
+				{\def\hawcoverzfblatteng{true}}
+				{}
+		}
+
+	\ifthenelse{\equal{\hawcoverzfblattdeu}{true}}
+		{
+			\parskip=4mm
+			\thispagestyle{empty}
+			\setlength{\hawzflength}{0ex}
+		}
+		{
+			\ifthenelse{\equal{\hawcoverzfblatteng}{true}}
+				{
+					\parskip=4mm
+					\thispagestyle{empty}
+					\setlength{\hawzflength}{0ex}
+				}
+				{}
+		}
+
+	\ifthenelse{\equal{\hawcoverzfblattdeu}{true}}
+		{\hawzfdeutsch}
+		{}
+	\ifthenelse{\equal{\hawcoverzfblatteng}{true}}
+		{
+			\rule{0mm}{2ex}
+			\hawzfenglish
+		}
+		{}
+	
+	\ifthenelse{\equal{\hawcoverzfblattdeu}{true}}
+		{\newpage}
+		{
+			\ifthenelse{\equal{\hawcoverzfblatteng}{true}}
+				{\newpage}
+				{}
+		}
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (private) Prints both the german and english titles, keywords and
+	%					abstracts.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (public) Prints
+	%				   - the cover/title page
+	%				   - an additional page stating the purpose of this paper
+	%				     and its supervisors (if this paper is a thesis)
+	%				   - an additional page stating the english and german
+	%				     titles, keywords and abstracts (if this paper is a
+	%				     thesis).
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\renewcommand{\maketitle}{%
+	\hawdeckblatt
+	\ifthenelse{\equal{\hawAbschlussArb}{true}}
+		{\hawpruefblatt}
+		{}
+	{\hawcoverzfblatt}
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (public) Prints
+	%				   - the cover/title page
+	%				   - an additional page stating the purpose of this paper
+	%				     and its supervisors (if this paper is a thesis)
+	%				   - an additional page stating the english and german
+	%				     titles, keywords and abstracts (if this paper is a
+	%				     thesis).
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	\newcommand{\hawversicherungkopf}{%
+	\thispagestyle{empty}
+	\vspace{2cm}
+	\noindent\emph{Hiermit versichere ich, dass ich die vorliegende Arbeit im Sinne der 
+	Pr\"u\-fungs\-ord\-nung ohne fremde Hilfe selb\-st\"an\-dig verfasst und nur
+	die angegebenen Hilfsmittel benutzt habe.}\par
+	}
+
+	\newcommand{\hawversicherungautor}[1]{%
+	\vspace{2cm}\noindent\hawortD, \hawdatumD\quad $\overline{\textrm{#1}\hspace{5cm}}$
+	}
+
+	\newcommand{\hawversicherung}{%
+	\hawversicherungkopf
+	\hawversicherungautor{\hawauthorD}
+	}
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (public) Default values for some of the public variables.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\hawfaculty{Technik und Informatik}
+	\hawdepartment{Informatik}
+	\hawstudiengang{Angewandte Informatik}
+	\hawEfaculty{Engineering and Computer Science}
+	\hawEdepartment{Computer Science}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (public) Default values for some of the public variables.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% BEGIN - (public) Setup page layout.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\pagestyle{scrheadings}
+	\clearscrheadings
+	\clearscrplain
+	\clearscrheadfoot
+	\ohead{\pagemark}
+	\ihead{\headmark}
+
+	\pagenumbering{roman}
+	\let\myTOC\tableofcontents
+	\renewcommand\tableofcontents{%
+		\myTOC
+		\clearpage
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% END  -  (public) Setup page layout.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	\newcommand{\hawseitenzahlroemisch}{%
+	\pagenumbering{roman}
+	}
+	\newcommand{\hawseitenzahlarabisch}{%
+	\pagenumbering{arabic}
+	}
+	
+EndPreamble
+
+NoStyle MiniSec
+NoStyle Captionabove
+NoStyle Captionbelow
+NoStyle Dictum
+NoStyle Part
+NoStyle Part*
+NoStyle Author
+NoStyle Title
+NoStyle Date
+NoStyle Subject
+NoStyle Publishers
+NoStyle Dedication
+NoStyle Titlehead
+NoStyle Uppertitleback
+NoStyle Lowertitleback
+NoStyle Extratitle
+NoStyle Abstract
+NoStyle Address
+NoStyle Right_Address
+
+
+Style Bibliography
+	TopSep                4
+	LabelString           "Bibliography"
+	LabelFont
+	  Series              Bold
+	  Size                Largest
+	EndFont
+End
+
+Style Haw-Typ-der-Arbeit
+	Category		"HAW-Report"
+	LatexType		Command
+	LatexName		hawtyp
+	LabelType		Static
+	LabelString		"Typ der Arbeit (z.B. Laborbericht (default), Masterarbeit, Diplomarbeit, Bachelorarbeit):"
+	LabelSep		" "
+	Margin			Dynamic
+	KeepEmpty		1
+	LabelFont
+		Series		Bold
+		Shape		Italic
+		Color		Blue
+	EndFont
+	TextFont
+		Series		Bold
+	EndFont
+End
+
+Style Haw-Betreuer-Prof1
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawprof
+	LabelString		"Betreuer/In:"
+End
+
+Style Haw-Betreuer-Prof2
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawkoprof
+	LabelString		"Zweit-Betreuer/In:"
+End
+
+Style Haw-Autor
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawauthor
+	LabelString		"Autor/In der Arbeit:"
+End
+
+Style Haw-Abgabedatum
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawdatum
+	LabelString		"Datum (default: heute):"
+End
+
+Style Haw-Abgabeort
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawort
+	LabelString		"Ort (default: 'Hamburg'):"
+End
+
+Style Haw-Titel-auf-Deckblatt
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawtitel
+	LabelString		"Arbeitstitel fürs Deckblatt:"
+End
+
+Style Haw-Titel-auf-Zusammenfassungsseite
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawzftitel
+	LabelString		"Arbeitstitel für Zusammenfassungsseite (default: HawTitelDeckblatt):"
+End
+
+Style Haw-Titel-auf-Zusammenfassungsseite-Englisch
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawzftitle
+	LabelString		"Arbeitstitel für Zusammenfassungsseite (Englisch):"
+End
+
+Style Haw-Stichworte-auf-Zusammenfassungsseite
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawstichworte
+	LabelString		"Stichworte für Zusammenfassungsseite:"
+End
+
+Style Haw-Stichworte-auf-Zusammenfassungsseite-Englisch
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawkeywords
+	LabelString		"Stichworte für Zusammenfassungsseite (Englisch):"
+End
+
+Style Haw-Zusammenfassung
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawzusammenfassung
+	LabelString		"Zusammenfassung für Zusammenfassungsseite:"
+End
+
+Style Haw-Zusammenfassung-Englisch
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawabstract
+	LabelString		"Zusammenfassung für Zusammenfassungsseite (Englisch):"
+End
+
+Style Haw-Farbiges-Titelblatt
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawlogo
+	LabelString		"HAW-Logo und farbiger Balken (true, false) (default: false):"
+End
+
+Style Haw-Titelblatt-und-Zusammenfassung-erzeugen
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		maketitle
+	LabelString		"Titelblatt & Zusammenfassung generieren"
+End
+
+Style Haw-Versicherung-erzeugen-1-Autor
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawversicherung
+	LabelString		"Versicherung über Selbständigkeit generieren (für einen Autor)"
+End
+
+Style Haw-Versicherung-erzeugen-Mehrere-Autoren-Kopf
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawversicherungkopf
+	LabelString		"Versicherungstext über Selbständigkeit generieren (für mehrere Autoren)"
+End
+
+Style Haw-Versicherung-erzeugen-Mehrere-Autoren-Unterschrift
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawversicherungautor
+	LabelString		"Unterschriftentext für Autor (pro Autor):"
+End
+
+Style Haw-Fakultaet
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawfaculty
+	LabelString		"Fakultät (default: Technik und Informatik):"
+End
+
+Style Haw-Fakultaet-Englisch
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawEfaculty
+	LabelString		"Fakultät (Englisch) (default: Engineering and Computer Science):"
+End
+
+Style Haw-Department
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawdepartment
+	LabelString		"Department (default: Informatik):"
+End
+
+Style Haw-Department-Englisch
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawEdepartment
+	LabelString		"Department (Englisch) (default: Computer Science):"
+End
+
+Style Haw-Studiengang
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawstudiengang
+	LabelString		"Studiengang (default: Angewandte Informatik):"
+End
+
+Style Haw-Cover-Farbe
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawcoverfarbe
+	LabelString		"Farbe auf Titelblatt (default: hawgruen):"
+End
+
+Style Haw-Seitenzahl-Roemisch
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawseitenzahlroemisch
+	LabelString		"Seitenzahlen ab hier römisch (i, ii, iii, etc.)"
+End
+
+Style Haw-Seitenzahl-Arabisch
+	CopyStyle		Haw-Typ-der-Arbeit
+	LatexName		hawseitenzahlarabisch
+	LabelString		"Seitenzahlen ab hier arabisch (1, 2, 3, etc.)"
+End

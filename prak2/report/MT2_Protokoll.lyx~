@@ -1,0 +1,262 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass haw_report
+\use_default_options true
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Haw-Typ-der-Arbeit
+MTP2 Praktikumsbericht
+\end_layout
+
+\begin_layout Haw-Autor
+Karolina Bernat, Olliver Steenbuck
+\end_layout
+
+\begin_layout Haw-Titel-auf-Deckblatt
+
+\end_layout
+
+\begin_layout Haw-Titelblatt-und-Zusammenfassung-erzeugen
+
+\end_layout
+
+\begin_layout Haw-Seitenzahl-Arabisch
+
+\end_layout
+
+\begin_layout Standard
+Ein autonomer Tischfussballroboter ist ein System, das in der Lage ist eigenstän
+dig gegen Menschen an einem Tischfussballtisch (auch als Kicker bezeichnet)
+ ein Spiel zu bestreiten.
+ Ein solches System wurde u.
+\begin_inset space \thinspace{}
+\end_inset
+
+a.
+ an der Universität Freiburg im Rahmen einer Doktorarbeit entwickelt (vgl.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:phd/de/Weigel2006"
+
+\end_inset
+
+).
+ Techniken u.
+\begin_inset space \thinspace{}
+\end_inset
+
+a.
+ zur Ballerkennung, zur Stangensteuerung und zum Spielverhalten wurden vorgestel
+lt (siehe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:conf/ki/TackeWN04,DBLP:conf/ki/WeigelZRN04,DBLP:conf/ki/WeigelRN05"
+
+\end_inset
+
+).
+ Ein bis heute ungelöstes Problem ist es, ein dem Menschen ähnliches Spielverhal
+ten abzubilden.
+ Dies ist auch die Motivation für die bevorstehende Masterarbeit der Autorin.
+ 
+\end_layout
+
+\begin_layout Standard
+Die Forschung und Entwicklung eines autonomen Tischfussballroboters wurde
+ in verschiedenen Projekten bearbeitet.
+ Die Universität Freiburg entwickelte den vollautonomen Roboter KiRo (vgl.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:conf/robocup/WeigelN02"
+
+\end_inset
+
+), der später in Zusammenarbeit mit der Gauselmann AG
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.gauselmann.de/
+\end_layout
+
+\end_inset
+
+ in das kommerzielle Produkt StarKick mündete (vgl.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:conf/icra/Weigel05"
+
+\end_inset
+
+).
+ An der Hochschule München wurde mit dem Projekt TI Computerkicker (ProCK)
+ seit 2008 ein ähliches System entwickelt und 2010 einen Roboter präsentiert,
+ dessen Schwäche ebenfalls in der rudimentären Spielweise lag
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://kicker.ee.hm.edu/
+\end_layout
+
+\end_inset
+
+.
+ Der an der Hochschule Regensburg entwickelte Kickermat stellt ein weiteres
+ autonomes System dar, in dem u.
+\begin_inset space \thinspace{}
+\end_inset
+
+a.
+ ein Verteidigungsalgorithmus im Rahmen der Spielelogik vorgestellt wurde
+ (siehe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weber-forschungsbericht-2011,reinl-projektbeschreibung-2010"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Im Rahmen der bevorstehenden Masterarbeit soll das Verhalten von fortgeschritten
+en Spielern bei einem Tischfussballspiel analysiert werden.
+ Hierzu könnten z.
+\begin_inset space \thinspace{}
+\end_inset
+
+B.
+ Videoaufzeichnungen offizieller Turnierspiele systematisch ausgewertet
+ werden, um Strategien und Muster zu identifizieren.
+ Die Erkentnisse sollen dazu dienen, eine Spielelogik für einen Tischfussballrob
+oter zu entwickeln, die einem menschlichen Verhalten ähnelt.
+ Eine geeignete Formalisierung der Spielzüge und Strategien ist zu entwickeln.
+\end_layout
+
+\begin_layout Standard
+Die Spieltechnik (z.
+\begin_inset space \thinspace{}
+\end_inset
+
+B.
+ Ballkontrolle, Passspiel, etc.) soll mittels maschinellen Lernens (z.
+\begin_inset space \thinspace{}
+\end_inset
+
+B.
+ durch Reinforcement Learning, siehe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:journals/tnn/SuttonB98"
+
+\end_inset
+
+) erlernt und stets verbessert werden.
+ Das System soll zunächst in einer Simulationsumgebung entwickelt werden,
+ in der das maschinelle Lernverfahren angewendet werden soll.
+ Hierfür müssen geeignete Methoden sowie Werkzeuge evaluiert werden.
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:phd/de/Weigel2006"
+
+\end_inset
+
+ wurde ein Eingabegerät entwickelt (KiSi), dass die Tischfussballstangen
+ nachbildet, um in die Simulationsumgebung interaktiv einzugreifen.
+ So kann das entwickelte System in einem Spiel gegen einen Menschen antreten,
+ ohne dass ein vollständiger Roboter konstuiert werden muss.
+ Somit könnte durch Spieler in Blindspielen beurteilt werden, ob der Gegner
+ menschlich agierte (siehe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "conf/icec/ConroyWJ12"
+
+\end_inset
+
+).
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Literatur/Literatur"
+options "dinat"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
