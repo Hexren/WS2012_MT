@@ -84,10 +84,10 @@ unsigned int sf_Erdorbits_process_check_sum_call( int nlhs, mxArray * plhs[],
       ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(0U);
       ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(0U);
     } else if (!strcmp(commandName,"makefile")) {
-      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3215683955U);
-      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3017487242U);
-      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(159868282U);
-      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3719888276U);
+      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2804116391U);
+      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2732891428U);
+      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3687065111U);
+      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2483292448U);
     } else if (nrhs==3 && !strcmp(commandName,"chart")) {
       unsigned int chartFileNumber;
       chartFileNumber = (unsigned int)mxGetScalar(prhs[2]);
@@ -135,10 +135,10 @@ unsigned int sf_Erdorbits_process_check_sum_call( int nlhs, mxArray * plhs[],
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2420422797U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4155145851U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3680293999U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3461276864U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3989060658U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2930580069U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1649047362U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(207023657U);
   }
 
   return 1;
@@ -176,7 +176,7 @@ unsigned int sf_Erdorbits_autoinheritance_info( int nlhs, mxArray * plhs[], int
     switch (chartFileNumber) {
      case 1:
       {
-        if (strcmp(aiChksum, "zTRjeZlI6lDk5CPplQh8nE") == 0) {
+        if (strcmp(aiChksum, "yY4MvvPL91hBFQvulD1PlF") == 0) {
           extern mxArray *sf_c1_Erdorbits_get_autoinheritance_info(void);
           plhs[0] = sf_c1_Erdorbits_get_autoinheritance_info();
           break;
@@ -188,7 +188,7 @@ unsigned int sf_Erdorbits_autoinheritance_info( int nlhs, mxArray * plhs[], int
 
      case 2:
       {
-        if (strcmp(aiChksum, "kMYYNTXdlBYz1yJGNps0AE") == 0) {
+        if (strcmp(aiChksum, "r8tsBMNClQxb5yxwit7cD") == 0) {
           extern mxArray *sf_c2_Erdorbits_get_autoinheritance_info(void);
           plhs[0] = sf_c2_Erdorbits_get_autoinheritance_info();
           break;
@@ -200,7 +200,7 @@ unsigned int sf_Erdorbits_autoinheritance_info( int nlhs, mxArray * plhs[], int
 
      case 3:
       {
-        if (strcmp(aiChksum, "Ys6vb4S7NQ9gnWLeAb0cIE") == 0) {
+        if (strcmp(aiChksum, "5C5wbCWsBQFGsaFraAcZHF") == 0) {
           extern mxArray *sf_c3_Erdorbits_get_autoinheritance_info(void);
           plhs[0] = sf_c3_Erdorbits_get_autoinheritance_info();
           break;
@@ -212,7 +212,7 @@ unsigned int sf_Erdorbits_autoinheritance_info( int nlhs, mxArray * plhs[], int
 
      case 4:
       {
-        if (strcmp(aiChksum, "cXPaTjtNCOt0NKESvZCqU") == 0) {
+        if (strcmp(aiChksum, "hR93CsaBfzhKmkRBiDIIiG") == 0) {
           extern mxArray *sf_c4_Erdorbits_get_autoinheritance_info(void);
           plhs[0] = sf_c4_Erdorbits_get_autoinheritance_info();
           break;

@@ -192,9 +192,9 @@ static void sf_c4_Erdorbits(SFc4_ErdorbitsInstanceStruct *chartInstance)
   sf_debug_symbol_scope_add_eml_importable(&c4_endBedingung, 5U,
     c4_sf_marshallOut, c4_sf_marshallIn);
   CV_EML_FCN(0, 0);
-  _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 4);
+  _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 3);
   c4_rErde = 6.378E+6;
-  _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 5);
+  _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 4);
   for (c4_i2 = 0; c4_i2 < 2; c4_i2++) {
     c4_x[c4_i2] = c4_xAktuell[c4_i2];
   }
@@ -219,16 +219,16 @@ static void sf_c4_Erdorbits(SFc4_ErdorbitsInstanceStruct *chartInstance)
   }
 
   c4_xAbstand = c4_scale * muDoubleScalarSqrt(c4_xAbstand);
-  _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 7);
+  _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 6);
   if (CV_EML_IF(0, 1, 0, c4_xAbstand > c4_rErde)) {
-    _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 8);
+    _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 7);
     c4_endBedingung = 0.0;
   } else {
-    _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 10);
+    _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, 9);
     c4_endBedingung = 1.0;
   }
 
-  _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, -10);
+  _SFD_EML_CALL(0U, chartInstance->c4_sfEvent, -9);
   sf_debug_symbol_scope_pop();
   *c4_b_endBedingung = c4_endBedingung;
   _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 3U, chartInstance->c4_sfEvent);
@@ -646,10 +646,10 @@ static void init_dsm_address_info(SFc4_ErdorbitsInstanceStruct *chartInstance)
 /* SFunction Glue Code */
 void sf_c4_Erdorbits_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1494349904U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1849532689U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3133183519U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(441462286U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(965944234U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3633543189U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(936023305U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2831564485U);
 }
 
 mxArray *sf_c4_Erdorbits_get_autoinheritance_info(void)
@@ -661,7 +661,7 @@ mxArray *sf_c4_Erdorbits_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("cXPaTjtNCOt0NKESvZCqU");
+    mxArray *mxChecksum = mxCreateString("hR93CsaBfzhKmkRBiDIIiG");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -799,8 +799,8 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,1,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,175);
-        _SFD_CV_INIT_EML_IF(0,1,0,98,119,143,173);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,165);
+        _SFD_CV_INIT_EML_IF(0,1,0,88,109,133,163);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -838,7 +838,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization()
 {
-  return "EjGKvlicsvAcA9l4sTquqB";
+  return "QpWyo5ZIsosGv9vICRtpAC";
 }
 
 static void sf_opaque_initialize_c4_Erdorbits(void *chartInstanceVar)
@@ -991,10 +991,10 @@ static void mdlSetWorkWidths_c4_Erdorbits(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(641209467U));
-  ssSetChecksum1(S,(3590237243U));
-  ssSetChecksum2(S,(4105183188U));
-  ssSetChecksum3(S,(1063642791U));
+  ssSetChecksum0(S,(154572753U));
+  ssSetChecksum1(S,(1618029019U));
+  ssSetChecksum2(S,(81609223U));
+  ssSetChecksum3(S,(548490289U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }

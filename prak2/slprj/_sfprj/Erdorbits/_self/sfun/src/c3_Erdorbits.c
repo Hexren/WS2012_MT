@@ -232,7 +232,7 @@ static void sf_c3_Erdorbits(SFc3_ErdorbitsInstanceStruct *chartInstance)
   sf_debug_symbol_scope_add_eml_importable(c3_a, 8U, c3_sf_marshallOut,
     c3_sf_marshallIn);
   CV_EML_FCN(0, 0);
-  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 4);
+  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 3);
   for (c3_i5 = 0; c3_i5 < 2; c3_i5++) {
     c3_A[c3_i5] = c3_xAktuell[c3_i5];
   }
@@ -248,7 +248,7 @@ static void sf_c3_Erdorbits(SFc3_ErdorbitsInstanceStruct *chartInstance)
     c3_xE[c3_i7] = c3_A[c3_i7] / c3_b_y;
   }
 
-  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 5);
+  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 4);
   for (c3_i8 = 0; c3_i8 < 2; c3_i8++) {
     c3_A[c3_i8] = c3_xE[c3_i8];
   }
@@ -257,17 +257,17 @@ static void sf_c3_Erdorbits(SFc3_ErdorbitsInstanceStruct *chartInstance)
     c3_eSE[c3_i9] = -c3_A[c3_i9];
   }
 
-  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 7);
+  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 6);
   for (c3_i10 = 0; c3_i10 < 2; c3_i10++) {
     c3_c_xAktuell[c3_i10] = c3_xAktuell[c3_i10];
   }
 
   c3_r = c3_norm(chartInstance, c3_c_xAktuell);
-  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 9);
+  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 8);
   c3_mE = 5.9736000000000006E+24;
-  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 10);
+  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 9);
   c3_G = 6.6743E-11;
-  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 12);
+  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 11);
   c3_b_a = c3_r;
   c3_c_a = c3_b_a;
   c3_eml_scalar_eg(chartInstance);
@@ -286,7 +286,7 @@ static void sf_c3_Erdorbits(SFc3_ErdorbitsInstanceStruct *chartInstance)
     c3_a[c3_i12] = c3_d_a * c3_A[c3_i12];
   }
 
-  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, -12);
+  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, -11);
   sf_debug_symbol_scope_pop();
   for (c3_i13 = 0; c3_i13 < 2; c3_i13++) {
     (*c3_e_a)[c3_i13] = c3_a[c3_i13];
@@ -862,10 +862,10 @@ static void init_dsm_address_info(SFc3_ErdorbitsInstanceStruct *chartInstance)
 /* SFunction Glue Code */
 void sf_c3_Erdorbits_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3214900579U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3537672462U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2483620948U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1139940179U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(4278956367U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2059317051U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(34434754U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(4087932156U);
 }
 
 mxArray *sf_c3_Erdorbits_get_autoinheritance_info(void)
@@ -877,7 +877,7 @@ mxArray *sf_c3_Erdorbits_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("Ys6vb4S7NQ9gnWLeAb0cIE");
+    mxArray *mxChecksum = mxCreateString("5C5wbCWsBQFGsaFraAcZHF");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -1015,7 +1015,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,391);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,381);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -1058,7 +1058,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization()
 {
-  return "KJQ3J5q34MAl1hQiX02SwB";
+  return "HqJj0nbJGtFHzKWgSDhCeF";
 }
 
 static void sf_opaque_initialize_c3_Erdorbits(void *chartInstanceVar)
@@ -1211,10 +1211,10 @@ static void mdlSetWorkWidths_c3_Erdorbits(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(4172722119U));
-  ssSetChecksum1(S,(3485722352U));
-  ssSetChecksum2(S,(1151666993U));
-  ssSetChecksum3(S,(1332589546U));
+  ssSetChecksum0(S,(1311802313U));
+  ssSetChecksum1(S,(2098400739U));
+  ssSetChecksum2(S,(3060857463U));
+  ssSetChecksum3(S,(1919147057U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }

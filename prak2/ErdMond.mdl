@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.24"
+    ComputedModelVersion    "1.26"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "karo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Nov 16 11:23:07 2012"
-  RTWModifiedTimeStamp	  274965768
-  ModelVersionFormat	  "1.%<AutoIncrement:24>"
+  LastModifiedDate	  "Tue Nov 20 21:13:53 2012"
+  RTWModifiedTimeStamp	  275346194
+  ModelVersionFormat	  "1.%<AutoIncrement:26>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -67,6 +67,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Erdorbits"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -799,14 +800,14 @@ Model {
   }
   System {
     Name		    "ErdMond"
-    Location		    [415, 141, 1682, 798]
+    Location		    [990, 103, 1907, 760]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
     PaperOrientation	    "landscape"
     PaperPositionMode	    "auto"
-    PaperType		    "A4"
+    PaperType		    "a4letter"
     PaperUnits		    "centimeters"
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
@@ -818,14 +819,14 @@ Model {
       BlockType		      Clock
       Name		      "Clock"
       SID		      "15"
-      Position		      [780, 575, 800, 595]
+      Position		      [485, 325, 505, 345]
       ZOrder		      -4
     }
     Block {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "9"
-      Position		      [150, 295, 180, 325]
+      Position		      [85, 179, 120, 211]
       ZOrder		      -4
       Value		      "10950"
     }
@@ -833,7 +834,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant1"
       SID		      "10"
-      Position		      [150, 345, 180, 375]
+      Position		      [90, 230, 120, 260]
       ZOrder		      -4
       Value		      "26"
     }
@@ -841,7 +842,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant2"
       SID		      "11"
-      Position		      [150, 450, 180, 480]
+      Position		      [90, 335, 120, 365]
       ZOrder		      -4
       Value		      "30"
     }
@@ -849,7 +850,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant3"
       SID		      "12"
-      Position		      [135, 498, 195, 542]
+      Position		      [80, 389, 130, 421]
       ZOrder		      -4
       Value		      "150000"
     }
@@ -858,7 +859,7 @@ Model {
       Name		      "Demux"
       SID		      "16"
       Ports		      [1, 2]
-      Position		      [875, 136, 880, 174]
+      Position		      [595, 86, 600, 124]
       ZOrder		      -6
       ShowName		      off
       Outputs		      "2"
@@ -869,7 +870,7 @@ Model {
       Name		      "Display"
       SID		      "14"
       Ports		      [1]
-      Position		      [1005, 548, 1175, 622]
+      Position		      [655, 309, 770, 361]
       ZOrder		      -1
       Decimation	      "1"
       Lockdown		      off
@@ -878,7 +879,7 @@ Model {
       BlockType		      Gain
       Name		      "Gain"
       SID		      "13"
-      Position		      [840, 550, 935, 620]
+      Position		      [535, 300, 630, 370]
       ZOrder		      -11
       Gain		      "1/(60*60*24)"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -890,7 +891,7 @@ Model {
       Name		      "Integrator"
       SID		      "6"
       Ports		      [2, 1]
-      Position		      [600, 276, 655, 334]
+      Position		      [370, 176, 425, 234]
       ZOrder		      -10
       InitialConditionSource  "external"
     }
@@ -899,7 +900,7 @@ Model {
       Name		      "Integrator1"
       SID		      "7"
       Ports		      [2, 1]
-      Position		      [735, 291, 800, 349]
+      Position		      [460, 191, 525, 249]
       ZOrder		      -10
       InitialConditionSource  "external"
     }
@@ -908,7 +909,7 @@ Model {
       Name		      "MATLAB Function"
       SID		      "2"
       Ports		      [2, 1]
-      Position		      [325, 461, 470, 539]
+      Position		      [175, 331, 320, 409]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1044,7 +1045,7 @@ Model {
       Name		      "MATLAB Function1"
       SID		      "3"
       Ports		      [3, 1]
-      Position		      [325, 319, 470, 401]
+      Position		      [175, 204, 320, 286]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1195,7 +1196,7 @@ Model {
       Name		      "MATLAB Function2"
       SID		      "4"
       Ports		      [1, 1]
-      Position		      [325, 173, 470, 257]
+      Position		      [175, 83, 320, 167]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1316,7 +1317,7 @@ Model {
       Name		      "MATLAB Function3"
       SID		      "5"
       Ports		      [1, 1]
-      Position		      [905, 274, 1075, 366]
+      Position		      [595, 174, 765, 266]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1436,7 +1437,7 @@ Model {
       BlockType		      Stop
       Name		      "Stop Simulation"
       SID		      "8"
-      Position		      [1140, 302, 1175, 338]
+      Position		      [800, 202, 835, 238]
       ZOrder		      -4
     }
     Block {
@@ -1444,7 +1445,7 @@ Model {
       Name		      "To Workspace"
       SID		      "17"
       Ports		      [1]
-      Position		      [960, 100, 1020, 130]
+      Position		      [680, 65, 740, 95]
       ZOrder		      -7
       VariableName	      "x_Sat"
       MaxDataPoints	      "inf"
@@ -1455,7 +1456,7 @@ Model {
       Name		      "To Workspace1"
       SID		      "18"
       Ports		      [1]
-      Position		      [960, 180, 1020, 210]
+      Position		      [680, 120, 740, 150]
       ZOrder		      -7
       VariableName	      "y_Sat"
       MaxDataPoints	      "inf"
@@ -1464,14 +1465,14 @@ Model {
     Line {
       SrcBlock		      "MATLAB Function1"
       SrcPort		      1
-      Points		      [110, 0]
+      Points		      [15, 0; 0, -25]
       DstBlock		      "Integrator"
       DstPort		      2
     }
     Line {
       SrcBlock		      "MATLAB Function2"
       SrcPort		      1
-      Points		      [55, 0; 0, 75]
+      Points		      [15, 0; 0, 65]
       DstBlock		      "Integrator"
       DstPort		      1
     }
@@ -1484,20 +1485,20 @@ Model {
     Line {
       SrcBlock		      "Integrator1"
       SrcPort		      1
-      Points		      [10, 0]
+      Points		      [20, 0]
       Branch {
-	Points			[0, -165; -515, 0; 0, 60]
+	Points			[0, -160; -400, 0; 0, 65]
 	DstBlock		"MATLAB Function2"
 	DstPort			1
       }
       Branch {
-	Points			[25, 0]
+	Points			[15, 0]
 	Branch {
 	  DstBlock		  "MATLAB Function3"
 	  DstPort		  1
 	}
 	Branch {
-	  Points		  [0, -165]
+	  Points		  [0, -115]
 	  DstBlock		  "Demux"
 	  DstPort		  1
 	}
@@ -1506,9 +1507,9 @@ Model {
     Line {
       SrcBlock		      "MATLAB Function"
       SrcPort		      1
-      Points		      [25, 0]
+      Points		      [0, 15; 25, 0]
       Branch {
-	Points			[220, 0]
+	Points			[95, 0]
 	DstBlock		"Integrator1"
 	DstPort			2
       }
@@ -1527,13 +1528,13 @@ Model {
     Line {
       SrcBlock		      "Constant3"
       SrcPort		      1
+      Points		      [25, 0]
       DstBlock		      "MATLAB Function"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Constant2"
       SrcPort		      1
-      Points		      [60, 0; 0, 15]
       DstBlock		      "MATLAB Function"
       DstPort		      1
     }
@@ -1546,7 +1547,7 @@ Model {
     Line {
       SrcBlock		      "Constant"
       SrcPort		      1
-      Points		      [60, 0; 0, 25]
+      Points		      [20, 0; 0, 25]
       DstBlock		      "MATLAB Function1"
       DstPort		      1
     }
@@ -1565,14 +1566,14 @@ Model {
     Line {
       SrcBlock		      "Demux"
       SrcPort		      2
-      Points		      [30, 0; 0, 30]
+      Points		      [30, 0; 0, 20]
       DstBlock		      "To Workspace1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Demux"
       SrcPort		      1
-      Points		      [30, 0; 0, -30]
+      Points		      [30, 0; 0, -15]
       DstBlock		      "To Workspace"
       DstPort		      1
     }

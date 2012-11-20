@@ -797,10 +797,10 @@ static void init_dsm_address_info(SFc2_ErdorbitsInstanceStruct *chartInstance)
 /* SFunction Glue Code */
 void sf_c2_Erdorbits_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2244097622U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2011113658U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1848299274U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(389463087U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(527965298U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3709632113U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3163555673U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1166751399U);
 }
 
 mxArray *sf_c2_Erdorbits_get_autoinheritance_info(void)
@@ -812,7 +812,7 @@ mxArray *sf_c2_Erdorbits_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("kMYYNTXdlBYz1yJGNps0AE");
+    mxArray *mxChecksum = mxCreateString("r8tsBMNClQxb5yxwit7cD");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -970,7 +970,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,170);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,161);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -1015,7 +1015,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization()
 {
-  return "jLKX77vcKkHRZ29yRZtaSH";
+  return "AIknCIxdmSNhS7jq6IbBrB";
 }
 
 static void sf_opaque_initialize_c2_Erdorbits(void *chartInstanceVar)
@@ -1169,10 +1169,10 @@ static void mdlSetWorkWidths_c2_Erdorbits(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(943532550U));
-  ssSetChecksum1(S,(19410659U));
-  ssSetChecksum2(S,(4057738140U));
-  ssSetChecksum3(S,(1373044293U));
+  ssSetChecksum0(S,(2486617438U));
+  ssSetChecksum1(S,(2766947960U));
+  ssSetChecksum2(S,(4227979186U));
+  ssSetChecksum3(S,(2422366389U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }

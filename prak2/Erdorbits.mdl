@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.19"
+    ComputedModelVersion    "1.24"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "karo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Nov 16 11:21:14 2012"
-  RTWModifiedTimeStamp	  274965634
-  ModelVersionFormat	  "1.%<AutoIncrement:19>"
+  LastModifiedDate	  "Tue Nov 20 20:43:37 2012"
+  RTWModifiedTimeStamp	  275331564
+  ModelVersionFormat	  "1.%<AutoIncrement:24>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -67,7 +67,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Erdorbits"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -800,41 +799,41 @@ Model {
   }
   System {
     Name		    "Erdorbits"
-    Location		    [40, 82, 1307, 739]
+    Location		    [963, 124, 1806, 764]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
     PaperOrientation	    "landscape"
     PaperPositionMode	    "auto"
-    PaperType		    "A4"
+    PaperType		    "a4letter"
     PaperUnits		    "centimeters"
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "18"
+    SIDHighWatermark	    "19"
     Block {
       BlockType		      Clock
       Name		      "Clock"
       SID		      "15"
-      Position		      [790, 565, 810, 585]
+      Position		      [625, 435, 645, 455]
       ZOrder		      -4
     }
     Block {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "9"
-      Position		      [150, 295, 180, 325]
+      Position		      [235, 300, 265, 330]
       ZOrder		      -4
-      Value		      "3000"
+      Value		      "2995"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant1"
       SID		      "10"
-      Position		      [150, 345, 180, 375]
+      Position		      [235, 360, 265, 390]
       ZOrder		      -4
       Value		      "0"
     }
@@ -842,7 +841,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant2"
       SID		      "11"
-      Position		      [150, 450, 180, 480]
+      Position		      [235, 430, 265, 460]
       ZOrder		      -4
       Value		      "30"
     }
@@ -850,7 +849,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant3"
       SID		      "12"
-      Position		      [135, 498, 195, 542]
+      Position		      [220, 483, 280, 527]
       ZOrder		      -4
       Value		      "37000000"
     }
@@ -859,7 +858,7 @@ Model {
       Name		      "Demux"
       SID		      "16"
       Ports		      [1, 2]
-      Position		      [875, 136, 880, 174]
+      Position		      [795, 161, 800, 199]
       ZOrder		      -6
       ShowName		      off
       Outputs		      "2"
@@ -870,7 +869,7 @@ Model {
       Name		      "Display"
       SID		      "14"
       Ports		      [1]
-      Position		      [1000, 538, 1170, 612]
+      Position		      [785, 408, 955, 482]
       ZOrder		      -1
       Decimation	      "1"
       Lockdown		      off
@@ -879,7 +878,7 @@ Model {
       BlockType		      Gain
       Name		      "Gain"
       SID		      "13"
-      Position		      [860, 549, 935, 601]
+      Position		      [685, 419, 760, 471]
       ZOrder		      -11
       Gain		      "1/3600"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -891,7 +890,7 @@ Model {
       Name		      "Integrator"
       SID		      "6"
       Ports		      [2, 1]
-      Position		      [600, 276, 655, 334]
+      Position		      [525, 266, 580, 324]
       ZOrder		      -10
       InitialConditionSource  "external"
     }
@@ -900,7 +899,7 @@ Model {
       Name		      "Integrator1"
       SID		      "7"
       Ports		      [2, 1]
-      Position		      [735, 291, 800, 349]
+      Position		      [645, 281, 690, 339]
       ZOrder		      -10
       InitialConditionSource  "external"
     }
@@ -909,7 +908,7 @@ Model {
       Name		      "MATLAB Function"
       SID		      "2"
       Ports		      [2, 1]
-      Position		      [320, 446, 465, 524]
+      Position		      [320, 426, 465, 504]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1045,7 +1044,7 @@ Model {
       Name		      "MATLAB Function1"
       SID		      "3"
       Ports		      [3, 1]
-      Position		      [325, 319, 470, 401]
+      Position		      [325, 299, 470, 381]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1317,7 +1316,7 @@ Model {
       Name		      "MATLAB Function3"
       SID		      "5"
       Ports		      [1, 1]
-      Position		      [905, 274, 1075, 366]
+      Position		      [755, 264, 925, 356]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1437,7 +1436,7 @@ Model {
       BlockType		      Stop
       Name		      "Stop Simulation"
       SID		      "8"
-      Position		      [1140, 302, 1175, 338]
+      Position		      [955, 292, 990, 328]
       ZOrder		      -4
     }
     Block {
@@ -1445,7 +1444,7 @@ Model {
       Name		      "To Workspace"
       SID		      "17"
       Ports		      [1]
-      Position		      [960, 100, 1020, 130]
+      Position		      [880, 125, 940, 155]
       ZOrder		      -7
       VariableName	      "x_Sat"
       MaxDataPoints	      "inf"
@@ -1456,7 +1455,7 @@ Model {
       Name		      "To Workspace1"
       SID		      "18"
       Ports		      [1]
-      Position		      [960, 180, 1020, 210]
+      Position		      [880, 205, 940, 235]
       ZOrder		      -7
       VariableName	      "y_Sat"
       MaxDataPoints	      "inf"
@@ -1465,14 +1464,14 @@ Model {
     Line {
       SrcBlock		      "MATLAB Function1"
       SrcPort		      1
-      Points		      [110, 0]
+      Points		      [35, 0]
       DstBlock		      "Integrator"
       DstPort		      2
     }
     Line {
       SrcBlock		      "MATLAB Function2"
       SrcPort		      1
-      Points		      [55, 0; 0, 75]
+      Points		      [35, 0]
       DstBlock		      "Integrator"
       DstPort		      1
     }
@@ -1485,20 +1484,20 @@ Model {
     Line {
       SrcBlock		      "Integrator1"
       SrcPort		      1
-      Points		      [10, 0]
+      Points		      [15, 0]
       Branch {
-	Points			[0, -165; -515, 0; 0, 60]
+	Points			[0, -155; -420, 0; 0, 60]
 	DstBlock		"MATLAB Function2"
 	DstPort			1
       }
       Branch {
-	Points			[25, 0]
+	Points			[20, 0]
 	Branch {
 	  DstBlock		  "MATLAB Function3"
 	  DstPort		  1
 	}
 	Branch {
-	  Points		  [0, -165]
+	  Points		  [0, -130]
 	  DstBlock		  "Demux"
 	  DstPort		  1
 	}
@@ -1507,14 +1506,14 @@ Model {
     Line {
       SrcBlock		      "MATLAB Function"
       SrcPort		      1
-      Points		      [0, 15; 30, 0]
+      Points		      [30, 0]
       Branch {
-	Points			[220, 0]
+	Points			[100, 0; 0, -140]
 	DstBlock		"Integrator1"
 	DstPort			2
       }
       Branch {
-	Points			[0, -70; -190, 0]
+	Points			[0, -55; -190, 0]
 	DstBlock		"MATLAB Function1"
 	DstPort			3
       }
@@ -1528,7 +1527,7 @@ Model {
     Line {
       SrcBlock		      "Constant3"
       SrcPort		      1
-      Points		      [105, 0]
+      Points		      [15, 0; 0, -20]
       DstBlock		      "MATLAB Function"
       DstPort		      2
     }
@@ -1541,13 +1540,13 @@ Model {
     Line {
       SrcBlock		      "Constant1"
       SrcPort		      1
+      Points		      [20, 0; 0, -35]
       DstBlock		      "MATLAB Function1"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Constant"
       SrcPort		      1
-      Points		      [60, 0; 0, 25]
       DstBlock		      "MATLAB Function1"
       DstPort		      1
     }
@@ -1631,11 +1630,11 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function v0welt = vStart(v0, thetaDegree, x0)\n%#codegen\n\n% v0 - Startgeschwindigkeit\n% thetaD"
-      "egree Winket theta in Grad\n% x0 STartposition\n\nnE = x0 / norm(x0);     % Einheitsvektor in Normalrichtung fue"
-      "r x0\ntE = [nE(2) ; -nE(1)];  % Einheitvektor in Tangentialrichtung fuer x0\n\nvt = cosd(thetaDegree) * v0;    %"
-      " Tangentialkomponente fuer v0\nvn = sind(thetaDegree) * v0;    % Normalkomponente fuer v0\n\nv0welt = tE * vt + "
-      "nE * vn;     % Geschwindigkeitsvektor"
+      script		      "function v0welt = vStart(v0, thetaDegree, x0)\n\n% v0 - Startgeschwindigkeit\n% thetaDegree Winke"
+      "t theta in Grad\n% x0 STartposition\n\nnE = x0 / norm(x0);     % Einheitsvektor in Normalrichtung fuer x0\ntE = "
+      "[nE(2) ; -nE(1)];  % Einheitvektor in Tangentialrichtung fuer x0\n\nvt = cosd(thetaDegree) * v0;    % Tangential"
+      "komponente fuer v0\nvn = sind(thetaDegree) * v0;    % Normalkomponente fuer v0\n\nv0welt = tE * vt + nE * vn;   "
+      "  % Geschwindigkeitsvektor"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -1794,8 +1793,8 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function x0 = Startposition(deltaDegree, h0)\n%#codegen\nr = 6378000;   % Erdradius [m]\nh = r + "
-      "h0;    % Hypothenuse\nx0 = [cosd(deltaDegree) * h ; sind(deltaDegree) * h ];\n"
+      script		      "function x0 = Startposition(deltaDegree, h0)\n\nr = 6378000;   % Erdradius [m]\nh = r + h0;    % "
+      "Hypothenuse\nx0 = [cosd(deltaDegree) * h ; sind(deltaDegree) * h ];\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -1932,10 +1931,10 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function a = Beschleunigung(xAktuell)\n%#codegen\n\nxE = xAktuell / norm(xAktuell);   % Einheitsv"
-      "ektor fuer xAktuell\neSE = xE * (-1);    % Einheitsvektor vom Satelliten zu Erde - umgekehrte Richtung zu xE\n\n"
-      "r = norm(xAktuell); % Abstand von Erdmitte zum Satellit\n\nmE = 5.9736 * 10^24;    % Erdmasse in [kg]\nG = 66.74"
-      "3 * 10^-12;    % Gravitationskonstante in [m^3/kg*s^2]\n\na = G * mE / r^2 * eSE; % Beschleunigung"
+      script		      "function a = Beschleunigung(xAktuell)\n\nxE = xAktuell / norm(xAktuell);   % Einheitsvektor fuer "
+      "xAktuell\neSE = xE * (-1);    % Einheitsvektor vom Satelliten zu Erde - umgekehrte Richtung zu xE\n\nr = norm(xA"
+      "ktuell); % Abstand von Erdmitte zum Satellit\n\nmE = 5.9736 * 10^24;    % Erdmasse in [kg]\nG = 66.743 * 10^-12;"
+      "    % Gravitationskonstante in [m^3/kg*s^2]\n\na = G * mE / r^2 * eSE; % Beschleunigung"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -2050,8 +2049,8 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function endBedingung = Kontakt(xAktuell)\n%#codegen\n\nrErde = 6378000;\nxAbstand = norm(xAktuel"
-      "l);\n\nif (xAbstand > rErde) \n    endBedingung = 0;\nelse\n    endBedingung = 1;\nend\n\n"
+      script		      "function endBedingung = Kontakt(xAktuell)\n\nrErde = 6378000;\nxAbstand = norm(xAktuell);\n\nif ("
+      "xAbstand > rErde) \n    endBedingung = 0;\nelse\n    endBedingung = 1;\nend\n\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }

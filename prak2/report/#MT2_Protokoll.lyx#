@@ -431,7 +431,7 @@ Dabei ist
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $a=\sum F$
+\begin_inset Formula $a=F_{SE}$
 \end_inset
 
 
@@ -443,7 +443,7 @@ und folglich:
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $a=G\cdot\frac{m_{E}\cdot m_{S}}{r^{^{2}}}\cdot\overrightarrow{e_{SE}}$
+\begin_inset Formula $a=G\cdot\frac{m_{E}\cdot m_{S}}{r_{SE}^{^{2}}}\cdot\overrightarrow{e_{SE}}$
 \end_inset
 
 
@@ -451,7 +451,11 @@ und folglich:
 
 \begin_layout Standard
 wobei 
-\begin_inset Formula $r$
+\begin_inset Formula $F_{SE}$
+\end_inset
+
+ die Kraft die vom Satelliten zu Erde wirkt, 
+\begin_inset Formula $r_{SE}$
 \end_inset
 
  der Abstand von der Erdmitte zum Satelliten und 
@@ -917,6 +921,311 @@ Eine Kreisbahn innerhalb eines Tages
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Mondumkreisung
+\end_layout
+
+\begin_layout Standard
+In diesem Abschnitt wird die Simulation eines Satelliten, der von der Erde
+ zum Mond fliegt, vorgestellt.
+ Hierfür wird angenommen, dass sich der Mond nicht bewegt.
+\end_layout
+
+\begin_layout Standard
+Folgende Kennzehalen sind bekannt:
+\end_layout
+
+\begin_layout Standard
+Mondposition (fest): 
+\begin_inset Formula $x_{M}=(0,-380.000)^{^{T}}km$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mondmasse: 
+\begin_inset Formula $m_{M}=7,3480\cdot10^{^{22}}kg$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beschleunigung
+\end_layout
+
+\begin_layout Standard
+Für das Matlab-Modell wird die Funktion 
+\series bold
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+Beschleunigung
+\begin_inset Quotes erd
+\end_inset
+
+
+\series default
+\emph default
+ ergänzt, dass die vom Mond auf den Satelliten wirkende Kraft 
+\begin_inset Formula $F_{M}$
+\end_inset
+
+ berücksichtigt wird.
+ Diese wird wie folgt berechnet:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F_{SE}=G\cdot\frac{m_{E}}{r_{SE}^{^{2}}}\cdot\overrightarrow{e_{SE}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F_{SM}=G\cdot\frac{m_{M}}{r_{SM}^{^{2}}}\cdot\overrightarrow{e_{SM}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+wobei 
+\begin_inset Formula $m_{M}$
+\end_inset
+
+ die Mondmasse, 
+\begin_inset Formula $r_{SM}$
+\end_inset
+
+ die Entfernung vom Satelliten zu Mond und 
+\begin_inset Formula $\overrightarrow{e_{SM}}$
+\end_inset
+
+ der Einheitsvektor vom Satelliten zu Mond ist.
+\end_layout
+
+\begin_layout Standard
+Um die BEschleunigung des Satelliten zu errechnen nutzen wir:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula ${\textstyle \sum F=m\cdot a}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+wobei 
+\begin_inset Formula $m$
+\end_inset
+
+ die Masse des Satelliten ist und im Modell vernachlässigt wird.
+ Daraus folgt:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula ${\textstyle a}=F_{SE}+F_{SM}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die angepasste Matlab-Funktion sieht wie folgt aus:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},breaklines=true,numbers=left,numberstyle={\footnotesize}"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+function a = Beschleunigung(xAktuell)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+xE = xAktuell / norm(xAktuell);   % Einheiitsvektor fuer xAktuell 
+\end_layout
+
+\begin_layout Plain Layout
+
+eSE = xE * (-1);        % Einheitsvektor vom Satelliten zu Erde - umgekehrte
+ Richtung zu xE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+xM = [0; -380000000];   % Mondposition 
+\end_layout
+
+\begin_layout Plain Layout
+
+vSM = xM - xAktuell;    % Vektor vom Satelliten zum Mond 
+\end_layout
+
+\begin_layout Plain Layout
+
+rSM = norm(vSM); 
+\end_layout
+
+\begin_layout Plain Layout
+
+eSM = vSM / norm(vSM);  % Einheitsvektor vom Sat.
+ zu Mond
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+r = norm(xAktuell);     % Abstand von Erdmitte zum Satellit
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+mE = 5.9736 * 10^24;    % Erdmasse in [kg] 
+\end_layout
+
+\begin_layout Plain Layout
+
+mM = 7.3480 * 10^22;    % Mondmasse in [kg] 
+\end_layout
+
+\begin_layout Plain Layout
+
+G = 66.743 * 10^-12;    % Gravitationskonstante in [m^3/kg*s^2]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+F_SE = G * mE / r^2 * eSE; % Kraft auf Sat.
+ von der Erde 
+\end_layout
+
+\begin_layout Plain Layout
+
+F_SM = G * mM / rSM^2 * eSM; % Kraft auf Sat.
+ vom Mond
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+a = F_SE + F_SM;        % Beschleunigung 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Gesamtmodell kann man der folgenden Abbildung entnehmen:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ErdordMondModell.pdf
+	width 100line%
+	BoundingBox 1cm 3cm 28cm 18cm
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gesamtmodell in Matlab/Simulink
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Versuchsdurchführung
+\end_layout
+
+\begin_layout Standard
+Für die Durchführung der Simulation wurden folgende Einstellungen verwendet:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\delta_{0}=30^{^{\circ}}$
+\end_inset
+
+, 
+\begin_inset Formula $h_{0}=150km$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bei einer Startgeschwindigkeit 
+\begin_inset Formula $v_{0}=10,95\frac{km}{s}$
+\end_inset
+
+ und einem 
 \end_layout
 
 \end_body
