@@ -217,72 +217,6 @@ x0 = [cosd(deltaDegree) * h ; sind(deltaDegree) * h ];
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-lstset{stringstyle=
-\backslash
-ttfamily, numbers=left, numberstyle=
-\backslash
-small, stepnumber=1, numbersep=5pt}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lstlisting}[frame=single, stringstyle=
-\backslash
-ttfamily, firstnumber=1, basicstyle=
-\backslash
-small] 
-\end_layout
-
-\begin_layout Plain Layout
-
-function x0 = Startposition(deltaDegree, h0)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-r = 6378000;   % Erdradius [m] 
-\end_layout
-
-\begin_layout Plain Layout
-
-h = r + h0;    % Hypothenuse 
-\end_layout
-
-\begin_layout Plain Layout
-
-x0 = [cosd(deltaDegree) * h ; sind(deltaDegree) * h ];  
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsubsection*
 Startgeschwindigkeitsvektor
 \end_layout
@@ -1263,6 +1197,994 @@ Mondmission
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Crazy Pendulum
+\end_layout
+
+\begin_layout Standard
+In dem Modell des Crazy Pendulums soll simuliert werden, wie ein Pendel
+ (Quaderform), dass an einer Seiltrommel mit zwei Federn befestigt, sich
+ bewegt.
+ Dabei werden die Einflüsse der Pendelstange sowie der Seiltrommel in der
+ Simulation vernachlässigt.
+ Das System ist in der untenstehenden Grafik abgebildet:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Pendel_Bild_Aufgabenstellung.pdf
+	width 80line%
+	BoundingBox 2cm 16.199999999999999cm 11.300000000000001cm 23.699999999999999cm
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Crazy Pendulum
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im Modell bekannt gegeben werden: Pendelmasse 
+\begin_inset Formula $m[kg]$
+\end_inset
+
+, Abstand 
+\begin_inset Formula $L[m]$
+\end_inset
+
+, Quadermaße 
+\begin_inset Formula $w[m]$
+\end_inset
+
+,
+\begin_inset Formula $h[m]$
+\end_inset
+
+, Trommelradius 
+\begin_inset Formula $r[m]$
+\end_inset
+
+, Anfangsauslenkung des Pendels 
+\begin_inset Formula $\varphi_{0}[^{^{\circ}}]$
+\end_inset
+
+, Federkonstanten 
+\begin_inset Formula $c_{1}[\frac{N}{m}]$
+\end_inset
+
+, 
+\begin_inset Formula $c_{2}[\frac{N}{m}]$
+\end_inset
+
+.
+ Bestimmt wird die WInkelbeschleunigung 
+\begin_inset Formula $\varphi(t)$
+\end_inset
+
+, die im Matlab-Scope sowie in einem virtuellem Modell ausgegeben werden
+ soll.
+\end_layout
+
+\begin_layout Standard
+Folgende Kräfte wirken auf das modellierte Pendel:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pendel_bild_neu.jpg
+	width 60line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Freikörperbild des Pendels
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Drehmomente
+\end_layout
+
+\begin_layout Standard
+Die auf das Pendel wirkende Kraft ist die Gravitationskraft:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F_{G}=m\cdot g$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+wobei 
+\begin_inset Formula $g=9,81[\frac{m}{s^{^{2}}}]$
+\end_inset
+
+.
+ Da das Pendel um den Winkel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ geneigt ist, berechnen wir das wirkende Moment 
+\begin_inset Formula $M_{G}$
+\end_inset
+
+ wie folgt:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $M_{G}=F_{G}\cdot sin(\varphi)\cdot(L+\frac{h}{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Kraft, die auf eine gerade aufgespannte Feder wirkt, errechnet sich
+ wie folgt:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F_{F}=c_{i}\cdot f$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+wobei 
+\begin_inset Formula $i=\{1,2\}$
+\end_inset
+
+ ist und 
+\begin_inset Formula $f$
+\end_inset
+
+ die Auslenkung der Feder ist und kann wie folgt errechnet werden:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f=\varphi\cdot r$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das auf die gerade aufgespannte Feder wirkende Drehmoment errechnen wir
+ wie folgt:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $M_{F}=F_{F}\cdot r$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Trägheitsmoment
+\end_layout
+
+\begin_layout Standard
+Das Massenträgheitsmoment 
+\begin_inset Formula $J_{S}$
+\end_inset
+
+ für das Pendel errechnen wir wie folgt (Berechnung bei einer Quaderform
+ und unter Vernachlässigung der Pendelstange):
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $J_{S}=\frac{1}{12}\cdot m(w^{^{2}}+h^{^{2}})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dadurch, dass das Pendel nicht um den eigenen Mittelpunkt gedreht wird,
+ muss das Trägheitsmoment 
+\begin_inset Formula $J_{A}$
+\end_inset
+
+ nach dem Satz von Steiner errechnet werden:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $J_{A}=J_{S}+m\cdot(L+\frac{h}{2})^{^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Differenzialgleichung
+\end_layout
+
+\begin_layout Standard
+Aus den oben aufgeführten Schritten und unter Berücksichtigung des Drallsatzes
+ kann hergeleitet werden:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\sum M=J_{A}\cdot\ddot{\varphi}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+wo durch Umstellung der Formel die Winkelbeschleunigung 
+\begin_inset Formula $\ddot{\varphi}$
+\end_inset
+
+ bestimmt werden kann:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\ddot{\varphi}=\frac{M_{G}-M_{F}}{J_{A}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Matlab-Funktion zur Berechnung von 
+\begin_inset Formula $\ddot{\varphi}$
+\end_inset
+
+ sieht wie folgt aus:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},breaklines=true,numbers=left,numberstyle={\footnotesize}"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+function phiPP = fcn(m, l, w, h, r, phi, c)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+g = -9.81;  % Beschleinigung durch Gravitation 
+\end_layout
+
+\begin_layout Plain Layout
+
+FG = m * g; % Gravitationskraft 
+\end_layout
+
+\begin_layout Plain Layout
+
+MG = FG * sin(phi) * (l + h/2); % Drehmoment des Pendels
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+s = phi * r;    % Auslenkung 
+\end_layout
+
+\begin_layout Plain Layout
+
+FF = c * s;     % Federkraft 
+\end_layout
+
+\begin_layout Plain Layout
+
+MF = FF * r;    % Drehmoment der Feder
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+JS = 1/12 * m * (w^2 + h^2);    % Massentraegheitsmoments des Quaders 
+\end_layout
+
+\begin_layout Plain Layout
+
+JA = JS + m * (l + h/2)^2;      % Mass.tr.moment nach Satz von Steiner
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+phiPP = (MG - MF)/JA;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das vollständige Simulink Schaltbild kann der unten stehenden Abbildung
+ entnommen werden:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename CrazyPendulumSchaltbild.pdf
+	width 100line%
+	BoundingBox 3cm 2.5cm 26.5cm 18.5cm
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gesamtmodell in Matlab/Simulink
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Versuchsdurchführung
+\end_layout
+
+\begin_layout Standard
+Bei der Durchführung des Versuches galten folgende Voreinstellungen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L=1m$
+\end_inset
+
+, 
+\begin_inset Formula $r=0.3m$
+\end_inset
+
+, 
+\begin_inset Formula $w=0.3m$
+\end_inset
+
+, 
+\begin_inset Formula $h=0.2m$
+\end_inset
+
+, 
+\begin_inset Formula $c_{1}=5000\frac{N}{m}$
+\end_inset
+
+, 
+\begin_inset Formula $c_{2}=500000\frac{N}{m}$
+\end_inset
+
+, 
+\begin_inset Formula $\varphi=45^{^{\circ}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bei einer Simulationszeit von 6s ergibt sich folgender Scope-Abbild:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename PendelScope.png
+	width 70line%
+	BoundingBox 3cm 2.5cm 26.5cm 18.5cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In der 3-D Visualisierung sieht man deutlich, dass das Pendel sehr stark
+ von der Feder mit der größeren Federkonstante beeinflusst wird:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pendel_3d.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pendel 3-D
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Schwingungsgedämpfter Tisch
+\end_layout
+
+\begin_layout Standard
+In der Modellierung des schiwngungsgedämpfen Tisches handelt es sich um
+ zwei Tischplatten, die mit jeweils zwei Federn sowie mit zwei Dämpfern
+ verbunden sind (siehe Bild unten).
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename tisch_pr-aufgabe.pdf
+	BoundingBox 2.5cm 9.3000000000000007cm 11.300000000000001cm 14.5cm
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Schwingungsgedämpfter Tisch-Modell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diese sind auf einem Untergrund befestigt, der in der Simulation durch einen
+ Impuls in Bewegung gesetzt wird, wodurch eine Schwingung der beiden Tischplatte
+n beobachtet werden kann.
+ Ein Freikörperbild des Systems mit den angreifenden Kräften kann der unten
+ stehenden Abbildung entnommen werden: 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename tisch_freibild.png
+	width 60line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Schwingungsgedämpfter Tisch im Freikörperbild
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die für die Simulation vorgegebenen Kenngrößen sind: Masse der oberen Tischplatt
+e 
+\begin_inset Formula $m_{1}[kg]$
+\end_inset
+
+, Masse der zweiten Tischplatte 
+\begin_inset Formula $m_{2}[kg]$
+\end_inset
+
+, Federkonstante der äußeren Feder 
+\begin_inset Formula $c_{1}[\frac{N}{m}]$
+\end_inset
+
+, Federkonstante der inneren Feder 
+\begin_inset Formula $c_{2}[\frac{N}{m}]$
+\end_inset
+
+, Dämpfungskonstante des Dämpfers 
+\begin_inset Formula $d[\frac{N\cdot s}{m}]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Differenzialgleichungen
+\end_layout
+
+\begin_layout Standard
+Die auf das System wirkenden Kräfte sind folgende
+\end_layout
+
+\begin_layout Itemize
+Gravitationskraft: 
+\begin_inset Formula $F_{G}=m\cdot g$
+\end_inset
+
+, wobei 
+\begin_inset Formula $g$
+\end_inset
+
+ die Erdbeschleunigung ist und beträgt ca.
+ 
+\begin_inset Formula $9,81[\frac{m}{s^{^{2}}}]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Federkraft: 
+\begin_inset Formula $F_{F}=c\cdot x$
+\end_inset
+
+, wobei 
+\begin_inset Formula $x$
+\end_inset
+
+ die Auslengung der Feder beschreibt
+\end_layout
+
+\begin_layout Itemize
+Dämpfungskraft 
+\begin_inset Formula $F_{D}=d\cdot\dot{x}$
+\end_inset
+
+, wobei 
+\begin_inset Formula $\dot{x}$
+\end_inset
+
+ die Geschwindigkeit des Dämpfers beschreibt
+\end_layout
+
+\begin_layout Standard
+Auf dem Schwerpunktsatz ergibt sich:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\sum F=m\cdot\ddot{x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für unser System (sihe Freikörpebild) können demnach folgende Differenzialgleich
+ungen abgeleitet werden:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $-F_{G_{1}}-F_{F_{1}}+F_{D}=\ddot{x_{1}}\cdot m_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $-F_{G_{2}}-F_{F_{2}}+F_{D}=\ddot{x_{2}}\cdot m_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+woraus sich ergibt:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\ddot{x_{1}}=\frac{-F_{G_{1}}-F_{F_{1}}+F_{D}}{m_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\ddot{x_{2}}=\frac{-F_{G_{2}}-F_{F_{2}}+F_{D}}{m_{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durch das Einsetzen der Formeln erahlten wir:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\ddot{x_{1}}=\frac{-m_{1}\cdot g-2\cdot c_{1}\cdot(x_{1}-u)+2\cdot d\cdot(\dot{x_{2}}-\dot{x_{1}})}{m_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\ddot{x_{2}}=\frac{-m_{2}\cdot g-2\cdot c_{2}\cdot(x_{2}-u)-2\cdot d\cdot(\dot{x_{2}}-\dot{x_{1}})}{m_{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dabei ist 
+\begin_inset Formula $u$
+\end_inset
+
+ der Abstand, um den das System schlagartig bewegt wird und somit ins Schwingen
+ kommt.
+\end_layout
+
+\begin_layout Standard
+Die Matlab-Funktionen ssehen dann folgendermaßen aus:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},breaklines=true,numbers=left,numberstyle={\footnotesize}"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+function x1PP = fcn(m1, c1, d, x1, x1P, x2P, u)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+g = 9.81;   % Erdbechleunigung
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x1PP = (-m1*g - 2*c1*(x1 - u) + 2*d*(x2P - x1P)) / m1;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},breaklines=true,numbers=left,numberstyle={\footnotesize}"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+function x2PP = fcn(m2, c2, d, x2, x1P, x2P, u)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+g = 9.81;   % Erdbechleunigung
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x2PP = (-m2*g - 2*c2*(x2 - u) - 2*d*(x2P - x1P)) / m2;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das gesamte Simulink-Schaltbild kann der untenstehenden Abbildung entnommen
+ werden:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename tisch_schaltbild.pdf
+	width 100line%
+	BoundingBox 2.5cm 1cm 27cm 20cm
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gesamtmodell in Matlab/Simulink
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+System in Ruhelage
+\end_layout
+
+\begin_layout Standard
+.....
+\end_layout
+
+\begin_layout Subsubsection*
+Versuchsdurchführung
+\end_layout
+
+\begin_layout Standard
+Bei der Durchführung des Versuchs gelten folgende Voreinstellungen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c_{1}=15000\frac{N}{m}$
+\end_inset
+
+, 
+\begin_inset Formula $c_{2}=10000\frac{N}{m}$
+\end_inset
+
+, 
+\begin_inset Formula $d=600\frac{N\cdot s}{m}$
+\end_inset
+
+, 
+\begin_inset Formula $m_{1}=60kg$
+\end_inset
+
+, 
+\begin_inset Formula $m_{2}=450kg$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das System wird mit einem Sprung auf den Tisch 
+\begin_inset Formula $u=1mm$
+\end_inset
+
+ in Bewegung versetzt.
+\end_layout
+
+\begin_layout Standard
+Folgende Ausgabe ergibt das Scope der Simulink-Schaltung nach 6s von Simulation
+ (obere Ausgabe für die obere und untere Ausgabe für die untere Tischplatte):
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename tisch_scope_001.jpg
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Scope-Ausgabe
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 

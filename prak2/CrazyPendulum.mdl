@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3"
+    ComputedModelVersion    "1.5"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "karo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Nov 15 21:19:33 2012"
-  RTWModifiedTimeStamp	  274913208
-  ModelVersionFormat	  "1.%<AutoIncrement:3>"
+  LastModifiedDate	  "Wed Nov 21 13:44:25 2012"
+  RTWModifiedTimeStamp	  275402502
+  ModelVersionFormat	  "1.%<AutoIncrement:5>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -67,8 +67,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "CrazyPendulum"
-    signals_		    []
-    overrideMode_	    [0U]
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
@@ -816,14 +815,14 @@ Model {
   }
   System {
     Name		    "CrazyPendulum"
-    Location		    [106, 150, 1113, 913]
+    Location		    [2, 74, 1364, 717]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
     PaperOrientation	    "landscape"
     PaperPositionMode	    "auto"
-    PaperType		    "A4"
+    PaperType		    "a4letter"
     PaperUnits		    "centimeters"
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
@@ -835,7 +834,7 @@ Model {
       BlockType		      Constant
       Name		      "Drehe um y-Achse"
       SID		      "19"
-      Position		      [470, 539, 530, 581]
+      Position		      [300, 449, 360, 491]
       ZOrder		      -4
       Value		      "[0 1 0]"
     }
@@ -859,7 +858,7 @@ Model {
       BlockType		      Gain
       Name		      "Gain"
       SID		      "11"
-      Position		      [510, 272, 570, 318]
+      Position		      [365, 307, 425, 353]
       ZOrder		      -8
       Gain		      "pi/180"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -871,7 +870,7 @@ Model {
       Name		      "Integrator"
       SID		      "1"
       Ports		      [1, 1]
-      Position		      [525, 145, 555, 175]
+      Position		      [380, 140, 410, 170]
       ZOrder		      -2
     }
     Block {
@@ -879,7 +878,7 @@ Model {
       Name		      "Integrator1"
       SID		      "2"
       Ports		      [2, 1]
-      Position		      [605, 147, 635, 178]
+      Position		      [485, 147, 515, 178]
       ZOrder		      -2
       InitialConditionSource  "external"
     }
@@ -888,7 +887,7 @@ Model {
       Name		      "MATLAB Function"
       SID		      "4"
       Ports		      [7, 1]
-      Position		      [230, 148, 390, 282]
+      Position		      [230, 148, 315, 282]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1107,7 +1106,7 @@ Model {
       Name		      "Mux"
       SID		      "18"
       Ports		      [2, 1]
-      Position		      [650, 501, 655, 539]
+      Position		      [415, 421, 420, 459]
       ZOrder		      -12
       ShowName		      off
       Inputs		      "2"
@@ -1134,10 +1133,10 @@ Model {
       Name		      "Scope"
       SID		      "15"
       Ports		      [1]
-      Position		      [760, 229, 790, 261]
+      Position		      [580, 229, 610, 261]
       ZOrder		      -3
       Floating		      off
-      Location		      [1, 48, 1921, 1079]
+      Location		      [5, 47, 1367, 762]
       Open		      off
       NumInputPorts	      "1"
       List {
@@ -1169,7 +1168,7 @@ Model {
       BlockType		      Constant
       Name		      "Startwinkel in Grad"
       SID		      "10"
-      Position		      [435, 280, 465, 310]
+      Position		      [290, 315, 320, 345]
       ZOrder		      -4
       Value		      "45"
     }
@@ -1195,7 +1194,7 @@ Model {
       Name		      "VR Signal Expander"
       SID		      "16"
       Ports		      [1, 1]
-      Position		      [705, 495, 790, 545]
+      Position		      [450, 415, 535, 465]
       ZOrder		      -6
       LibraryVersion	      "1.11"
       SourceBlock	      "vrlib/VR Signal Expander"
@@ -1208,7 +1207,7 @@ Model {
       Name		      "VR Sink"
       SID		      "17"
       Ports		      [1]
-      Position		      [865, 495, 950, 545]
+      Position		      [560, 415, 645, 465]
       ZOrder		      -7
       LibraryVersion	      "1.11"
       SourceBlock	      "vrlib/VR Sink"
@@ -1226,7 +1225,6 @@ Model {
     Line {
       SrcBlock		      "Integrator"
       SrcPort		      1
-      Points		      [30, 0]
       DstBlock		      "Integrator1"
       DstPort		      1
     }
@@ -1287,15 +1285,15 @@ Model {
     Line {
       SrcBlock		      "Integrator1"
       SrcPort		      1
-      Points		      [70, 0; 0, 80]
+      Points		      [20, 0; 0, 80]
       Branch {
 	DstBlock		"Scope"
 	DstPort			1
       }
       Branch {
-	Points			[0, 145; -230, 0]
+	Points			[0, 145; -245, 0]
 	Branch {
-	  Points		  [-275, 0]
+	  Points		  [-90, 0]
 	  Branch {
 	    Points		    [0, -135]
 	    DstBlock		    "MATLAB Function"
@@ -1308,7 +1306,7 @@ Model {
 	  }
 	}
 	Branch {
-	  Points		  [0, 120]
+	  Points		  [0, 40]
 	  DstBlock		  "Mux"
 	  DstPort		  1
 	}
@@ -1317,14 +1315,14 @@ Model {
     Line {
       SrcBlock		      "Gain"
       SrcPort		      1
-      Points		      [5, 0; 0, -125]
+      Points		      [5, 0; 0, -160]
       DstBlock		      "Integrator1"
       DstPort		      2
     }
     Line {
       SrcBlock		      "MATLAB Function"
       SrcPort		      1
-      Points		      [55, 0; 0, -55]
+      Points		      [25, 0; 0, -60]
       DstBlock		      "Integrator"
       DstPort		      1
     }
@@ -1338,7 +1336,7 @@ Model {
     Line {
       SrcBlock		      "Drehe um y-Achse"
       SrcPort		      1
-      Points		      [50, 0; 0, -30]
+      Points		      [15, 0; 0, -20]
       DstBlock		      "Mux"
       DstPort		      2
     }
@@ -1384,8 +1382,6 @@ Stateflow {
     viewObj		    2
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -1410,11 +1406,11 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function phiPP = fcn(m, l, w, h, r, phi, c)\n%#codegen\ng = -9.81;  % Beschleinigung durch Gravit"
-      "ation\nFG = m * g; % Gravitationskraft\nMG = FG * sin(phi) * (l + h/2); % Drehmoment des Pendels\n\ns = phi * r;"
-      "    % Auslenkung\nFF = c * s;     % Federkraft\nMF = FF * r;    % Drehmoment der Feder\n\nJS = 1/12 * m * (w^2 +"
-      " h^2);    % Massentraegheitsmoments des Quaders\nJA = JS + m * (l + h/2)^2;      % Mass.tr.moment nach Satz von "
-      "Steiner\n\nphiPP = (MG - MF)/JA;"
+      script		      "function phiPP = fcn(m, l, w, h, r, phi, c)\n\ng = -9.81;  % Beschleinigung durch Gravitation\nFG"
+      " = m * g; % Gravitationskraft\nMG = FG * sin(phi) * (l + h/2); % Drehmoment des Pendels\n\ns = phi * r;    % Aus"
+      "lenkung\nFF = c * s;     % Federkraft\nMF = FF * r;    % Drehmoment der Feder\n\nJS = 1/12 * m * (w^2 + h^2);   "
+      " % Massentraegheitsmoments des Quaders\nJA = JS + m * (l + h/2)^2;      % Mass.tr.moment nach Satz von Steiner\n"
+      "\nphiPP = (MG - MF)/JA;"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
