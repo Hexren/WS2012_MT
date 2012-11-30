@@ -98,13 +98,13 @@ Erdumkreisung, Fluchtgeschwindigkeit und geostationäre Bahn
 \end_layout
 
 \begin_layout Standard
-Im Folgenmden wird beschrieben, wie eine antribslose Phase eines Satelliten,
- der mit einer Trägerrakete in eine Startposition 
+Im Folgenden wird beschrieben, wie die antriebslose Phase eines Satelliten
+ verläuft, der vermittels einer Trägerrakete in eine Startposition 
 \begin_inset Formula $x_{0}$
 \end_inset
 
- gebracht wird und dann antrieblos weiter fliegt.
- Dabei ist der Einfluss des Satelliten auf die Erde zu vernachlässigen.
+ gebracht wird um dann antrieblos weiter zu fliegen.
+ Der Einfluss des Satelliten auf die Erde wird hier vernachlässigt.
  
 \end_layout
 
@@ -230,7 +230,7 @@ Im nächsten Schritt wird der Startgeschwindigkeitswektor
  Hierfür werden zunächst die Einheitsvektoren in Tangential- sowie Normalrichtun
 g konstruiert.
  Danach werden die Tangential- und Normalkomponente der Startgeschwindigkeit
- berechnet, wobei daraus die Startgeschwindigkeit zusammengebaust wird.
+ berechnet, wobei daraus die Startgeschwindigkeit zusammengebaut wird.
  Die Funktion 
 \series bold
 \emph on
@@ -329,8 +329,8 @@ Beschleunigung
 \end_layout
 
 \begin_layout Standard
-Zur Berechnung der Beschleunigung des Satellitens wird die stets aktuelle
- Position des Satellitens benötigt.
+Zur Berechnung der Beschleunigung des Satellitens wird die aktuelle Position
+ des Satellitens benötigt.
  Durch die Summierung der Kräfte:
 \end_layout
 
@@ -388,7 +388,7 @@ wobei
 \begin_inset Formula $F_{SE}$
 \end_inset
 
- die Kraft die vom Satelliten zu Erde wirkt, 
+ die Kraft die von der Erde zum Satelliten wirkt, 
 \begin_inset Formula $r_{SE}$
 \end_inset
 
@@ -508,7 +508,7 @@ Kontakt
 
 \series default
 \emph default
- geschrieben, die dies kontrolliert und wie folgt ausschaut:
+ geschrieben, die dies kontrolliert und wie folgt aufgebaut ist:
 \end_layout
 
 \begin_layout Standard
@@ -705,7 +705,7 @@ Eine Kreisbahn in gleicher Höhe
 \end_layout
 
 \begin_layout Itemize
-Entfliehen der Erde
+Entfliehung der Erdanziehungskraft
 \end_layout
 
 \begin_layout Standard
@@ -808,7 +808,7 @@ Bei einer Starthöhe von
 \begin_inset Formula $v_{0}=2,995\frac{km}{s}$
 \end_inset
 
- umkreist der Satellit die Erde ein Mal bei der Simulationszeit von 
+ umkreist der Satellit die Erde ein Mal in Simulierten 
 \begin_inset Formula $24h$
 \end_inset
 
@@ -863,12 +863,12 @@ Mondumkreisung
 
 \begin_layout Standard
 In diesem Abschnitt wird die Simulation eines Satelliten, der von der Erde
- zum Mond fliegt, vorgestellt.
- Hierfür wird angenommen, dass sich der Mond nicht bewegt.
+ zum Mond fliegt vorgestellt.
+ Hier wird angenommen, dass sich der Mond nicht bewegt.
 \end_layout
 
 \begin_layout Standard
-Folgende Kennzehalen sind bekannt:
+Folgende Kennzahlen sind bekannt:
 \end_layout
 
 \begin_layout Standard
@@ -906,7 +906,7 @@ Beschleunigung
 
 \series default
 \emph default
- ergänzt, dass die vom Mond auf den Satelliten wirkende Kraft 
+ ergänzt, so das die vom Mond auf den Satelliten wirkende Kraft 
 \begin_inset Formula $F_{M}$
 \end_inset
 
@@ -939,7 +939,7 @@ wobei
 \begin_inset Formula $r_{SM}$
 \end_inset
 
- die Entfernung vom Satelliten zu Mond und 
+ die Entfernung vom Satelliten zum Mond und 
 \begin_inset Formula $\overrightarrow{e_{SM}}$
 \end_inset
 
@@ -947,7 +947,7 @@ wobei
 \end_layout
 
 \begin_layout Standard
-Um die BEschleunigung des Satelliten zu errechnen nutzen wir:
+Um die Beschleunigung des Satelliten zu errechnen nutzen wir:
 \end_layout
 
 \begin_layout Standard
@@ -1093,7 +1093,7 @@ a = F_SE + F_SM;        % Beschleunigung
 \end_layout
 
 \begin_layout Standard
-Das Gesamtmodell kann man der folgenden Abbildung entnehmen:
+Das Gesamtmodell kann der folgenden Abbildung entnehmen:
 \end_layout
 
 \begin_layout Standard
@@ -1210,9 +1210,9 @@ Crazy Pendulum
 \end_layout
 
 \begin_layout Standard
-In dem Modell des Crazy Pendulums soll simuliert werden, wie ein Pendel
- (Quaderform), dass an einer Seiltrommel mit zwei Federn befestigt, sich
- bewegt.
+Mit dem Modell des Crazy Pendulums soll simuliert werden, wie ein Pendel
+ (Quaderform), dass an einer Seiltrommel mit zwei Federn befestigt ist,
+ sich bewegt.
  Dabei werden die Einflüsse der Pendelstange sowie der Seiltrommel in der
  Simulation vernachlässigt.
  Das System ist in der untenstehenden Grafik abgebildet:
@@ -1224,7 +1224,7 @@ In dem Modell des Crazy Pendulums soll simuliert werden, wie ein Pendel
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1290,12 +1290,12 @@ Im Modell bekannt gegeben werden: Pendelmasse
 \end_inset
 
 .
- Bestimmt wird die WInkelbeschleunigung 
+ Zu bestimmen ist die Winkelbeschleunigung 
 \begin_inset Formula $\varphi(t)$
 \end_inset
 
-, die im Matlab-Scope sowie in einem virtuellem Modell ausgegeben werden
- soll.
+, die über ein Matlab-Scope sowie in einem virtuellem Modell ausgegeben
+ werden soll.
 \end_layout
 
 \begin_layout Standard
@@ -1400,11 +1400,11 @@ wobei
 \begin_inset Formula $i=\{1,2\}$
 \end_inset
 
- ist und 
+ und 
 \begin_inset Formula $f$
 \end_inset
 
- die Auslenkung der Feder ist und kann wie folgt errechnet werden:
+ die Auslenkung der Feder ist sie kann wie folgt errechnet werden:
 \end_layout
 
 \begin_layout Standard
@@ -1484,11 +1484,11 @@ Aus den oben aufgeführten Schritten und unter Berücksichtigung des Drallsatzes
 \end_layout
 
 \begin_layout Standard
-wo durch Umstellung der Formel die Winkelbeschleunigung 
+durch Umstellung der Formel kann die Winkelbeschleunigung 
 \begin_inset Formula $\ddot{\varphi}$
 \end_inset
 
- bestimmt werden kann:
+ bestimmt werden:
 \end_layout
 
 \begin_layout Standard
@@ -1667,7 +1667,7 @@ Bei der Durchführung des Versuches galten folgende Voreinstellungen:
 \end_layout
 
 \begin_layout Standard
-Bei einer Simulationszeit von 6s ergibt sich folgender Scope-Abbild:
+Bei einer Simulationszeit von 6s ergibt sich das folgende Scope-Abbild:
 \end_layout
 
 \begin_layout Standard
@@ -1744,7 +1744,7 @@ Schwingungsgedämpfter Tisch
 \end_layout
 
 \begin_layout Standard
-In der Modellierung des schiwngungsgedämpfen Tisches handelt es sich um
+In der Modellierung des schwingungsgedämpfen Tisches handelt es sich um
  zwei Tischplatten, die mit jeweils zwei Federn sowie mit zwei Dämpfern
  verbunden sind (siehe Bild unten).
 \end_layout
@@ -1800,7 +1800,7 @@ n beobachtet werden kann.
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1872,12 +1872,12 @@ Gravitationskraft:
 \begin_inset Formula $g$
 \end_inset
 
- die Erdbeschleunigung ist und beträgt ca.
+ die Erdbeschleunigung ist und ca.
  
 \begin_inset Formula $9,81[\frac{m}{s^{^{2}}}]$
 \end_inset
 
-
+ beträgt.
 \end_layout
 
 \begin_layout Itemize
@@ -1889,7 +1889,7 @@ Federkraft:
 \begin_inset Formula $x$
 \end_inset
 
- die Auslengung der Feder beschreibt
+ die Auslenkung der Feder beschreibt
 \end_layout
 
 \begin_layout Itemize
@@ -1905,7 +1905,7 @@ Dämpfungskraft
 \end_layout
 
 \begin_layout Standard
-Auf dem Schwerpunktsatz ergibt sich:
+Aus dem Schwerpunktsatz ergibt sich:
 \end_layout
 
 \begin_layout Standard
@@ -1917,8 +1917,8 @@ Auf dem Schwerpunktsatz ergibt sich:
 \end_layout
 
 \begin_layout Standard
-Für unser System (sihe Freikörpebild) können demnach folgende Differenzialgleich
-ungen abgeleitet werden:
+Für unser System (siehe Freikörperbild) können demnach folgende Differenzialglei
+chungen abgeleitet werden:
 \end_layout
 
 \begin_layout Standard
@@ -1987,7 +1987,7 @@ dabei ist
 \end_layout
 
 \begin_layout Standard
-Die Matlab-Funktionen ssehen dann folgendermaßen aus:
+Die Matlab-Funktionen sehen dann folgendermaßen aus:
 \end_layout
 
 \begin_layout Standard
@@ -2102,6 +2102,14 @@ Gesamtmodell in Matlab/Simulink
 \end_layout
 
 \begin_layout Subsubsection*
+System in Ruhelage
+\end_layout
+
+\begin_layout Standard
+.....
+\end_layout
+
+\begin_layout Subsubsection*
 Versuchsdurchführung
 \end_layout
 
@@ -2141,7 +2149,7 @@ Das System wird mit einem Sprung auf den Tisch
 \end_layout
 
 \begin_layout Standard
-Folgende Ausgabe ergibt das Scope der Simulink-Schaltung nach 6s von Simulation
+Folgende Ausgabe ergibt das Scope der Simulink-Schaltung nach 6s Simulation
  (obere Ausgabe für die obere und untere Ausgabe für die untere Tischplatte):
 \end_layout
 
