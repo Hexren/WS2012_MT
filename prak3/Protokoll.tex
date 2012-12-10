@@ -1,0 +1,107 @@
+\documentclass[10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage[ngerman]{babel}
+\usepackage[automark]{scrpage2}
+\usepackage{amsmath,amssymb,amstext}
+%\usepackage{mathtools}
+
+\usepackage[]{enumerate}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage[perpage,para,symbol*]{footmisc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=matlab,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+\usepackage[pdfborder={0 0 0},colorlinks=false]{hyperref}
+\usepackage[numbers,square]{natbib}
+\usepackage{float}
+
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt, breaklines=true, showstringspaces=false} 
+
+%changehere
+\def\titletext{Praktikum 3}
+\def\titletextshort{Praktikum 3}
+\author{Oliver Steenbuck, Karolina Bernat}
+
+\title{\titletext}
+
+%changehere Datum der Übung
+\date{12.12.2012}
+
+\pagestyle{scrheadings}
+%changehere
+\ihead{MT, Pareigis}
+\ifoot{Generiert am:\\ \today}
+
+\cfoot{Karolina Bernat, Oliver Steenbuck}
+
+
+\ohead[]{\titletextshort}
+\ofoot[]{{\thepage} / \pageref{LastPage}}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.1in}
+
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{3}
+\tableofcontents
+\listoffigures
+\lstlistoflistings
+
+
+\section{Rakete}
+
+	\subsection{StufenGemeinsam}
+	In dieser Phase wird die gesamte Rakete durch Stufe 1 beschleunigt.
+	
+	Die Masse der Rakete ergibt sich also aus.
+	\begin{align}
+	m_{\text{Rakete}} = m_1 + m_2
+	\end{align}
+
+	Die Schubkraft der Rakete ergibt sich hier durch
+	\begin{align}
+	F_s = \text{Durchsatz}_1 \times \text{SchubProDurchsatz}
+	\end{align}
+
+	Die Erdanziehung die auf die Rakete wirkt kann durch berechnet werden.
+	\begin{align}
+	F_e = \frac{G * m_{\text{erde}} * m_{\text{Rakete}}}{r_{\text{erde}}^2}
+	\end{align}
+	
+	Gegeben die oben berechneten Werten können wir nun die Beschleunigung der Rakete berechnen durch:
+	\begin{align}
+	a_{\text{Rakete}} = \frac{F_s - F_e}{m_{\text{Rakete}}}
+	\end{align}
+
+\section{Tisch}	
+		
+\end{document}
+
