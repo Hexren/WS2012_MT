@@ -1,12 +1,12 @@
 Model {
   Name			  "Rakete"
-  Version		  7.9
+  Version		  7.7
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.15"
+    ComputedModelVersion    "1.17"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -19,25 +19,23 @@ Model {
   DataTypeOverrideAppliesTo "AllNumericTypes"
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
-  FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   Created		  "Fri Nov 30 10:52:16 2012"
   Creator		  "karo"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "karo"
+  LastModifiedBy	  "hexren"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Nov 30 13:00:15 2012"
-  RTWModifiedTimeStamp	  276177688
-  ModelVersionFormat	  "1.%<AutoIncrement:15>"
+  LastModifiedDate	  "Fri Dec  7 11:02:37 2012"
+  RTWModifiedTimeStamp	  276778681
+  ModelVersionFormat	  "1.%<AutoIncrement:17>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
-  LibraryLinkDisplay	  "disabled"
+  LibraryLinkDisplay	  "none"
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
-  ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
   ShowStorageClass	  off
@@ -67,8 +65,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Rakete"
-    signals_		    []
-    overrideMode_	    [0U]
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
@@ -125,13 +122,13 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      2
-      Version		      "1.12.0"
+      Version		      "1.11.0"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
 	  $ObjectID		  3
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  StartTime		  "0.0"
 	  StopTime		  "10.0"
 	  AbsTol		  "auto"
@@ -149,7 +146,6 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
-	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
@@ -166,7 +162,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  4
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -198,7 +194,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  5
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -217,7 +213,6 @@ Model {
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
-	  UseFloatMulNetSlope	  off
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
@@ -250,11 +245,11 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
-	  ParallelExecutionInRapidAccelerator on
+	  AccelParallelForEachSubsystem	on
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  6
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -309,7 +304,6 @@ Model {
 	  UnconnectedOutputMsg	  "warning"
 	  UnconnectedLineMsg	  "warning"
 	  SFcnCompatibilityMsg	  "none"
-	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
@@ -338,11 +332,10 @@ Model {
 	  SFInvalidInputDataAccessInChartInitDiag "warning"
 	  SFNoUnconditionalDefaultTransitionDiag "warning"
 	  SFTransitionOutsideNaturalParentDiag "warning"
-	  SFUnconditionalTransitionShadowingDiag "warning"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  7
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -379,7 +372,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  8
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -394,7 +387,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  9
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -409,7 +402,7 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  10
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    9
@@ -453,9 +446,8 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
-	  GenerateWebview	  off
+	  GenerateSLWebview	  off
 	  GenerateCodeMetricsReport off
-	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
@@ -464,7 +456,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      11
-	      Version		      "1.12.0"
+	      Version		      "1.11.0"
 	      Array {
 		Type			"Cell"
 		Dimension		21
@@ -529,7 +521,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      12
-	      Version		      "1.12.0"
+	      Version		      "1.11.0"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -554,10 +546,12 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      CodeReplacementLibrary  "ANSI_C"
+	      TargetFunctionLibrary   "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      FunctionExecutionProfile off
 	      CodeExecutionProfiling  off
+	      ERTCodeCoverageTool     "None"
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
@@ -567,7 +561,6 @@ Model {
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
-	      ConcurrentExecutionCompliant on
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Disable all"
 	      CombineOutputUpdateFcns on
@@ -592,7 +585,6 @@ Model {
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
-	      GRTInterface	      off
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -622,7 +614,6 @@ Model {
     $PropName		    "ActiveConfigurationSet"
     $ObjectID		    2
   }
-  ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -699,7 +690,6 @@ Model {
       YMax		      "5"
       SaveToWorkspace	      off
       SaveName		      "ScopeData"
-      DataFormat	      "Array"
       LimitDataPoints	      on
       MaxDataPoints	      "5000"
       Decimation	      "1"
@@ -725,7 +715,6 @@ Model {
       DataTypeOverride	      "UseLocalSettings"
       DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
-      SFBlockType	      "NONE"
       Variant		      off
       GeneratePreprocessorConditionals off
     }
@@ -735,7 +724,7 @@ Model {
   }
   System {
     Name		    "Rakete"
-    Location		    [687, 227, 1223, 516]
+    Location		    [603, 435, 1139, 724]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -756,7 +745,6 @@ Model {
       SID		      "3"
       Ports		      []
       Position		      [190, 75, 230, 135]
-      TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -781,7 +769,7 @@ Model {
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Chart"
+	  Name			  "Rakete"
 	  SID			  "1"
 	  Ports			  [0, 4]
 	  Position		  [20, 27, 180, 178]
@@ -798,7 +786,6 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  SFBlockType		  "Chart"
 	  MaskType		  "Stateflow"
 	  MaskDescription	  "Stateflow diagram"
 	  MaskSelfModifiable	  on
@@ -808,9 +795,9 @@ Model {
 	  MaskIconOpaque	  off
 	  MaskIconRotate	  "none"
 	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "normalized"
+	  MaskIconUnits		  "autoscale"
 	  System {
-	    Name		    "Chart"
+	    Name		    "Rakete"
 	    Location		    [257, 457, 812, 717]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -990,45 +977,34 @@ Model {
 	    axes3		    "%<SignalLabel>"
 	    axes4		    "%<SignalLabel>"
 	  }
-	  List {
-	    ListType		    ScopeGraphics
-	    FigureColor		    "[0.5 0.5 0.5]"
-	    AxesColor		    "[0 0 0]"
-	    AxesTickColor	    "[1 1 1]"
-	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	    LineStyles		    "-|-|-|-|-|-"
-	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-	    MarkerStyles	    "none|none|none|none|none|none"
-	  }
-	  ShowLegends		  off
 	  YMin			  "-5~-5~-5~-5"
 	  YMax			  "5~5~5~5"
 	  DataFormat		  "StructureWithTime"
 	  SampleTime		  "0"
 	}
 	Line {
-	  SrcBlock		  "Chart"
+	  SrcBlock		  "Rakete"
 	  SrcPort		  1
 	  Points		  [55, 0; 0, 10]
 	  DstBlock		  "Scope"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Chart"
+	  SrcBlock		  "Rakete"
 	  SrcPort		  3
 	  Points		  [55, 0; 0, -35]
 	  DstBlock		  "Scope"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "Chart"
+	  SrcBlock		  "Rakete"
 	  SrcPort		  2
 	  Points		  [0, 15; 55, 0; 0, 10]
 	  DstBlock		  "Scope"
 	  DstPort		  3
 	}
 	Line {
-	  SrcBlock		  "Chart"
+	  SrcBlock		  "Rakete"
 	  SrcPort		  4
 	  Points		  [55, 0; 0, -20]
 	  DstBlock		  "Scope"
@@ -1040,7 +1016,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.6 (R2011b) dated Jan 25 2012, 21:03:37
+#    Stateflow Version 7.5 (R2010a) dated Mar  4 2011, 18:49:46
 #
 #
 
@@ -1052,14 +1028,14 @@ Stateflow {
     created		    "30-Nov-2012 10:52:17"
     isLibrary		    0
     firstTarget		    32
-    sfVersion		    76014001.00040001
+    sfVersion		    75014001
   }
   chart {
     id			    2
-    name		    "Subsystem/Chart"
-    windowPosition	    [0 22.5 1024.5 496.5]
-    viewLimits		    [0 981 0 460.5]
-    screen		    [1 1 1366 768 1.333333333333333]
+    name		    "Subsystem/Rakete"
+    windowPosition	    [20 -8.8 984 496.8]
+    viewLimits		    [0 937.6 0 457.8]
+    screen		    [1 1 1280 800 1.25]
     treeNode		    [0 4 0 0]
     firstTransition	    7
     viewObj		    2
@@ -1071,7 +1047,6 @@ Stateflow {
     decomposition	    CLUSTER_CHART
     firstData		    11
     chartFileNumber	    1
-    saturateOnIntegerOverflow 1
     userSpecifiedStateTransitionExecutionOrder 1
     disableImplicitCasting  1
   }
@@ -1144,7 +1119,7 @@ Stateflow {
   transition {
     id			    7
     labelString		    "{Init();}"
-    labelPosition	    [139.47 36.115 33.734 14.971]
+    labelPosition	    [139.47 36.115 36.8 18.448]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 137.9703 28.875 0 0]
@@ -1159,15 +1134,13 @@ Stateflow {
     dataLimits		    [135.57 140.37 28.875 81]
     subviewer		    2
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    29
   }
   transition {
     id			    8
     labelString		    "[m1 <= m1_leer]\n{m1 = m1_leer}"
-    labelPosition	    [140.75 295.5 86.208 28.444]
+    labelPosition	    [140.75 295.5 84 32.886]
     fontSize		    12
     src {
       id		      3
@@ -1184,8 +1157,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    37
   }
@@ -1562,7 +1533,7 @@ Stateflow {
   }
   instance {
     id			    31
-    name		    "Subsystem/Chart"
+    name		    "Subsystem/Rakete"
     machine		    1
     chart		    2
   }

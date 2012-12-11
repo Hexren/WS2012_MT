@@ -77,12 +77,15 @@
 
 
 \section{Rakete}
+	Der zu simulierende Raketen Flug besteht aus 3 teilen. Die zu simulierende Rakete aus 2 Stufen, die nacheinander die Rakete antreiben und danach abgeworfen werden.
+	Es soll die Geschwindigkeit sowie die Höhe jeweils von Stufe 1 und Stufe 2 simuliert werden.
+	
 
-	\subsection{StufenGemeinsam}
+	\subsection{StufenGemeinsam} \label{sec:stufenGemeinsam}
 	In dieser Phase wird die gesamte Rakete durch Stufe 1 beschleunigt.
 	
 	Die Masse der Rakete ergibt sich also aus.
-	\begin{align}
+	\begin{align} 
 	m_{\text{Rakete}} = m_1 + m_2
 	\end{align}
 
@@ -100,7 +103,36 @@
 	\begin{align}
 	a_{\text{Rakete}} = \frac{F_s - F_e}{m_{\text{Rakete}}}
 	\end{align}
+	
+	\subsection{Stufe 2}
+	In dieser Phase ist Stufe 1 ausgebrannt und beginnt zur Erde zurückzufallen während die Rakete nur noch aus Stufe 2 bestet die auch den Antrieb liefert. Beide Stufen sind hier also getrennt zu betrachten	
+	
+	\subsubsection{Stufe 1}
+	
+	\subsubsection{Stufe 2}
+	Stufe 2 wird hier weiter als Rakete bezeichnet, somit ergeben sich unter Anpassung der Formeln aus \ref{sec:stufenGemeinsam} folgende neue Formeln zur Berechnung des Raketenfluges.
+	
+	Die Masse der Rakete besteht nur noch aus der Masse der zweiten Stufe.
+	\begin{align} 
+	m_{\text{Rakete}} = m_2
+	\end{align}
 
+	Die Schubkraft der Rakete ergibt sich jetzt durch die zweite Stufe.
+	\begin{align}
+	F_s = \text{Durchsatz}_2 \times \text{SchubProDurchsatz}
+	\end{align}
+
+	Die Erdanziehung die auf die Rakete wirkt kann durch berechnet werden.
+	\begin{align}
+	F_e = \frac{G * m_{\text{erde}} * m_{\text{Rakete}}}{r_{\text{erde}}^2}
+	\end{align}
+	
+	\subsection{Antrieblos}
+	Beide Stufen \texti{fliegen} jetzt antrieblos und damit nur noch unter Auswirkung der Erdanziehung.
+	
+	
+	\subsection{•}	
+	
 \section{Tisch}	
 		
 \end{document}
