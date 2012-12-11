@@ -91,10 +91,10 @@
 
 	Die Schubkraft der Rakete ergibt sich hier durch
 	\begin{align}
-	F_s = \text{Durchsatz}_1 \times \text{SchubProDurchsatz}
+	F_s = \text{Durchsatz}_1 * \text{SchubProDurchsatz}
 	\end{align}
 
-	Die Erdanziehung die auf die Rakete wirkt kann durch berechnet werden.
+	Die Erdanziehung die auf die Rakete wirkt kann durch berechnet werden. Wobei\\ $r = \text{Erdradius} + \text{Entfernung der Rakete von der Erde}$
 	\begin{align}
 	F_e = \frac{G * m_{\text{erde}} * m_{\text{Rakete}}}{r_{\text{erde}}^2}
 	\end{align}
@@ -107,8 +107,6 @@
 	\subsection{Stufe 2}
 	In dieser Phase ist Stufe 1 ausgebrannt und beginnt zur Erde zurückzufallen während die Rakete nur noch aus Stufe 2 bestet die auch den Antrieb liefert. Beide Stufen sind hier also getrennt zu betrachten	
 	
-	\subsubsection{Stufe 1}
-	
 	\subsubsection{Stufe 2}
 	Stufe 2 wird hier weiter als Rakete bezeichnet, somit ergeben sich unter Anpassung der Formeln aus \ref{sec:stufenGemeinsam} folgende neue Formeln zur Berechnung des Raketenfluges.
 	
@@ -119,19 +117,60 @@
 
 	Die Schubkraft der Rakete ergibt sich jetzt durch die zweite Stufe.
 	\begin{align}
-	F_s = \text{Durchsatz}_2 \times \text{SchubProDurchsatz}
+	F_s = \text{Durchsatz}_2 * \text{SchubProDurchsatz}
 	\end{align}
 
-	Die Erdanziehung die auf die Rakete wirkt kann durch berechnet werden.
+	Die Erdanziehung die auf die Rakete wirkt kann unverändert berechnet werden durch.
 	\begin{align}
 	F_e = \frac{G * m_{\text{erde}} * m_{\text{Rakete}}}{r_{\text{erde}}^2}
 	\end{align}
 	
+	Für die Beschleunigung der Rakete gilt weiterhin:
+	\begin{align}
+	a_{\text{Rakete}} = \frac{F_s - F_e}{m_{\text{Rakete}}}
+	\end{align}	
+	
+	\subsubsection{Stufe 1}
+	Die abgetrennte Stufe 1 \textit{fliegt} jetzt antriebslos also nur noch durch die Erdanziehung beeinflusst weiter.
+	Ihre Beschleunigung kann also wie oben modelliert werden: 
+	
+	\begin{align}
+	a_{\text{Stufe 1}} = \frac{F_s - F_{e1}}{m_1}
+	\end{align}		
+	
+	Wobei $F_s$ die Schubkraft null gesetzt werden kann wodurch sich die bereinigte Formel ergibt:
+	\begin{align}
+	a_{\text{Stufe 1}} = \frac{- F_{e1}}{m_1}
+	\end{align}			
+	
+	
+	
 	\subsection{Antrieblos}
-	Beide Stufen \texti{fliegen} jetzt antrieblos und damit nur noch unter Auswirkung der Erdanziehung.
+	Beide Stufen \textit{fliegen} jetzt antriebslos und damit nur noch unter Auswirkung der Erdanziehung.
+	Es gelten also folgende Formeln für beide Stufen:
+	\begin{align}
+	a_{\text{Stufe 1}} = \frac{- F_{e1}}{m_1}
+	\end{align}	
 	
+	Und:
+	\begin{align}
+	a_{\text{Stufe 2}} = \frac{- F_{e2}}{m_2}
+	\end{align}	
+
+	\subsection{Ergebnisse}
+	Bei den folgenden Startwerten ergeben sich die unten dargestellten Verläufe von Geschwindigkeit und Höhe:
+	\begin{description}
+		\item[m1\_lerr] 500
+		\item[m2\_lerr] 1000
+		\item[St1\_Treibstoff] 4000
+		\item[St2\_Treibstoff] 1500
+		\item[Durchsatz\_1] 20
+		\item[Durchsatz\_2] 15
+		\item[SchubProDurchsatz] 4000
+	\end{description}
 	
-	\subsection{•}	
+	\subsubsection{Graphen}	
+	
 	
 \section{Tisch}	
 		
