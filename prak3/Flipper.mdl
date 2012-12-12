@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.52"
+    ComputedModelVersion    "1.59"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "hexren"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Dec 12 11:21:28 2012"
-  RTWModifiedTimeStamp	  277212041
-  ModelVersionFormat	  "1.%<AutoIncrement:52>"
+  LastModifiedDate	  "Wed Dec 12 12:45:59 2012"
+  RTWModifiedTimeStamp	  277216949
+  ModelVersionFormat	  "1.%<AutoIncrement:59>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -65,6 +65,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Flipper"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -707,7 +708,7 @@ Model {
   }
   System {
     Name		    "Flipper"
-    Location		    [1140, 525, 1676, 814]
+    Location		    [740, 456, 1276, 745]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -911,16 +912,16 @@ Stateflow {
     name		    "Flipper"
     created		    "10-Dec-2012 17:53:03"
     isLibrary		    0
-    firstTarget		    42
+    firstTarget		    41
     sfVersion		    75014001
   }
   chart {
     id			    2
     name		    "Chart"
-    windowPosition	    [144 701.6 724.8 596.8]
-    viewLimits		    [0 680.435 0 559.473]
+    windowPosition	    [0 41.6 1024 515.2]
+    viewLimits		    [0 980.533 0 477.629]
     zoomFactor		    1.003
-    screen		    [1 1 1680 1850 1.25]
+    screen		    [1 1 1280 800 1.25]
     treeNode		    [0 9 0 0]
     firstTransition	    14
     viewObj		    2
@@ -931,7 +932,7 @@ Stateflow {
     }
     ssIdHighWaterMark	    43
     decomposition	    CLUSTER_CHART
-    firstData		    25
+    firstData		    24
     updateMethod	    CONTINUOUS
     chartFileNumber	    1
     userSpecifiedStateTransitionExecutionOrder 1
@@ -942,7 +943,7 @@ Stateflow {
   }
   state {
     id			    3
-    labelString		    "Flipper\nduring:\n//v1_dot = Acc();\n[v1_dot[0][0], v1_dot[1][0]] = Acc();\nx1_dot = v1;\n// out"
+    labelString		    "Flipper\nduring:\nv1_dot = Acc();\n//[v1_dot[0][0], v1_dot[1][0]] = Acc();\nx1_dot = v1;\n// out"
     "put\nx1_out = x1;"
     position		    [38.125 127.125 201.7411 115.1632]
     fontSize		    12
@@ -976,7 +977,7 @@ Stateflow {
   }
   state {
     id			    5
-    labelString		    "[a1, a2] = Acc"
+    labelString		    "a = Acc"
     position		    [365.875 346.875 111.875 58.125]
     fontSize		    12
     chart		    2
@@ -989,7 +990,7 @@ Stateflow {
     firstData		    19
     eml {
       isEML		      1
-      script		      "function [a1, a2] = Acc\n    a1 = 0;\n    a2 = -1;\nend"
+      script		      "function a = Acc\n    a = [0;-1];\n    %a1 = 0;\n    %a2 = -1;\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -1005,7 +1006,7 @@ Stateflow {
     ssIdNumber		    24
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    21
+    firstData		    20
     eml {
       isEML		      1
       script		      "function b = WandLinksKontakt\n    b = false;\n    \n    abstand = (x1 - p1)' * n1;  % Abstand vo"
@@ -1026,7 +1027,7 @@ Stateflow {
     ssIdNumber		    27
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    22
+    firstData		    21
     eml {
       isEML		      1
       script		      "function bool = WandUntenKontakt\n    bool = false;\n    \n    abstand = (x1 - p2)' * n2;  % Abst"
@@ -1047,7 +1048,7 @@ Stateflow {
     ssIdNumber		    29
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    23
+    firstData		    22
     eml {
       isEML		      1
       script		      "function bool = WandRechtsKontakt\n    bool = false;\n    \n    abstand = (x1 - p3)' * n3;  % Abs"
@@ -1125,7 +1126,7 @@ Stateflow {
     ssIdNumber		    33
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    24
+    firstData		    23
     eml {
       isEML		      1
       script		      "function bool = HndKontakt\n    bool = false;\n    \n    abstand = norm(x1 - Hnd);   % Abstand vo"
@@ -1150,8 +1151,8 @@ Stateflow {
     eml {
       isEML		      1
       script		      "function HndRefl\n    n = (x1 - Hnd) / norm(x1 - Hnd); % Normalenvektor von Hindernis zu Kugel\n "
-      "   t = [n(2,1); -n(1,1)];  % Einheitsvektor in Tangentialrichtung\n    \n    vt = v1' * t;\n    vn = v1' * n;\n "
-      "   \n    v1 = (vt' * t) - (vn' * n); % Reflektion\nend"
+      "   t = [n(2); -n(1)];  % Einheitsvektor in Tangentialrichtung\n    \n    vt = v1' * t;\n    vn = v1' * n;\n    \n"
+      "    v1 = (vt' * t) - (vn' * n); % Reflektion\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -1240,7 +1241,7 @@ Stateflow {
     midPoint		    [276.4291 164.6651]
     chart		    2
     linkNode		    [2 15 16]
-    dataLimits		    [239.866 276.55 152.852 180.565]
+    dataLimits		    [239.866 276.55 152.853 180.565]
     subviewer		    2
     slide {
       midPointSticky	      1
@@ -1264,7 +1265,7 @@ Stateflow {
     midPoint		    [43.8454 289.1497]
     chart		    2
     linkNode		    [2 16 0]
-    dataLimits		    [26.208 79.24 226.714 289.337]
+    dataLimits		    [26.208 79.24 226.713 289.337]
     stampAngle		    NaN
     subviewer		    2
     slide {
@@ -1277,8 +1278,8 @@ Stateflow {
   data {
     id			    19
     ssIdNumber		    21
-    name		    "a1"
-    linkNode		    [5 0 20]
+    name		    "a"
+    linkNode		    [5 0 0]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
@@ -1292,22 +1293,6 @@ Stateflow {
   }
   data {
     id			    20
-    ssIdNumber		    42
-    name		    "a2"
-    linkNode		    [5 19 0]
-    scope		    FUNCTION_OUTPUT_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    21
     ssIdNumber		    25
     name		    "b"
     linkNode		    [6 0 0]
@@ -1323,7 +1308,7 @@ Stateflow {
     dataType		    "boolean"
   }
   data {
-    id			    22
+    id			    21
     ssIdNumber		    26
     name		    "bool"
     linkNode		    [7 0 0]
@@ -1339,7 +1324,7 @@ Stateflow {
     dataType		    "boolean"
   }
   data {
-    id			    23
+    id			    22
     ssIdNumber		    28
     name		    "bool"
     linkNode		    [8 0 0]
@@ -1355,7 +1340,7 @@ Stateflow {
     dataType		    "boolean"
   }
   data {
-    id			    24
+    id			    23
     ssIdNumber		    34
     name		    "bool"
     linkNode		    [12 0 0]
@@ -1371,10 +1356,10 @@ Stateflow {
     dataType		    "boolean"
   }
   data {
-    id			    25
+    id			    24
     ssIdNumber		    2
     name		    "R"
-    linkNode		    [2 0 26]
+    linkNode		    [2 0 25]
     scope		    CONSTANT_DATA
     machine		    1
     props {
@@ -1388,10 +1373,10 @@ Stateflow {
     dataType		    "double"
   }
   data {
-    id			    26
+    id			    25
     ssIdNumber		    3
     name		    "RHnd"
-    linkNode		    [2 25 27]
+    linkNode		    [2 24 26]
     scope		    CONSTANT_DATA
     machine		    1
     props {
@@ -1405,9 +1390,28 @@ Stateflow {
     dataType		    "double"
   }
   data {
-    id			    27
+    id			    26
     ssIdNumber		    4
     name		    "Hnd"
+    linkNode		    [2 25 27]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      array {
+	size			"2,1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    27
+    ssIdNumber		    5
+    name		    "n1"
     linkNode		    [2 26 28]
     scope		    LOCAL_DATA
     machine		    1
@@ -1425,8 +1429,8 @@ Stateflow {
   }
   data {
     id			    28
-    ssIdNumber		    5
-    name		    "n1"
+    ssIdNumber		    6
+    name		    "n2"
     linkNode		    [2 27 29]
     scope		    LOCAL_DATA
     machine		    1
@@ -1444,8 +1448,8 @@ Stateflow {
   }
   data {
     id			    29
-    ssIdNumber		    6
-    name		    "n2"
+    ssIdNumber		    7
+    name		    "n3"
     linkNode		    [2 28 30]
     scope		    LOCAL_DATA
     machine		    1
@@ -1463,8 +1467,8 @@ Stateflow {
   }
   data {
     id			    30
-    ssIdNumber		    7
-    name		    "n3"
+    ssIdNumber		    9
+    name		    "p1"
     linkNode		    [2 29 31]
     scope		    LOCAL_DATA
     machine		    1
@@ -1482,8 +1486,8 @@ Stateflow {
   }
   data {
     id			    31
-    ssIdNumber		    9
-    name		    "p1"
+    ssIdNumber		    10
+    name		    "p2"
     linkNode		    [2 30 32]
     scope		    LOCAL_DATA
     machine		    1
@@ -1501,8 +1505,8 @@ Stateflow {
   }
   data {
     id			    32
-    ssIdNumber		    10
-    name		    "p2"
+    ssIdNumber		    11
+    name		    "p3"
     linkNode		    [2 31 33]
     scope		    LOCAL_DATA
     machine		    1
@@ -1520,8 +1524,8 @@ Stateflow {
   }
   data {
     id			    33
-    ssIdNumber		    11
-    name		    "p3"
+    ssIdNumber		    12
+    name		    "p4"
     linkNode		    [2 32 34]
     scope		    LOCAL_DATA
     machine		    1
@@ -1539,8 +1543,8 @@ Stateflow {
   }
   data {
     id			    34
-    ssIdNumber		    12
-    name		    "p4"
+    ssIdNumber		    13
+    name		    "t1"
     linkNode		    [2 33 35]
     scope		    LOCAL_DATA
     machine		    1
@@ -1558,8 +1562,8 @@ Stateflow {
   }
   data {
     id			    35
-    ssIdNumber		    13
-    name		    "t1"
+    ssIdNumber		    14
+    name		    "t2"
     linkNode		    [2 34 36]
     scope		    LOCAL_DATA
     machine		    1
@@ -1577,8 +1581,8 @@ Stateflow {
   }
   data {
     id			    36
-    ssIdNumber		    14
-    name		    "t2"
+    ssIdNumber		    15
+    name		    "t3"
     linkNode		    [2 35 37]
     scope		    LOCAL_DATA
     machine		    1
@@ -1596,12 +1600,13 @@ Stateflow {
   }
   data {
     id			    37
-    ssIdNumber		    15
-    name		    "t3"
+    ssIdNumber		    16
+    name		    "v1"
     linkNode		    [2 36 38]
     scope		    LOCAL_DATA
     machine		    1
     props {
+      updateMethod	      SF_CONTINUOUS_TIME_DATA
       array {
 	size			"2,1"
       }
@@ -1615,8 +1620,8 @@ Stateflow {
   }
   data {
     id			    38
-    ssIdNumber		    16
-    name		    "v1"
+    ssIdNumber		    17
+    name		    "x1"
     linkNode		    [2 37 39]
     scope		    LOCAL_DATA
     machine		    1
@@ -1635,29 +1640,9 @@ Stateflow {
   }
   data {
     id			    39
-    ssIdNumber		    17
-    name		    "x1"
-    linkNode		    [2 38 40]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      updateMethod	      SF_CONTINUOUS_TIME_DATA
-      array {
-	size			"2,1"
-      }
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    40
     ssIdNumber		    18
     name		    "x1_out"
-    linkNode		    [2 39 0]
+    linkNode		    [2 38 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -1674,13 +1659,13 @@ Stateflow {
     dataType		    "double"
   }
   instance {
-    id			    41
+    id			    40
     name		    "Chart"
     machine		    1
     chart		    2
   }
   target {
-    id			    42
+    id			    41
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
