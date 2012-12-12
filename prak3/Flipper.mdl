@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.51"
+    ComputedModelVersion    "1.52"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "hexren"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Dec 12 08:58:35 2012"
-  RTWModifiedTimeStamp	  277203501
-  ModelVersionFormat	  "1.%<AutoIncrement:51>"
+  LastModifiedDate	  "Wed Dec 12 11:21:28 2012"
+  RTWModifiedTimeStamp	  277212041
+  ModelVersionFormat	  "1.%<AutoIncrement:52>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -65,7 +65,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Flipper"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -930,7 +929,7 @@ Stateflow {
     subviewS {
       zoomFactor	      1.003
     }
-    ssIdHighWaterMark	    42
+    ssIdHighWaterMark	    43
     decomposition	    CLUSTER_CHART
     firstData		    25
     updateMethod	    CONTINUOUS
@@ -943,8 +942,9 @@ Stateflow {
   }
   state {
     id			    3
-    labelString		    "Flipper\nduring:\nv1_dot = Acc();\nx1_dot = v1;\n// output\nx1_out = x1;"
-    position		    [38.125 127.125 106.125 102.375]
+    labelString		    "Flipper\nduring:\n//v1_dot = Acc();\n[v1_dot[0][0], v1_dot[1][0]] = Acc();\nx1_dot = v1;\n// out"
+    "put\nx1_out = x1;"
+    position		    [38.125 127.125 201.7411 115.1632]
     fontSize		    12
     chart		    2
     treeNode		    [2 0 7 8]
@@ -1158,19 +1158,19 @@ Stateflow {
   transition {
     id			    14
     labelString		    "{Init();}"
-    labelPosition	    [72.4 105.516 36.91 18.504]
+    labelPosition	    [99.315 105.516 36.91 18.504]
     fontSize		    12
     src {
-      intersection	      [0 0 1 0 68 66.75 0 0]
+      intersection	      [0 0 1 0 94.9151 66.75 0 0]
     }
     dst {
       id		      3
-      intersection	      [1 0 -1 0.2815 68 127.125 0 0]
+      intersection	      [1 0 -1 0.2815 94.9151 127.125 0 0]
     }
-    midPoint		    [68 93.9893]
+    midPoint		    [94.9151 93.9893]
     chart		    2
     linkNode		    [2 0 15]
-    dataLimits		    [65.6 70.4 66.75 127.125]
+    dataLimits		    [92.515 97.315 66.75 127.125]
     subviewer		    2
     drawStyle		    SMART
     executionOrder	    1
@@ -1179,20 +1179,20 @@ Stateflow {
   transition {
     id			    15
     labelString		    "[HndKontakt() == true]\n{HndRefl();}"
-    labelPosition	    [111.352 83.2 117.15 32.985]
+    labelPosition	    [180.17 83.2 117.15 32.985]
     fontSize		    12
     src {
       id		      3
-      intersection	      [1 0 -1 0.9317 137 127.125 0 0]
+      intersection	      [1 0 -1 0.9317 226.0872 127.125 0 0]
     }
     dst {
       id		      3
-      intersection	      [1 0 -1 0.7197 114.5 127.125 0 0]
+      intersection	      [1 0 -1 0.7197 183.3181 127.125 0 0]
     }
-    midPoint		    [124.25 105]
+    midPoint		    [201.8514 85.0687]
     chart		    2
     linkNode		    [2 14 17]
-    dataLimits		    [112.1 137 104.749 127.125]
+    dataLimits		    [180.918 226.087 84.784 127.125]
     subviewer		    2
     slide {
       midPointSticky	      1
@@ -1203,20 +1203,20 @@ Stateflow {
   transition {
     id			    16
     labelString		    "[WandUntenKontakt() == true]\n{WandUntenRefl();}"
-    labelPosition	    [166.17 196.319 158.073 32.985]
+    labelPosition	    [263.731 205.276 158.073 32.985]
     fontSize		    12
     src {
       id		      3
-      intersection	      [2 1 0 0.8974 144.25 219 0 0]
+      intersection	      [2 1 0 0.8974 239.8661 230.4724 0 0]
     }
     dst {
       id		      3
-      intersection	      [2 1 0 0.663 144.25 195 0 0]
+      intersection	      [2 1 0 0.663 239.8661 203.4782 0 0]
     }
-    midPoint		    [168.5 207]
+    midPoint		    [267.1416 216.9753]
     chart		    2
     linkNode		    [2 17 18]
-    dataLimits		    [144.25 168.548 192.6 219]
+    dataLimits		    [239.866 267.203 201.078 230.472]
     subviewer		    2
     slide {
       midPointSticky	      1
@@ -1227,20 +1227,20 @@ Stateflow {
   transition {
     id			    17
     labelString		    "[WandRechtsKontakt() == true]\n{WandRechtsRefl();}"
-    labelPosition	    [169.867 146.502 163.69 32.985]
+    labelPosition	    [268.487 149.945 163.69 32.985]
     fontSize		    12
     src {
       id		      3
-      intersection	      [2 1 0 0.2234 144.25 150 0 0]
+      intersection	      [2 1 0 0.2234 239.8661 152.8525 0 0]
     }
     dst {
       id		      3
-      intersection	      [2 1 0 0.4432 144.25 172.5 0 0]
+      intersection	      [2 1 0 0.4432 239.8661 178.1653 0 0]
     }
-    midPoint		    [176.75 160.5]
+    midPoint		    [276.4291 164.6651]
     chart		    2
     linkNode		    [2 15 16]
-    dataLimits		    [144.25 176.88 150 174.9]
+    dataLimits		    [239.866 276.55 152.852 180.565]
     subviewer		    2
     slide {
       midPointSticky	      1
@@ -1251,20 +1251,20 @@ Stateflow {
   transition {
     id			    18
     labelString		    "[WandLinksKontakt() == true]\n{WandLinksRefl();}"
-    labelPosition	    [9.418 240.145 154.863 32.985]
+    labelPosition	    [10.515 266.103 154.863 32.985]
     fontSize		    12
     src {
       id		      3
-      intersection	      [3 0 1 0.7962 59.75 229.5 0 0]
+      intersection	      [3 0 1 0.7962 79.2398 242.2882 0 0]
     }
     dst {
       id		      3
-      intersection	      [4 -1 0 0.1144 38.125 217.7928 0 0]
+      intersection	      [4 -1 0 0.1144 38.125 229.1135 0 0]
     }
-    midPoint		    [35 252]
+    midPoint		    [43.8454 289.1497]
     chart		    2
     linkNode		    [2 16 0]
-    dataLimits		    [26.518 59.75 215.393 252.572]
+    dataLimits		    [26.208 79.24 226.714 289.337]
     stampAngle		    NaN
     subviewer		    2
     slide {
