@@ -1,12 +1,12 @@
 Model {
   Name			  "Flipper"
-  Version		  7.7
+  Version		  7.9
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.59"
+    ComputedModelVersion    "1.60"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -19,16 +19,17 @@ Model {
   DataTypeOverrideAppliesTo "AllNumericTypes"
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
+  FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   Created		  "Mon Dec 10 17:53:02 2012"
   Creator		  "karo"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "hexren"
+  LastModifiedBy	  "karo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Dec 12 12:45:59 2012"
-  RTWModifiedTimeStamp	  277216949
-  ModelVersionFormat	  "1.%<AutoIncrement:59>"
+  LastModifiedDate	  "Wed Dec 12 13:18:44 2012"
+  RTWModifiedTimeStamp	  277218695
+  ModelVersionFormat	  "1.%<AutoIncrement:60>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -36,6 +37,7 @@ Model {
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
+  ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
   ShowStorageClass	  off
@@ -65,7 +67,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Flipper"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -123,13 +124,13 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      2
-      Version		      "1.11.0"
+      Version		      "1.12.0"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
 	  $ObjectID		  3
-	  Version		  "1.11.0"
+	  Version		  "1.12.0"
 	  StartTime		  "0.0"
 	  StopTime		  "60"
 	  AbsTol		  "auto"
@@ -147,6 +148,7 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
+	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
@@ -163,7 +165,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  4
-	  Version		  "1.11.0"
+	  Version		  "1.12.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -195,7 +197,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  5
-	  Version		  "1.11.0"
+	  Version		  "1.12.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -214,6 +216,7 @@ Model {
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
@@ -246,11 +249,11 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
-	  AccelParallelForEachSubsystem	on
+	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  6
-	  Version		  "1.11.0"
+	  Version		  "1.12.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -305,6 +308,7 @@ Model {
 	  UnconnectedOutputMsg	  "warning"
 	  UnconnectedLineMsg	  "warning"
 	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
@@ -333,10 +337,11 @@ Model {
 	  SFInvalidInputDataAccessInChartInitDiag "warning"
 	  SFNoUnconditionalDefaultTransitionDiag "warning"
 	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  7
-	  Version		  "1.11.0"
+	  Version		  "1.12.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -373,7 +378,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  8
-	  Version		  "1.11.0"
+	  Version		  "1.12.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -388,7 +393,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  9
-	  Version		  "1.11.0"
+	  Version		  "1.12.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -403,7 +408,7 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  10
-	  Version		  "1.11.0"
+	  Version		  "1.12.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    9
@@ -447,8 +452,9 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
-	  GenerateSLWebview	  off
+	  GenerateWebview	  off
 	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
@@ -457,7 +463,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      11
-	      Version		      "1.11.0"
+	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
 		Dimension		21
@@ -522,7 +528,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      12
-	      Version		      "1.11.0"
+	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -547,12 +553,10 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
+	      CodeReplacementLibrary  "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
-	      FunctionExecutionProfile off
 	      CodeExecutionProfiling  off
-	      ERTCodeCoverageTool     "None"
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
@@ -562,9 +566,10 @@ Model {
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
+	      ConcurrentExecutionCompliant on
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Disable all"
-	      CombineOutputUpdateFcns on
+	      CombineOutputUpdateFcns off
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
 	      ERTFirstTimeCompliant   off
@@ -586,6 +591,7 @@ Model {
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
+	      GRTInterface	      on
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -615,6 +621,7 @@ Model {
     $PropName		    "ActiveConfigurationSet"
     $ObjectID		    2
   }
+  ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -699,6 +706,7 @@ Model {
       DataTypeOverride	      "UseLocalSettings"
       DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
+      SFBlockType	      "NONE"
       Variant		      off
       GeneratePreprocessorConditionals off
     }
@@ -708,7 +716,7 @@ Model {
   }
   System {
     Name		    "Flipper"
-    Location		    [740, 456, 1276, 745]
+    Location		    [634, 219, 1170, 508]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -741,6 +749,7 @@ Model {
       Opaque		      off
       RequestExecContextInheritance off
       MaskHideContents	      off
+      SFBlockType	      "Chart"
       MaskType		      "Stateflow"
       MaskDescription	      "Stateflow diagram"
       MaskSelfModifiable      on
@@ -766,31 +775,31 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"29"
+	SIDHighWatermark	"33"
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "1::26"
+	  SID			  "1::31"
 	  Ports			  [1, 1]
 	  Position		  [270, 160, 320, 200]
-	  ZOrder		  6
+	  ZOrder		  11
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  Ground
 	  Name			  " Ground "
-	  SID			  "1::27"
+	  SID			  "1::32"
 	  Position		  [20, 121, 40, 139]
-	  ZOrder		  7
+	  ZOrder		  12
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "1::25"
+	  SID			  "1::30"
 	  Tag			  "Stateflow S-Function Flipper 1"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  5
+	  ZOrder		  10
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  EnableBusSupport	  on
@@ -804,9 +813,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "1::28"
+	  SID			  "1::33"
 	  Position		  [460, 171, 480, 189]
-	  ZOrder		  8
+	  ZOrder		  13
 	}
 	Block {
 	  BlockType		  Outport
@@ -851,18 +860,9 @@ Model {
       Ports		      [1, 1]
       Position		      [180, 30, 265, 80]
       ZOrder		      -6
-      LibraryVersion	      "1.241"
+      LibraryVersion	      "1.11"
       SourceBlock	      "vrlib/VR Signal Expander"
       SourceType	      "VR Signal Expander"
-      ShowPortLabels	      "FromPortIcon"
-      SystemSampleTime	      "-1"
-      FunctionWithSeparateData off
-      RTWMemSecFuncInitTerm   "Inherit from model"
-      RTWMemSecFuncExecute    "Inherit from model"
-      RTWMemSecDataConstants  "Inherit from model"
-      RTWMemSecDataInternal   "Inherit from model"
-      RTWMemSecDataParameters "Inherit from model"
-      GeneratePreprocessorConditionals off
       outwidth		      "3"
       outidx		      "[1 2]"
     }
@@ -873,7 +873,7 @@ Model {
       Ports		      [1]
       Position		      [300, 30, 385, 80]
       ZOrder		      -7
-      LibraryVersion	      "1.241"
+      LibraryVersion	      "1.11"
       SourceBlock	      "vrlib/VR Sink"
       SourceType	      "Virtual Reality Sink"
       SampleTime	      "0.05"
@@ -884,6 +884,7 @@ Model {
       WorldFileName	      "Table.wrl"
       AutoView		      off
       VideoDimensions	      "[]"
+      AllowVariableSize	      off
     }
     Line {
       SrcBlock		      "Chart"
@@ -901,7 +902,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Mar  4 2011, 18:49:46
+#    Stateflow Version 7.6 (R2011b) dated Jan 25 2012, 21:03:37
 #
 #
 
@@ -913,15 +914,15 @@ Stateflow {
     created		    "10-Dec-2012 17:53:03"
     isLibrary		    0
     firstTarget		    41
-    sfVersion		    75014001
+    sfVersion		    76014001.00040001
   }
   chart {
     id			    2
     name		    "Chart"
-    windowPosition	    [0 41.6 1024 515.2]
-    viewLimits		    [0 980.533 0 477.629]
+    windowPosition	    [18.75 4.5 1023.75 515.25]
+    viewLimits		    [0 983.191 0 480.688]
     zoomFactor		    1.003
-    screen		    [1 1 1280 800 1.25]
+    screen		    [1 1 1366 768 1.333333333333333]
     treeNode		    [0 9 0 0]
     firstTransition	    14
     viewObj		    2
@@ -1159,7 +1160,7 @@ Stateflow {
   transition {
     id			    14
     labelString		    "{Init();}"
-    labelPosition	    [99.315 105.516 36.91 18.504]
+    labelPosition	    [99.315 105.516 33.835 15.016]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 94.9151 66.75 0 0]
@@ -1180,7 +1181,7 @@ Stateflow {
   transition {
     id			    15
     labelString		    "[HndKontakt() == true]\n{HndRefl();}"
-    labelPosition	    [180.17 83.2 117.15 32.985]
+    labelPosition	    [180.17 83.2 115.039 28.53]
     fontSize		    12
     src {
       id		      3
@@ -1204,7 +1205,7 @@ Stateflow {
   transition {
     id			    16
     labelString		    "[WandUntenKontakt() == true]\n{WandUntenRefl();}"
-    labelPosition	    [263.731 205.276 158.073 32.985]
+    labelPosition	    [263.731 205.276 154.889 28.53]
     fontSize		    12
     src {
       id		      3
@@ -1228,7 +1229,7 @@ Stateflow {
   transition {
     id			    17
     labelString		    "[WandRechtsKontakt() == true]\n{WandRechtsRefl();}"
-    labelPosition	    [268.487 149.945 163.69 32.985]
+    labelPosition	    [268.487 149.945 160.904 28.53]
     fontSize		    12
     src {
       id		      3
@@ -1252,7 +1253,7 @@ Stateflow {
   transition {
     id			    18
     labelString		    "[WandLinksKontakt() == true]\n{WandLinksRefl();}"
-    labelPosition	    [10.515 266.103 154.863 32.985]
+    labelPosition	    [10.515 266.103 152.633 28.53]
     fontSize		    12
     src {
       id		      3
@@ -1283,6 +1284,9 @@ Stateflow {
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"2,1"
+      }
       type {
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
