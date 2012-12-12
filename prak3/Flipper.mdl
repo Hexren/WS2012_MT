@@ -1,12 +1,12 @@
 Model {
   Name			  "Flipper"
-  Version		  7.9
+  Version		  7.7
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.48"
+    ComputedModelVersion    "1.51"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -19,25 +19,23 @@ Model {
   DataTypeOverrideAppliesTo "AllNumericTypes"
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
-  FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   Created		  "Mon Dec 10 17:53:02 2012"
   Creator		  "karo"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "karo"
+  LastModifiedBy	  "hexren"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Dec 10 20:17:30 2012"
-  RTWModifiedTimeStamp	  277071448
-  ModelVersionFormat	  "1.%<AutoIncrement:48>"
+  LastModifiedDate	  "Wed Dec 12 08:58:35 2012"
+  RTWModifiedTimeStamp	  277203501
+  ModelVersionFormat	  "1.%<AutoIncrement:51>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
-  LibraryLinkDisplay	  "disabled"
+  LibraryLinkDisplay	  "none"
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
-  ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
   ShowStorageClass	  off
@@ -125,13 +123,13 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      2
-      Version		      "1.12.0"
+      Version		      "1.11.0"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
 	  $ObjectID		  3
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  StartTime		  "0.0"
 	  StopTime		  "60"
 	  AbsTol		  "auto"
@@ -149,7 +147,6 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
-	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
@@ -166,7 +163,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  4
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -198,7 +195,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  5
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -217,7 +214,6 @@ Model {
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
-	  UseFloatMulNetSlope	  off
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
@@ -250,11 +246,11 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
-	  ParallelExecutionInRapidAccelerator on
+	  AccelParallelForEachSubsystem	on
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  6
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -309,7 +305,6 @@ Model {
 	  UnconnectedOutputMsg	  "warning"
 	  UnconnectedLineMsg	  "warning"
 	  SFcnCompatibilityMsg	  "none"
-	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
@@ -338,11 +333,10 @@ Model {
 	  SFInvalidInputDataAccessInChartInitDiag "warning"
 	  SFNoUnconditionalDefaultTransitionDiag "warning"
 	  SFTransitionOutsideNaturalParentDiag "warning"
-	  SFUnconditionalTransitionShadowingDiag "warning"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  7
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -379,7 +373,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  8
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -394,7 +388,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  9
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -409,7 +403,7 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  10
-	  Version		  "1.12.0"
+	  Version		  "1.11.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    9
@@ -453,9 +447,8 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
-	  GenerateWebview	  off
+	  GenerateSLWebview	  off
 	  GenerateCodeMetricsReport off
-	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
@@ -464,7 +457,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      11
-	      Version		      "1.12.0"
+	      Version		      "1.11.0"
 	      Array {
 		Type			"Cell"
 		Dimension		21
@@ -529,7 +522,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      12
-	      Version		      "1.12.0"
+	      Version		      "1.11.0"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -554,10 +547,12 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      CodeReplacementLibrary  "ANSI_C"
+	      TargetFunctionLibrary   "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      FunctionExecutionProfile off
 	      CodeExecutionProfiling  off
+	      ERTCodeCoverageTool     "None"
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
@@ -567,7 +562,6 @@ Model {
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
-	      ConcurrentExecutionCompliant on
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Disable all"
 	      CombineOutputUpdateFcns on
@@ -592,7 +586,6 @@ Model {
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
-	      GRTInterface	      off
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -622,7 +615,6 @@ Model {
     $PropName		    "ActiveConfigurationSet"
     $ObjectID		    2
   }
-  ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -707,7 +699,6 @@ Model {
       DataTypeOverride	      "UseLocalSettings"
       DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
-      SFBlockType	      "NONE"
       Variant		      off
       GeneratePreprocessorConditionals off
     }
@@ -717,7 +708,7 @@ Model {
   }
   System {
     Name		    "Flipper"
-    Location		    [1307, 590, 1843, 879]
+    Location		    [1140, 525, 1676, 814]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -750,7 +741,6 @@ Model {
       Opaque		      off
       RequestExecContextInheritance off
       MaskHideContents	      off
-      SFBlockType	      "Chart"
       MaskType		      "Stateflow"
       MaskDescription	      "Stateflow diagram"
       MaskSelfModifiable      on
@@ -760,7 +750,7 @@ Model {
       MaskIconOpaque	      off
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
-      MaskIconUnits	      "normalized"
+      MaskIconUnits	      "autoscale"
       System {
 	Name			"Chart"
 	Location		[257, 457, 812, 717]
@@ -861,9 +851,18 @@ Model {
       Ports		      [1, 1]
       Position		      [180, 30, 265, 80]
       ZOrder		      -6
-      LibraryVersion	      "1.11"
+      LibraryVersion	      "1.241"
       SourceBlock	      "vrlib/VR Signal Expander"
       SourceType	      "VR Signal Expander"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      GeneratePreprocessorConditionals off
       outwidth		      "3"
       outidx		      "[1 2]"
     }
@@ -874,7 +873,7 @@ Model {
       Ports		      [1]
       Position		      [300, 30, 385, 80]
       ZOrder		      -7
-      LibraryVersion	      "1.11"
+      LibraryVersion	      "1.241"
       SourceBlock	      "vrlib/VR Sink"
       SourceType	      "Virtual Reality Sink"
       SampleTime	      "0.05"
@@ -885,7 +884,6 @@ Model {
       WorldFileName	      "Table.wrl"
       AutoView		      off
       VideoDimensions	      "[]"
-      AllowVariableSize	      off
     }
     Line {
       SrcBlock		      "Chart"
@@ -903,7 +901,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.6 (R2011b) dated Jan 25 2012, 21:03:37
+#    Stateflow Version 7.5 (R2010a) dated Mar  4 2011, 18:49:46
 #
 #
 
@@ -915,15 +913,15 @@ Stateflow {
     created		    "10-Dec-2012 17:53:03"
     isLibrary		    0
     firstTarget		    42
-    sfVersion		    76014001.00040001
+    sfVersion		    75014001
   }
   chart {
     id			    2
     name		    "Chart"
-    windowPosition	    [18.75 -69.75 724.5 597]
-    viewLimits		    [0 683.043 0 562.683]
+    windowPosition	    [144 701.6 724.8 596.8]
+    viewLimits		    [0 680.435 0 559.473]
     zoomFactor		    1.003
-    screen		    [1 1 1920 1080 1.333333333333333]
+    screen		    [1 1 1680 1850 1.25]
     treeNode		    [0 9 0 0]
     firstTransition	    14
     viewObj		    2
@@ -937,9 +935,10 @@ Stateflow {
     firstData		    25
     updateMethod	    CONTINUOUS
     chartFileNumber	    1
-    saturateOnIntegerOverflow 1
     userSpecifiedStateTransitionExecutionOrder 1
     disableImplicitCasting  1
+    plantModelingInfo {
+    }
     noDebugging		    1
   }
   state {
@@ -1151,15 +1150,15 @@ Stateflow {
     eml {
       isEML		      1
       script		      "function HndRefl\n    n = (x1 - Hnd) / norm(x1 - Hnd); % Normalenvektor von Hindernis zu Kugel\n "
-      "   t = [n(2), -n(1)];  % Einheitsvektor in Tangentialrichtung\n    \n    vt = v1' * t;\n    vn = v1' * n;\n    \n"
-      "    v1 = (vt' * t) - (vn' * n); % Reflektion\nend"
+      "   t = [n(2,1); -n(1,1)];  % Einheitsvektor in Tangentialrichtung\n    \n    vt = v1' * t;\n    vn = v1' * n;\n "
+      "   \n    v1 = (vt' * t) - (vn' * n); % Reflektion\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
   transition {
     id			    14
     labelString		    "{Init();}"
-    labelPosition	    [72.4 105.516 33.835 15.016]
+    labelPosition	    [72.4 105.516 36.91 18.504]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 68 66.75 0 0]
@@ -1180,7 +1179,7 @@ Stateflow {
   transition {
     id			    15
     labelString		    "[HndKontakt() == true]\n{HndRefl();}"
-    labelPosition	    [111.352 83.2 115.039 28.53]
+    labelPosition	    [111.352 83.2 117.15 32.985]
     fontSize		    12
     src {
       id		      3
@@ -1204,7 +1203,7 @@ Stateflow {
   transition {
     id			    16
     labelString		    "[WandUntenKontakt() == true]\n{WandUntenRefl();}"
-    labelPosition	    [166.17 196.319 154.889 28.53]
+    labelPosition	    [166.17 196.319 158.073 32.985]
     fontSize		    12
     src {
       id		      3
@@ -1228,7 +1227,7 @@ Stateflow {
   transition {
     id			    17
     labelString		    "[WandRechtsKontakt() == true]\n{WandRechtsRefl();}"
-    labelPosition	    [169.867 146.502 160.904 28.53]
+    labelPosition	    [169.867 146.502 163.69 32.985]
     fontSize		    12
     src {
       id		      3
@@ -1252,7 +1251,7 @@ Stateflow {
   transition {
     id			    18
     labelString		    "[WandLinksKontakt() == true]\n{WandLinksRefl();}"
-    labelPosition	    [9.418 240.145 152.633 28.53]
+    labelPosition	    [9.418 240.145 154.863 32.985]
     fontSize		    12
     src {
       id		      3
