@@ -183,9 +183,27 @@
 	Die maximale Höhe, die durch ein Raketenteil während der Simulation erreicht wird ist ca. 1250 km durch Stufe 2. Die maximale Geschwindigkeit, beim Übertritt in den antriebslosen Flug beträgt ca. $4100 \frac{m}{s}$
 	Erhöht man die Simulationszeit auf 900 Sekunden erreicht Stufe 2 ihren maximalen Aufstieg (Punkt bei dme die Geschwindigkeit 0 wird) bei ca. 1510km.
 	
+	\subsection{Schaltung}
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.55]{ScreenshotRaketeAutomat.png}
+		\caption{Stateflow Rakete}
+		\label{pic:stateflowRakete}
+	\end{figure}
+
 	
 \section{Tisch}	
 Zu simulieren ist ein schiefer Flippertisch mit 3 Wänden und einem zylindrischem Hindernis. Gegeben sind die Eckpunkte der (verbundenen) Wände durch die Vektoren $P_{1..4}$ und die Position des Zylinderhindernises bei $P_{Zy}$. Auf die zu Beginn am Punkt $(4,5)$stillstehende Kugel wirkt eine konstante Beschleunigung von $g=1\frac{m}{s}$ nach unten. 
+		
+	\subsection{Automat}	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.55]{ScreenshotFlipperAutomat.png}
+		\caption{Stateflow Flipper}
+		\label{pic:stateflowFlipper}
+	\end{figure}
+		
+		
 		
 \end{document}
 

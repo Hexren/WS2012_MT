@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.31"
+    ComputedModelVersion    "1.32"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "hexren"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Dec 12 10:38:26 2012"
-  RTWModifiedTimeStamp	  277209460
-  ModelVersionFormat	  "1.%<AutoIncrement:31>"
+  LastModifiedDate	  "Wed Dec 12 13:55:03 2012"
+  RTWModifiedTimeStamp	  277221212
+  ModelVersionFormat	  "1.%<AutoIncrement:32>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -65,7 +65,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Rakete2"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -760,7 +759,7 @@ Model {
   }
   System {
     Name		    "Rakete2"
-    Location		    [602, 413, 1398, 943]
+    Location		    [480, 215, 1276, 745]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -805,7 +804,7 @@ Model {
       MaskValueString	      "500|1000|4000|1500|20|15|4000"
       System {
 	Name			"Subsystem"
-	Location		[563, 253, 1676, 819]
+	Location		[163, 179, 1276, 745]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1179,9 +1178,9 @@ Stateflow {
   chart {
     id			    2
     name		    "Subsystem/Chart"
-    windowPosition	    [88.8 702.4 584.8 668.8]
-    viewLimits		    [15.169 553.569 0 629.8]
-    screen		    [1 1 1680 1850 1.25]
+    windowPosition	    [0 41.6 1024 515.2]
+    viewLimits		    [15.169 992.769 57.132 533.332]
+    screen		    [1 1 1280 800 1.25]
     treeNode		    [0 3 0 0]
     firstTransition	    10
     viewObj		    2
@@ -1190,15 +1189,13 @@ Stateflow {
     subviewS {
       x1		      15.169
     }
-    ssIdHighWaterMark	    45
+    ssIdHighWaterMark	    49
     decomposition	    CLUSTER_CHART
     firstData		    19
     updateMethod	    CONTINUOUS
     chartFileNumber	    1
     userSpecifiedStateTransitionExecutionOrder 1
     disableImplicitCasting  1
-    plantModelingInfo {
-    }
   }
   state {
     id			    3
@@ -1218,7 +1215,7 @@ Stateflow {
     id			    4
     labelString		    "StufenGetrennt\nduring:\n//Derivatives\n[v1_dot, v2_dot] = Acc2();\nx1_dot = v1;\nx2_dot = v2;\n"
     "m1_dot = 0;\nm2_dot = -Durchsatz_2;\n\n// Output\nx1out = x1;\nv1out = v1;\nx2out = x2;\nv2out = v2;"
-    position		    [61.625 364.125 145 198.75]
+    position		    [54.7527 322.1625 146.4123 211.1697]
     fontSize		    12
     chart		    2
     treeNode		    [2 0 5 0]
@@ -1232,7 +1229,7 @@ Stateflow {
     id			    5
     labelString		    "Stufe2Ausgebrannt\nduring:\n//Derivatives\n[v1_dot, v2_dot] = Acc3();\nx1_dot = v1;\nx2_dot = v2"
     ";\nm1_dot = 0;\nm2_dot = 0;\n\n// Output\nx1out = x1;\nv1out = v1;\nx2out = x2;\nv2out = v2;"
-    position		    [344.5 358.875 146.875 205.875]
+    position		    [348.6104 309.936 146.875 205.875]
     fontSize		    12
     chart		    2
     treeNode		    [2 0 9 4]
@@ -1348,44 +1345,48 @@ Stateflow {
   transition {
     id			    11
     labelString		    "[m1 <= m1_leer]\n{m1 = m1_leer}"
-    labelPosition	    [83.275 289.837 84 32.886]
+    labelPosition	    [77.812 283.289 84 32.886]
     fontSize		    12
     src {
       id		      3
-      intersection	      [3 0 1 0.6829 101.75 276 0 32.375]
+      intersection	      [3 0 1 0.7197 96.2865 276 0 32.375]
     }
     dst {
       id		      4
-      intersection	      [1 0 -1 0.2767 101.75 364.125 0 -32.375]
+      intersection	      [1 0 -1 0.2837 96.2865 322.1625 0 -32.375]
     }
-    midPoint		    [101.75 317.7176]
+    midPoint		    [96.2865 295.8241]
     chart		    2
     linkNode		    [2 10 12]
-    dataLimits		    [99.35 104.15 276 364.125]
+    dataLimits		    [93.887 98.687 276 322.162]
     subviewer		    2
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    42
   }
   transition {
     id			    12
     labelString		    "[m2 <= m2_leer]\n{m2 = m2_leer}"
-    labelPosition	    [237.307 429.197 84 32.886]
+    labelPosition	    [239.498 338.301 84 32.886]
     fontSize		    12
     src {
       id		      4
-      intersection	      [2 1 0 0.4755 206.625 458.625 0 -3]
+      intersection	      [2 1 0 0.2158 201.165 367.7291 0 -3]
     }
     dst {
       id		      5
-      intersection	      [4 -1 0 0.5155 344.5 458.625 0 3]
+      intersection	      [4 -1 0 0.7193 348.6104 367.7291 0 3]
     }
-    midPoint		    [274.2991 458.625]
+    midPoint		    [273.8323 367.7291]
     chart		    2
     linkNode		    [2 11 0]
-    dataLimits		    [206.625 344.5 456.225 461.025]
+    dataLimits		    [201.165 348.61 365.329 370.129]
     subviewer		    2
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    43
   }
