@@ -202,9 +202,12 @@ Zu simulieren ist ein schiefer Flippertisch mit 3 Wänden und einem zylindrische
 		\caption{Stateflow Flipper}
 		\label{pic:stateflowFlipper}
 	\end{figure}
+	Hier modellieren die Transitionen die Reflexion des Balles von einer Wand bzw. dem Hinderniss und nicht fundamentale Änderungen in der Funktionsweise der Simulation. Daher führen hier, im Gegensatz zur Raketensimulation in denselben Zustand.		
+		
+		
 		
 	\subsection{Modellierung}
-	Im folgenden sind beispielhaft die Funktionen dargestellt, die den Kontakt und die Reflexion von der unteren Wand modellieren.
+	Im folgenden sind beispielhaft die Funktionen dargestellt, die den Kontakt und die Reflexion von der unteren Wand modellieren. Wir können hier sehen wie durch die Verbindung von Normalvektor und Vektor der Wand das abprallen der Kugel simuliert wird.
 	
 	Kontakt:
 	\begin{lstlisting}[tabsize=2, frame=single, label=Stiff, caption={WandUntenKontakt}]
