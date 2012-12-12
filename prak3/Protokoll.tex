@@ -203,7 +203,33 @@ Zu simulieren ist ein schiefer Flippertisch mit 3 Wänden und einem zylindrische
 		\label{pic:stateflowFlipper}
 	\end{figure}
 		
-		
-		
+	\subsection{Modellierung}
+	Im folgenden sind beispielhaft die Funktionen dargestellt, die den Kontakt und die Reflexion von der unteren Wand modellieren.
+	
+	Kontakt:
+	\begin{lstlisting}[tabsize=2, frame=single, label=Stiff, caption={WandUntenKontakt}]
+	function bool = WandUntenKontakt
+    bool = false;
+    
+    abstand = (x1 - p2)' * n2;  % Abstand von der Achse (p2, p3) in Normalenrichtung
+    richtung = v1' * n2;        % Bewegungsrichtung der Kugel relativ zu Normalenrichtung
+    
+    if ((abstand < R) && (richtung < 0))
+        bool = true;
+    end
+end
+	\end{lstlisting}		
+
+Reflexion:
+\begin{lstlisting}[tabsize=2, frame=single, label=Stiff, caption={WandUntenReflexion}]
+	function WandUntenRefl
+    vt = v1' * t2;
+    vn = v1' * n2;
+    
+    v1 = (vt' * t2) - (vn' * n2);
+end
+	\end{lstlisting}
+
+
 \end{document}
 
